@@ -32,9 +32,37 @@
 		<level value="info" />
 	</logger>
 
+
+	<!-- Query Loggers -->
+	<logger name="jdbc.sqlonly" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="console" />
+	</logger>
+
+	<logger name="jdbc.resultsettable" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="console" />
+	</logger>
+	
+	<!-- 로그 안보이게 한 리스트 -->
+	<logger name="jdbc.resultset" additivity="false">
+		<RegexFilter regex="(?s).*NOT_SQL_LOG.*" onMatch="DENY" onMismatch="NEUTRAL" useRawMsg="true" />
+	</logger>
+	
+	<logger name="jdbc.audit" additivity="false">
+		<RegexFilter regex="(?s).*NOT_SQL_LOG.*" onMatch="DENY" onMismatch="NEUTRAL" useRawMsg="true" />
+	</logger>
+	
+	<logger name="jdbc.connection" additivity="false">
+		<RegexFilter regex="(?s).*NOT_SQL_LOG.*" onMatch="DENY" onMismatch="NEUTRAL" useRawMsg="true" />
+	</logger>
+
+	
+
+
 	<!-- Root Logger -->
 	<root>
-		<priority value="warn" />
+		<priority value="debug" />
 		<appender-ref ref="console" />
 	</root>
 	
