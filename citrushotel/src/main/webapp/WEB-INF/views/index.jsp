@@ -15,20 +15,20 @@
     <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="/resource-hotel/css/font.css" type="text/css">
-    <link rel="stylesheet" href="/resource-hotel/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="/resource-hotel/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="/resource-hotel/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="/resource-hotel/css/flaticon.css" type="text/css">
-    <link rel="stylesheet" href="/resource-hotel/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="/resource-hotel/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="/resource-hotel/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="/resource-hotel/css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="/resource-hotel/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="/resource-hotel/css/style.css" type="text/css">
+    <link rel="stylesheet" href="resources/resource-hotel/css/font.css" type="text/css">
+    <link rel="stylesheet" href="resources/resource-hotel/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/resource-hotel/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/resource-hotel/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="resources/resource-hotel/css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="resources/resource-hotel/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/resource-hotel/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="resources/resource-hotel/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/resource-hotel/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="resources/resource-hotel/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/resource-hotel/css/style.css" type="text/css">
 
     <!-- Favicon -->
-    <!-- <link rel="icon" type="image/x-icon" href="../resource-admin/assets/img/favicon/favicon.ico" /> -->
+    <!-- <link rel="icon" type="image/x-icon" href="resources/resource-admin/assets/img/favicon/favicon.ico" /> -->
 </head>
 
 <body>
@@ -115,7 +115,7 @@
                     <div class="col-lg-2">
                         <div class="logo">
                             <a href="./index.html">
-                                <img src="../resource-hotel/img/logo.jpg" alt="" style="max-width: 130%;">
+                                <img src="resources/resource-hotel/img/logo.jpg" alt="" style="max-width: 130%;">
                             </a>
                         </div>
                     </div>
@@ -205,9 +205,9 @@
             </div>
         </div>
         <div class="hero-slider owl-carousel">
-            <div class="hs-item set-bg" data-setbg="../resource-hotel/img/hero/hero-1.jpg"></div>
-            <div class="hs-item set-bg" data-setbg="../resource-hotel/img/hero/hero-2.jpg"></div>
-            <div class="hs-item set-bg" data-setbg="../resource-hotel/img/hero/hero-3.jpg"></div>
+            <div class="hs-item set-bg" data-setbg="resources/resource-hotel/img/hero/hero-1.jpg"></div>
+            <div class="hs-item set-bg" data-setbg="resources/resource-hotel/img/hero/hero-2.jpg"></div>
+            <div class="hs-item set-bg" data-setbg="resources/resource-hotel/img/hero/hero-3.jpg"></div>
         </div>
     </section>
     <!-- Hero Section End -->
@@ -231,10 +231,10 @@
                     <div class="about-pic">
                         <div class="row">
                             <div class="col-sm-6">
-                                <img src="../resource-hotel/img/about/about-1.jpg" alt="">
+                                <img src="resources/resource-hotel/img/about/about-1.jpg" alt="">
                             </div>
                             <div class="col-sm-6">
-                                <img src="../resource-hotel/img/about/about-2.jpg" alt="">
+                                <img src="resources/resource-hotel/img/about/about-2.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -309,7 +309,7 @@
             <div class="hp-room-items">
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
-                        <div class="hp-room-item set-bg" data-setbg="../resource-hotel/img/room/room-b1.jpg">
+                        <div class="hp-room-item set-bg" data-setbg="resources/resource-hotel/img/room/room-b1.jpg">
                             <div class="hr-text">
                                 <h3>Standard Room</h3>
                                 <h2>198,000~<span>/1박</span></h2>
@@ -338,7 +338,7 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
-                        <div class="hp-room-item set-bg" data-setbg="../resource-hotel/img/room/room-b2.jpg">
+                        <div class="hp-room-item set-bg" data-setbg="resources/resource-hotel/img/room/room-b2.jpg">
                             <div class="hr-text">
                                 <h3>Deluxe Room</h3>
                                 <h2>298,000~<span>/1박</span></h2>
@@ -367,7 +367,7 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
-                        <div class="hp-room-item set-bg" data-setbg="../resource-hotel/img/room/room-b3.jpg">
+                        <div class="hp-room-item set-bg" data-setbg="resources/resource-hotel/img/room/room-b3.jpg">
                             <div class="hr-text">
                                 <h3>Family Room</h3>
                                 <h2>598,000~<span>/1박</span></h2>
@@ -396,7 +396,7 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
-                        <div class="hp-room-item set-bg" data-setbg="../resource-hotel/img/room/room-b4.jpg">
+                        <div class="hp-room-item set-bg" data-setbg="resources/resource-hotel/img/room/room-b4.jpg">
                             <div class="hr-text">
                                 <h3>Premium Room</h3>
                                 <h2>598,000~<span>/1박</span></h2>
@@ -492,7 +492,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="blog-item set-bg" data-setbg="../resource-hotel/img/blog/blog-1.jpg">
+                    <div class="blog-item set-bg" data-setbg="resources/resource-hotel/img/blog/blog-1.jpg">
                         <div class="bi-text">
                             <span class="b-tag">호텔 주관 투어</span>
                             <h4><a href="/blog-details.html">해수욕장 투어</a></h4>
@@ -501,7 +501,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="blog-item set-bg" data-setbg="../resource-hotel/img/blog/blog-2.jpg">
+                    <div class="blog-item set-bg" data-setbg="resources/resource-hotel/img/blog/blog-2.jpg">
                         <div class="bi-text">
                             <span class="b-tag">호텔 주관 투어</span>
                             <h4><a href="#">성산일출봉 점심 투어</a></h4>
@@ -510,7 +510,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="blog-item set-bg" data-setbg="../resource-hotel/img/blog/blog-3.jpg">
+                    <div class="blog-item set-bg" data-setbg="resources/resource-hotel/img/blog/blog-3.jpg">
                         <div class="bi-text">
                             <span class="b-tag">호텔 주관 투어</span>
                             <h4><a href="#">한라산 데이 투어</a></h4>
@@ -519,7 +519,7 @@
                     </div>
                 </div>
                 <div class="col-lg-8">
-                    <div class="blog-item small-size set-bg" data-setbg="../resource-hotel/img/blog/blog-wide.jpg">
+                    <div class="blog-item small-size set-bg" data-setbg="resources/resource-hotel/img/blog/blog-wide.jpg">
                         <div class="bi-text">
                             <span class="b-tag">소식</span>
                             <h4><a href="#">객실 리모델링</a></h4>
@@ -528,7 +528,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="blog-item small-size set-bg" data-setbg="../resource-hotel/img/blog/blog-10.jpg">
+                    <div class="blog-item small-size set-bg" data-setbg="resources/resource-hotel/img/blog/blog-10.jpg">
                         <div class="bi-text">
                             <span class="b-tag">이벤트</span>
                             <h4><a href="#">2022년 고객 이벤트 추첨</a></h4>
@@ -550,7 +550,7 @@
                         <div class="ft-about">
                             <div class="logo">
                                 <a href="#">
-                                    <img src="../resource-hotel/img/footer-logo.png" alt="">
+                                    <img src="resources/resource-hotel/img/footer-logo.png" alt="">
                                 </a>
                             </div>
                             <p>We inspire and reach millions of travelers<br /> across 90 local websites</p>
@@ -613,14 +613,14 @@
     <!-- Search model end -->
 
     <!-- Js Plugins -->
-    <script src="resource-hotel/js/jquery-3.3.1.min.js"></script>
-    <script src="resource-hotel/js/bootstrap.min.js"></script>
-    <script src="resource-hotel/js/jquery.magnific-popup.min.js"></script>
-    <script src="resource-hotel/js/jquery.nice-select.min.js"></script>
-    <script src="resource-hotel/js/jquery-ui.min.js"></script>
-    <script src="resource-hotel/js/jquery.slicknav.js"></script>
-    <script src="resource-hotel/js/owl.carousel.min.js"></script>
-    <script src="resource-hotel/js/main.js"></script>
+    <script src="resources/resource-hotel/js/jquery-3.3.1.min.js"></script>
+    <script src="resources/resource-hotel/js/bootstrap.min.js"></script>
+    <script src="resources/resource-hotel/js/jquery.magnific-popup.min.js"></script>
+    <script src="resources/resource-hotel/js/jquery.nice-select.min.js"></script>
+    <script src="resources/resource-hotel/js/jquery-ui.min.js"></script>
+    <script src="resources/resource-hotel/js/jquery.slicknav.js"></script>
+    <script src="resources/resource-hotel/js/owl.carousel.min.js"></script>
+    <script src="resources/resource-hotel/js/main.js"></script>
 </body>
 
 </html>
