@@ -50,8 +50,8 @@
         </div>
         <nav class="mainmenu mobile-menu">
             <ul>
-                <li><a href="./index.html">홈</a></li>
-                <li><a href="./rooms.html">객실</a>
+                <li><a href="index.do">홈</a></li>
+                <li><a href="rooms.do">객실</a>
                     <ul class="dropdown">
                         <li><a href="/hotel/rooms.do?room_type='std'">Standard Room</a></li>
                         <li><a href="/hotel/rooms.do?room_type='dlx'">Deluxe Room</a></li>
@@ -59,7 +59,7 @@
                         <li><a href="/hotel/rooms.do?room_type='prm'">Premium Room</a></li>
                     </ul>
                 </li>
-                <li><a href="./about-us.html">호텔</a></li>
+                <li><a href="about-us.do">호텔</a></li>
                 <!-- <li><a href="./pages.html">Pages</a>
                     <ul class="dropdown">
                         <li><a href="./room-details.html">Room Details</a></li>
@@ -68,8 +68,8 @@
                         <li><a href="#">Premium Room</a></li>
                     </ul>
                 </li> -->
-                <li><a href="./blog.html">소식</a></li>
-                <li><a href="./contact.html">문의</a></li>
+                <li><a href="blog.do">소식</a></li>
+                <li><a href="contact.do">문의</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -78,8 +78,8 @@
             <li><i class="fa fa-envelope"></i> info@citrus-hotel.com</li>
         </ul>
         <div class="top-social">
-            <a href="./login.html"><i class="fa fa-sign-in"></i></a>
-            <a href="./signup.html"><i class="fa fa-user-plus"></i></a>
+            <a href="login.do"><i class="fa fa-sign-in"></i></a>
+            <a href="signup.do"><i class="fa fa-user-plus"></i></a>
         </div>
     </div>
     <!-- Offcanvas Menu Section End -->
@@ -98,8 +98,8 @@
                     <div class="col-lg-6">
                         <div class="tn-right">
                             <div class="top-social">
-                                <a href="./login.html"><i class="fa fa-sign-in"></i></a>
-                                <a href="./signup.html"><i class="fa fa-user-plus"></i></a>
+                                <a href="login.do"><i class="fa fa-sign-in"></i></a>
+                                <a href="signup.do"><i class="fa fa-user-plus"></i></a>
                             </div>
                         </div>
                     </div>
@@ -111,7 +111,7 @@
                 <div class="row">
                     <div class="col-lg-2">
                         <div class="logo">
-                            <a href="./index.html">
+                            <a href="index.do">
                                 <img src="resources/resource-hotel/img/logo.jpg" alt="" style="max-width: 130%;">
                             </a>
                         </div>
@@ -120,17 +120,17 @@
                         <div class="nav-menu mt-3">
                             <nav class="mainmenu">
                                 <ul>
-                                    <li><a href="./index.html">홈</a></li>
-                                    <li><a href="./rooms.html">객실</a>
+                                    <li><a href="index.do">홈</a></li>
+                                    <li><a href="rooms.do">객실</a>
                                         <ul class="dropdown">
-                                            <li><a href="./room-details.html">Room Details</a></li>
+                                            <li><a href="room-details.do">Room Details</a></li>
                                             <li><a href="/hotel/rooms.do?room_type='std'">Standard Room</a></li>
                                             <li><a href="/hotel/rooms.do?room_type='dlx'">Deluxe Room</a></li>
                                             <li><a href="/hotel/rooms.do?room_type='fml'">Family Room</a></li>
                                             <li><a href="/hotel/rooms.do?room_type='prm'">Premium Room</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="./about-us.html">호텔</a></li>
+                                    <li><a href="about-us.do">호텔</a></li>
                                     <!-- <li><a href="./pages.html">Pages</a>
                                         <ul class="dropdown">
                                             <li><a href="./room-details.html">Room Details</a></li>
@@ -139,8 +139,8 @@
                                             <li><a href="#">Premium Room</a></li>
                                         </ul>
                                     </li> -->
-                                    <li><a href="./blog.html">소식</a></li>
-                                    <li><a href="./contact.html">문의</a></li>
+                                    <li><a href="blog.do">소식</a></li>
+                                    <li><a href="contact.do">문의</a></li>
                                 </ul>
                             </nav>
                             <div class="nav-right search-switch">

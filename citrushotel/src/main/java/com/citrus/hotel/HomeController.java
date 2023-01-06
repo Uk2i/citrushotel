@@ -40,4 +40,45 @@ public class HomeController {
 	}
 	
 	
+	@RequestMapping("login.do")
+	public String login(HttpServletRequest req) {
+		return "hotel/login";
+	}
+	
+	
+	@RequestMapping("signup.do")
+	public String signup(HttpServletRequest req) {
+		return "hotel/signup";
+	}
+	
+	
+	@RequestMapping("blog-details.do")
+	public String blog_details(HttpServletRequest req) {
+		return "hotel/blog-details";
+	}
+	
+	
+	@RequestMapping("reservation")
+	public String reservation(HttpServletRequest req) {
+		return "hotel/reservation";
+	}
+	
+	
+	@RequestMapping("reservation-pay.do")
+	public String reservation_pay(HttpServletRequest req) {
+		return "hotel/reservation-pay";
+	}
+
+	
+	@RequestMapping("reservation-success.do")
+	public String reservation_success(HttpServletRequest req) {
+		return "hotel/reservation-success";
+	}
+	
+	
+	@RequestMapping("room-details.do")
+	public String room_details(HttpServletRequest req) {
+		return "hotel/room-detail";
+	}
+	
 }
