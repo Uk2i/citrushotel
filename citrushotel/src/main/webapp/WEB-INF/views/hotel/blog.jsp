@@ -50,8 +50,8 @@
         </div>
         <nav class="mainmenu mobile-menu">
             <ul>
-                <li><a href="./index.html">홈</a></li>
-                <li><a href="./rooms.html">객실</a>
+                <li><a href="index.do">홈</a></li>
+                <li><a href="rooms.do">객실</a>
                     <ul class="dropdown">
                         <li><a href="/hotel/rooms.do?room_type='std'">Standard Room</a></li>
                         <li><a href="/hotel/rooms.do?room_type='dlx'">Deluxe Room</a></li>
@@ -59,7 +59,7 @@
                         <li><a href="/hotel/rooms.do?room_type='prm'">Premium Room</a></li>
                     </ul>
                 </li>
-                <li><a href="./about-us.html">호텔</a></li>
+                <li><a href="about-us.do">호텔</a></li>
                 <!-- <li><a href="./pages.html">Pages</a>
                     <ul class="dropdown">
                         <li><a href="./room-details.html">Room Details</a></li>
@@ -68,8 +68,8 @@
                         <li><a href="#">Premium Room</a></li>
                     </ul>
                 </li> -->
-                <li class="active"><a href="./blog.html">소식</a></li>
-                <li><a href="./contact.html">문의</a></li>
+                <li class="active"><a href="blog.do">소식</a></li>
+                <li><a href="contact.do">문의</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -107,7 +107,7 @@
                 <div class="row">
                     <div class="col-lg-2">
                         <div class="logo">
-                            <a href="./index.html">
+                            <a href="index.do">
                                 <img src="resources/resource-hotel/img/logo.jpg" alt="" style="max-width: 130%;">
                             </a>
                         </div>
@@ -116,17 +116,17 @@
                         <div class="nav-menu mt-3">
                             <nav class="mainmenu">
                                 <ul>
-                                    <li><a href="./index.html">홈</a></li>
-                                    <li><a href="./rooms.html">객실</a>
+                                    <li><a href="index.do">홈</a></li>
+                                    <li><a href="rooms.do">객실</a>
                                         <ul class="dropdown">
-                                            <li><a href="./room-details.html">Room Details</a></li>
+                                            <li><a href="room-details.do">Room Details</a></li>
                                             <li><a href="/hotel/rooms.do?room_type='std'">Standard Room</a></li>
                                             <li><a href="/hotel/rooms.do?room_type='dlx'">Deluxe Room</a></li>
                                             <li><a href="/hotel/rooms.do?room_type='fml'">Family Room</a></li>
                                             <li><a href="/hotel/rooms.do?room_type='prm'">Premium Room</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="./about-us.html">호텔</a></li>
+                                    <li><a href="about-us.do">호텔</a></li>
                                     <!-- <li><a href="./pages.html">Pages</a>
                                         <ul class="dropdown">
                                             <li><a href="./room-details.html">Room Details</a></li>
@@ -135,8 +135,8 @@
                                             <li><a href="#">Premium Room</a></li>
                                         </ul>
                                     </li> -->
-                                    <li class="active"><a href="./blog.html">소식</a></li>
-                                    <li><a href="./contact.html">문의</a></li>
+                                    <li class="active"><a href="blog.do">소식</a></li>
+                                    <li><a href="contact.do">문의</a></li>
                                 </ul>
                             </nav>
                             <div class="nav-right search-switch">
@@ -158,7 +158,7 @@
                     <div class="breadcrumb-text">
                         <h2>소식</h2>
                         <div class="bt-option">
-                            <a href="./index.html">홈</a>
+                            <a href="index.do">홈</a>
                             <span>소식</span>
                         </div>
                     </div>
@@ -176,7 +176,7 @@
                     <div class="blog-item set-bg" data-setbg="resources/resource-hotel/img/blog/blog-1.jpg">
                         <div class="bi-text">
                             <span class="b-tag">호텔 주관 투어</span>
-                            <h4><a href="./blog-details.html">해수욕장 투어</a></h4>
+                            <h4><a href="blog-details.do">해수욕장 투어</a></h4>
                             <div class="b-time"><i class="icon_clock_alt"></i> 2022년 08월 01일~</div>
                         </div>
                     </div>
@@ -185,7 +185,7 @@
                     <div class="blog-item set-bg" data-setbg="resources/resource-hotel/img/blog/blog-2.jpg">
                         <div class="bi-text">
                             <span class="b-tag">호텔 주관 투어</span>
-                            <h4><a href="./blog-details.html">성산일출봉 점심 투어</a></h4>
+                            <h4><a href="blog-details.do">성산일출봉 점심 투어</a></h4>
                             <div class="b-time"><i class="icon_clock_alt"></i> 2022년 01월 01일~</div>
                         </div>
                     </div>
@@ -194,7 +194,7 @@
                     <div class="blog-item set-bg" data-setbg="resources/resource-hotel/img/blog/blog-3.jpg">
                         <div class="bi-text">
                             <span class="b-tag">호텔 주관 투어</span>
-                            <h4><a href="./blog-details.html">한라산 데이 투어</a></h4>
+                            <h4><a href="blog-details.do">한라산 데이 투어</a></h4>
                             <div class="b-time"><i class="icon_clock_alt"></i> ~2022년 12월 31일</div>
                         </div>
                     </div>
