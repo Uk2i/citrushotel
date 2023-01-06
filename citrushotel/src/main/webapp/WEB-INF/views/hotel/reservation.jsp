@@ -15,17 +15,17 @@
     <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="../resource-hotel/css/font.css" type="text/css">
-    <link rel="stylesheet" href="../resource-hotel/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="../resource-hotel/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="../resource-hotel/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="../resource-hotel/css/flaticon.css" type="text/css">
-    <link rel="stylesheet" href="../resource-hotel/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="../resource-hotel/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="../resource-hotel/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="../resource-hotel/css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="../resource-hotel/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="../resource-hotel/css/style.css" type="text/css">
+    <link rel="stylesheet" href="resources/resource-hotel/css/font.css" type="text/css">
+    <link rel="stylesheet" href="resources/resource-hotel/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/resource-hotel/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/resource-hotel/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="resources/resource-hotel/css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="resources/resource-hotel/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/resource-hotel/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="resources/resource-hotel/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/resource-hotel/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="resources/resource-hotel/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/resource-hotel/css/style.css" type="text/css">
 </head>
 
 <body>
@@ -108,7 +108,7 @@
                     <div class="col-lg-2">
                         <div class="logo">
                             <a href="./index.html">
-                                <img src="../resource-hotel/img/logo.jpg" alt="" style="max-width: 130%;">
+                                <img src="resources/resource-hotel/img/logo.jpg" alt="" style="max-width: 130%;">
                             </a>
                         </div>
                     </div>
@@ -272,7 +272,7 @@
                         <div class="ft-about">
                             <div class="logo">
                                 <a href="#">
-                                    <img src="../resource-hotel/img/footer-logo.png" alt="">
+                                    <img src="resources/resource-hotel/img/footer-logo.png" alt="">
                                 </a>
                             </div>
                             <p>We inspire and reach millions of travelers<br /> across 90 local websites</p>
@@ -341,14 +341,14 @@
     <!-- Search model end -->
 
     <!-- Js Plugins -->
-    <script src="../resource-hotel/js/jquery-3.3.1.min.js"></script>
-    <script src="../resource-hotel/js/bootstrap.min.js"></script>
-    <script src="../resource-hotel/js/jquery.magnific-popup.min.js"></script>
-    <script src="../resource-hotel/js/jquery.nice-select.min.js"></script>
-    <script src="../resource-hotel/js/jquery-ui.min.js"></script>
-    <script src="../resource-hotel/js/jquery.slicknav.js"></script>
-    <script src="../resource-hotel/js/owl.carousel.min.js"></script>
-    <script src="../resource-hotel/js/main.js"></script>
+    <script src="resources/resource-hotel/js/jquery-3.3.1.min.js"></script>
+    <script src="resources/resource-hotel/js/bootstrap.min.js"></script>
+    <script src="resources/resource-hotel/js/jquery.magnific-popup.min.js"></script>
+    <script src="resources/resource-hotel/js/jquery.nice-select.min.js"></script>
+    <script src="resources/resource-hotel/js/jquery-ui.min.js"></script>
+    <script src="resources/resource-hotel/js/jquery.slicknav.js"></script>
+    <script src="resources/resource-hotel/js/owl.carousel.min.js"></script>
+    <script src="resources/resource-hotel/js/main.js"></script>
     <script>
         var dateList = ["2022/12/29","2022/12/30","2022/12/31"]
         $(function () {
