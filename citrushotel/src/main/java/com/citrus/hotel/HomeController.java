@@ -78,7 +78,7 @@ public class HomeController {
 	
 	@RequestMapping("room-details.do")
 	public String room_details(HttpServletRequest req) {
-		return "hotel/room-detail";
+		return "hotel/room-details";
 	}
 	
 }
