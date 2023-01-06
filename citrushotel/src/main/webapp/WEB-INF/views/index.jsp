@@ -456,7 +456,7 @@
                                 </div>
                                 <h5> - Amandine</h5>
                             </div>
-                            <img src="resource-hotel/img/footer-logo.png"" alt="">
+                            <img src="resources/resource-hotel/img/footer-logo.png"" alt="">
                         </div>
                         <div class="ts-item">
                             <p>We had Jeju Trip with group and it was pleasure staying there for 5nights and cleaned, staffs were nice, service. quality are outstanding but room sized were bit small and photo doesn't described as it is.</p>
