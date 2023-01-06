@@ -15,17 +15,17 @@
     <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="../resource-hotel/css/font.css" type="text/css">
-    <link rel="stylesheet" href="../resource-hotel/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="../resource-hotel/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="../resource-hotel/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="../resource-hotel/css/flaticon.css" type="text/css">
-    <link rel="stylesheet" href="../resource-hotel/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="../resource-hotel/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="../resource-hotel/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="../resource-hotel/css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="../resource-hotel/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="../resource-hotel/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/resource-hotel/css/font.css" type="text/css">
+    <link rel="stylesheet" href="/resource-hotel/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/resource-hotel/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/resource-hotel/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="/resource-hotel/css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="/resource-hotel/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="/resource-hotel/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="/resource-hotel/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="/resource-hotel/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="/resource-hotel/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="/resource-hotel/css/style.css" type="text/css">
 
     <!-- Favicon -->
     <!-- <link rel="icon" type="image/x-icon" href="../resource-admin/assets/img/favicon/favicon.ico" /> -->
@@ -456,7 +456,7 @@
                                 </div>
                                 <h5> - Amandine</h5>
                             </div>
-                            <img src="../resource-hotel/img/footer-logo.png"" alt="">
+                            <img src="resource-hotel/img/footer-logo.png"" alt="">
                         </div>
                         <div class="ts-item">
                             <p>We had Jeju Trip with group and it was pleasure staying there for 5nights and cleaned, staffs were nice, service. quality are outstanding but room sized were bit small and photo doesn't described as it is.</p>
@@ -470,7 +470,7 @@
                                 </div>
                                 <h5> - Audrey</h5>
                             </div>
-                            <img src="../resource-hotel/img/footer-logo.png"" alt="">
+                            <img src="resource-hotel/img/footer-logo.png"" alt="">
                         </div>
                     </div>
                 </div>
@@ -613,14 +613,14 @@
     <!-- Search model end -->
 
     <!-- Js Plugins -->
-    <script src="../resource-hotel/js/jquery-3.3.1.min.js"></script>
-    <script src="../resource-hotel/js/bootstrap.min.js"></script>
-    <script src="../resource-hotel/js/jquery.magnific-popup.min.js"></script>
-    <script src="../resource-hotel/js/jquery.nice-select.min.js"></script>
-    <script src="../resource-hotel/js/jquery-ui.min.js"></script>
-    <script src="../resource-hotel/js/jquery.slicknav.js"></script>
-    <script src="../resource-hotel/js/owl.carousel.min.js"></script>
-    <script src="../resource-hotel/js/main.js"></script>
+    <script src="resource-hotel/js/jquery-3.3.1.min.js"></script>
+    <script src="resource-hotel/js/bootstrap.min.js"></script>
+    <script src="resource-hotel/js/jquery.magnific-popup.min.js"></script>
+    <script src="resource-hotel/js/jquery.nice-select.min.js"></script>
+    <script src="resource-hotel/js/jquery-ui.min.js"></script>
+    <script src="resource-hotel/js/jquery.slicknav.js"></script>
+    <script src="resource-hotel/js/owl.carousel.min.js"></script>
+    <script src="resource-hotel/js/main.js"></script>
 </body>
 
 </html>
