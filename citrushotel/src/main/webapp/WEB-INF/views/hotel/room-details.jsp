@@ -308,7 +308,7 @@
                                     <span class="plus bg-dark">+</span>
                                 </div>
                             </div>
-                            <button type="button" onclick="location.href='/reservation.do'">객실 확인하기</button>
+                            <button type="button" onclick="location.href='reservation.do'">객실 확인하기</button>
                         </form>
                     </div>
                 </div>
