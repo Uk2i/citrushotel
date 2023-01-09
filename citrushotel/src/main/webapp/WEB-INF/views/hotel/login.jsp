@@ -79,7 +79,7 @@
         </ul>
         <div class="top-social">
             <a href="login.do"><i class="fa fa-sign-in"></i></a>
-            <a href="signin.do"><i class="fa fa-user-plus"></i></a>
+            <a href="signup.do"><i class="fa fa-user-plus"></i></a>
         </div>
     </div>
     <!-- Offcanvas Menu Section End -->
@@ -99,7 +99,7 @@
                         <div class="tn-right">
                             <div class="top-social">
                                 <a href="login.do"><i class="fa fa-sign-in"></i></a>
-                                <a href="signin.do"><i class="fa fa-user-plus"></i></a>
+                                <a href="signup.do"><i class="fa fa-user-plus"></i></a>
                             </div>
                         </div>
                     </div>
