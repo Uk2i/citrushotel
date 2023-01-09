@@ -94,8 +94,8 @@
                     <div class="col-lg-6">
                         <div class="tn-right">
                             <div class="top-social">
-                                <a href="#"><i class="fa fa-sign-in"></i></a>
-                                <a href="#"><i class="fa fa-user-plus"></i></a>
+                                <a href="login.do"><i class="fa fa-sign-in"></i></a>
+                                <a href="signup.do"><i class="fa fa-user-plus"></i></a>
                             </div>
                         </div>
                     </div>

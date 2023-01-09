@@ -255,7 +255,7 @@
                         </div>
                     </div>
                     <div class="col-lg-12 text-center py-3">
-                        <button type="button" class="btn-lg btn-custom1 btn-primary" onclick="location.href='/reservation-pay.do'">예약하기</button>
+                        <button type="button" class="btn-lg btn-custom1 btn-primary" onclick="location.href='reservation-pay.do'">예약하기</button>
                     </div>
                 </div>
             </div>

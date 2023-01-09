@@ -94,8 +94,8 @@
                     <div class="col-lg-6">
                         <div class="tn-right">
                             <div class="top-social">
-                                <a href="#"><i class="fa fa-sign-in"></i></a>
-                                <a href="#"><i class="fa fa-user-plus"></i></a>
+                                <a href="login.do"><i class="fa fa-sign-in"></i></a>
+                                <a href="signup.do"><i class="fa fa-user-plus"></i></a>
                             </div>
                         </div>
                     </div>
@@ -173,19 +173,19 @@
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item active">
-                    <a class="nav-link mx-2" href="/rooms.do">All</a>
+                    <a class="nav-link mx-2" href="rooms.do">All</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mx-2" href="/hotel/rooms.do?room_type='std'">Standard Room</a>
+                    <a class="nav-link mx-2" href="rooms.do?room_type='std'">Standard Room</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mx-2" href="/hotel/rooms.do?room_type='dlx'">Deluxe Room</a>
+                    <a class="nav-link mx-2" href="rooms.do?room_type='dlx'">Deluxe Room</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mx-2" href="/hotel/rooms.do?room_type='fml'">Family Room</a>
+                    <a class="nav-link mx-2" href="rooms.do?room_type='fml'">Family Room</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mx-2" href="/hotel/rooms.do?room_type='prm'">Premium Room</a>
+                    <a class="nav-link mx-2" href="rooms.do?room_type='prm'">Premium Room</a>
                 </li>
             </ul>
         </div>
