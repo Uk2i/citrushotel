@@ -165,7 +165,7 @@
                 </div>
             </div>
             <div class="row">
-                <form action="#" class="su-form text-left mx-auto col-lg-8 my-4">
+                <form action="signupinsert.do" class="su-form text-left mx-auto col-lg-8 my-4">
                     <div class="form-group">
                         <label for="inputName">이름* / Name*</label>
                         <input type="text" class="form-control" id="member_name" name="member_name" autocomplete="off">
