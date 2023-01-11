@@ -168,38 +168,38 @@
                 <form action="#" class="su-form text-left mx-auto col-lg-8 my-4">
                     <div class="form-group">
                         <label for="inputName">이름* / Name*</label>
-                        <input type="text" class="form-control" id="inputName" autocomplete="off">
+                        <input type="text" class="form-control" id="member_name" name="member_name" autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label class="d-block" for="inputEmail">이메일* / Email*</label>
                         <div class="d-flex justify-content-between">
-                            <input type="email" class="form-control" id="inputEmail" autocomplete="off">
+                            <input type="email" class="form-control" id="member_email" name="member_email" autocomplete="off">
                             <button class="btn btn-secondary ml-2 col-2 " type="button">중복 확인</button>
                         </div>
                         <small id="emailHelp" class="form-text text-muted valid d-none">※ 사용가능한 이메일입니다.</small>
                     </div>
                     <div class="form-group">
                         <label for="inputPassword">비밀번호* / Password*</label>
-                        <input type="password" class="form-control" id="inputPassword" autocomplete="off">
+                        <input type="password" class="form-control" id="member_pw" name="member_pw" autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label for="inputPassword2">비밀번호 확인* / Confirm Password*</label>
-                        <input type="password" class="form-control" id="inputPassword2" autocomplete="off">
+                        <input type="password" class="form-control" id="member_pw2" autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label for="inputPhone">휴대폰 번호* / Phone Number*</label>
-                        <input type="text" class="form-control" id="inputPhone" autocomplete="off">
+                        <input type="text" class="form-control" id="member_tel" name="member_tel" autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label for="inputAddress">주소 / Address <span class="ml-2">(If you are a foreigner, please enter your detailed address.) </span></label>
                         <div class="d-flex justify-content-between">
-                            <input type="text" class="form-control" id="inputAddress" disabled>
+                            <input type="text" class="form-control" id="member_addr" name="member_addr" disabled>
                             <button class="btn btn-secondary ml-2 col-2 " type="button" onclick="openPostcode()">우편번호 찾기</button>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputAddress2">상세 주소 / Detail Address</label>
-                        <input type="text" class="form-control" id="inputAddress2" autocomplete="off">
+                        <input type="text" class="form-control" id="member_addr2" name="member_addr2" autocomplete="off">
                     </div>
                     <div class="col-lg-12 text-center py-3">
                         <button type="submit" class="btn btn-custom1 btn-primary">가입하기</button>
@@ -299,6 +299,7 @@
     <script src="resources/resource-hotel/js/owl.carousel.min.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="resources/resource-hotel/js/main.js"></script>
+    <script src="resources/resource-hotel/js/signup.js"></script>
     <script>
         function openPostcode(){
             new daum.Postcode({
