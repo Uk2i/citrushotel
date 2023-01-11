@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 	
+ 	
+<mapper namespace="com.citrus.hotel.mapper">
+	
+	<!-- 객실 리스트 출력 -->
+	<select id="roomList" parameterType="java.util.Map" resultType="roomDTO">
+		select r.room_no,r.room_type, r.room_price, r.room_size, r.room_fit, r.room_max, r.room_bed, rf.room_no, rf.roomf_use, rf.roomf_cd, cm.group_cd, cm.cmmn_nm
+		from room r, room_facilities rf, common cm
+	</select>
+	
+	
+	
+</mapper>
