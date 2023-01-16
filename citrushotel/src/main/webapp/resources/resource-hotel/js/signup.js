@@ -32,9 +32,33 @@ function CV_checkPasswordPattern(str) {
 		return true;
 	}
 }
+function emailcheck(){
+	var email = $("#member_email").val();
+	$.ajax({
+		type : "post",
+		url : "emailCheck.do",
+		dataType : "json",
+		data :{
+			member_email : email
+		},
+		success : function(res){
+			console.log(res)
+			if(res.result == null){
+				$("#emailHelp").attr('class','form-text text-muted valid');
+			}else{
+				$("#emailHelpInvalid").attr('class','form-text text-muted invalid');
+			}
+		},
+		error : function(err){
+			console.log(err);
+		}
+	})
+}
 
 $(document).ready(function() {
-
+	$("#emailChk").click(function(){
+		emailcheck();
+	})
 	$("#member_name").on("change", function() {
 		let str = $("#member_name").val()
 		if (!NameCheck(str)) {

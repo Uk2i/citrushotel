@@ -165,14 +165,14 @@
                 </div>
             </div>
             <div class="row">
-                <form action="#" class="si-form text-left mx-auto col-lg-4 my-4">
+                <form action="loginOk.do" class="si-form text-left mx-auto col-lg-4 my-4">
                     <div class="form-group">
                         <label for="inputEmail">이메일 / Email</label>
-                        <input type="text" class="form-control" id="inputEmail" autocomplete="off">
+                        <input type="text" class="form-control" id="inputEmail" name = "member_email" autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label for="inputPassword">비밀번호 / Password</label>
-                        <input type="password" class="form-control" id="inputPassword" autocomplete="off">
+                        <input type="password" class="form-control" id="inputPassword" name="member_pw" autocomplete="off">
                     </div>
                     <div class="col-lg-12 text-center py-3">
                         <button type="submit" class="btn btn-custom1 btn-primary">로그인</button>

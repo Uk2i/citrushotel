@@ -174,9 +174,10 @@
                         <label class="d-block" for="inputEmail">이메일* / Email*</label>
                         <div class="d-flex justify-content-between">
                             <input type="email" class="form-control" id="member_email" name="member_email" autocomplete="off">
-                            <button class="btn btn-secondary ml-2 col-2 " type="button">중복 확인</button>
+                            <button id="emailChk" class="btn btn-secondary ml-2 col-2 " type="button">중복 확인</button>
                         </div>
                         <small id="emailHelp" class="form-text text-muted valid d-none">※ 사용가능한 이메일입니다.</small>
+                        <small id="emailHelpInvalid" class="form-text text-muted invalid d-none">※ 사용불가능한 이메일입니다.</small>
                     </div>
                     <div class="form-group">
                         <label for="inputPassword">비밀번호* / Password*</label>
@@ -193,7 +194,7 @@
                     <div class="form-group">
                         <label for="inputAddress">주소 / Address <span class="ml-2">(If you are a foreigner, please enter your detailed address.) </span></label>
                         <div class="d-flex justify-content-between">
-                            <input type="text" class="form-control" id="member_addr" name="member_addr" disabled>
+                            <input type="text" class="form-control" id="inputAddress" name="member_addr" readonly>
                             <button class="btn btn-secondary ml-2 col-2 " type="button" onclick="openPostcode()">우편번호 찾기</button>
                         </div>
                     </div>
