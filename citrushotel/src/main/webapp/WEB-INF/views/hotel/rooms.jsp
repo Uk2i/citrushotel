@@ -197,8 +197,7 @@
     <section class="rooms-section spad">
         <div class="container">
             <div class="row">
-            	<c:forEach var="dto" items="${roomList}">
-            	
+            	<c:forEach var="dto" items="${room_list}">
                 <div class="col-lg-4 col-md-6">
                     <div class="room-item">
                         <img src="resources/resource-hotel/img/room/room-1.jpg" alt="">
@@ -221,13 +220,7 @@
                                     </tr>
                                     <tr>
                                         <td class="r-o">객실 시설:</td>
-                                        <td>
-                                      	 
-                                      	 
-                                      	 
-                                      	 
-                                      	 
-                                        </td>
+                                        <td id="Facilities">${dto.room_faci}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -482,77 +475,83 @@
     <script src="resources/resource-hotel/js/jquery.slicknav.js"></script>
     <script src="resources/resource-hotel/js/owl.carousel.min.js"></script>
     <script src="resources/resource-hotel/js/main.js"></script>
-    <script type="text/javascript">
-  		
+   <!--  <script type="text/javascript">
+    
+	
     
     
     
-		   
-    	var commonFacilitiesList = [
-  			<c:forEach items="${commonFacilitiesList}" var="item" varStatus="loop">
-  			{
-  				'cmmn_cd' : '${item.cmmn_cd}'
-  				,'cmmn_nm' : '${item.cmmn_nm}'
-  			} ${not loop.last ? ',' : ''}
-  			</c:forEach>
-  		];
-  		
-  		var roomFacilitiesList = [
-  			<c:forEach items="${roomFacilitiesList}" var="item" varStatus="loop">
-  			{
-  				'room_no' : '${item.room_no}'
-  				,'roomf_cd' : '${item.roomf_cd}'
-  				,'roomf_use' : '${item.roomf_use}'
-  			} ${not loop.last ? ',' : ''}
-  			</c:forEach>
-  		];
-  		
-  		var roomList = [
-  			<c:forEach items="${roomList}" var="item" varStatus="loop">
-  			{
-  				'room_no' : '${item.room_no}',
-  			},
-  			</c:forEach>
-  		];
-  		
-  		var roomListWithURN = [];
-		
-  		
-		//commonFacilitiesList.map(({cmmn_cd, cmmn_nm}) => `\n${cmmn_cd} ${cmmn_nm}`).join('')
-  		//왜 안되지 어떻게 쓰는지를 모르겠구먼
+	   
+	var commonFacilitiesList = [
+        <c:forEach items="${commonFacilitiesList}" var="item" varStatus="loop">
+        {
+            'cmmn_cd' : '${item.cmmn_cd}'
+            ,'cmmn_nm' : '${item.cmmn_nm}'
+        } ${not loop.last ? ',' : ''}
+        </c:forEach>
+    ];
+    
+    var roomFacilitiesList = [
+        <c:forEach items="${roomFacilitiesList}" var="item" varStatus="loop">
+        {
+            'room_no' : '${item.room_no}'
+            ,'roomf_cd' : '${item.roomf_cd}'
+            ,'roomf_use' : '${item.roomf_use}'
+        } ${not loop.last ? ',' : ''}
+        </c:forEach>
+    ];
+    
+    var roomList = [
+        <c:forEach items="${roomList}" var="item" varStatus="loop">
+        {
+            'room_no' : '${item.room_no}',
+        },
+        </c:forEach>
+    ];
+    
+    var roomListWithURN = [];
+  
+    
+  //commonFacilitiesList.map(({cmmn_cd, cmmn_nm}) => `\n${cmmn_cd} ${cmmn_nm}`).join('')
+    //왜 안되지 어떻게 쓰는지를 모르겠구먼
 
-  		
-		console.log(commonFacilitiesList[0].cmmn_nm);
-			for (let i=0;i<roomFacilitiesList.length;i++){
-				for (let j=0; j<commonFacilitiesList.length;j++){
-					if(roomFacilitiesList[i].roomf_cd == commonFacilitiesList[j].cmmn_cd){
-						roomListWithURN.push(
-								{
-								'roomf_use' : roomFacilitiesList[i].roomf_use
-								,'room_no' : roomFacilitiesList[i].room_no
-								,'cmmn_nm' : commonFacilitiesList[j].cmmn_nm
-								}	
-							)
-					}
-				}
-			}
-		console.log(roomListWithURN);
-		let filterURN = roomListWithURN.filter(item => item.room_no == '101');
-		
-		console.log(filterURN);
-		console.log(Object.values(filterURN[0]));
-		var hmm = [];
-		for (let i=0; i<filterURN.length;i++){
-			hmm.push(
-			filterURN[i].cmmn_nm,
-			)
-		}
-		console.log(hmm);
-		
-  		
-  		let filterr = commonFacilitiesList.filter(holo => holo.cmmn_nm.includes('TV'));
-  		console.log(filterr);
-    </script>
+    
+  console.log(commonFacilitiesList[0].cmmn_nm);
+      for (let i=0;i<roomFacilitiesList.length;i++){
+          for (let j=0; j<commonFacilitiesList.length;j++){
+              if(roomFacilitiesList[i].roomf_cd == commonFacilitiesList[j].cmmn_cd){
+                  roomListWithURN.push(
+                          {
+                          'roomf_use' : roomFacilitiesList[i].roomf_use
+                          ,'room_no' : roomFacilitiesList[i].room_no
+                          ,'cmmn_nm' : commonFacilitiesList[j].cmmn_nm
+                          }	
+                      )
+              }
+          }
+      }
+  console.log(roomListWithURN);
+  
+  //이 101을 특정해서 쭉 뽑아내고 싶은데 방법을 모르겠다...
+  let filterURN = roomListWithURN.filter(item => item.room_no == '101');
+  let filterfilterURN = filterURN.filter(item => item.roomf_use == '1');
+  
+  console.log(filterfilterURN);
+  var hmm = [];
+  for (let i=0; i<filterfilterURN.length;i++){
+      hmm.push(
+      filterURN[i].cmmn_nm,
+      )
+  }
+  console.log(hmm);
+  
+  // 이 hmm 을 이용해서 출력 해주면 될것 같은데 ??!
+  document.getElementById("Facilities").innerHTML = hmm
+    
+    let filterr = commonFacilitiesList.filter(holo => holo.cmmn_nm.includes('TV'));
+    console.log(filterr);
+    
+    </script> -->
 </body>
 
 </html>

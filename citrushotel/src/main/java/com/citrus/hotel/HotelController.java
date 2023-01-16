@@ -1,19 +1,19 @@
 package com.citrus.hotel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.json.simple.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.citrus.hotel.dto.CommonDTO;
 import com.citrus.hotel.dto.RoomDTO;
 import com.citrus.hotel.dto.Room_FacilitiesDTO;
+import com.citrus.hotel.dto.RoomsDTO;
 import com.citrus.hotel.service.HotelMapper;
 
 
@@ -30,8 +30,14 @@ public class HotelController {
 	}
 	
 	@RequestMapping("rooms.do")
-	public String rooms(HttpServletRequest req) {
+	public String rooms(HttpServletRequest req, Model model) {
 		
+		List<RoomsDTO> room_list = hotelMapper.rooms();
+		req.setAttribute("room_list",room_list);
+		System.out.println(room_list);
+		
+		
+/*		
 		//방 전체 리스트
 		List<RoomDTO> list = hotelMapper.listRoom();
 		req.setAttribute("roomList", list);
@@ -42,13 +48,14 @@ public class HotelController {
 		}
 		
 		List<CommonDTO> cmList = hotelMapper.commonFacilitiesList();
-		req.setAttribute("commonFacilitiesList", cmList);
+		
+		model.addAttribute("commonFacilitiesList", cmList);
 		
 		
 		
 		List<Room_FacilitiesDTO> rfList = hotelMapper.roomFacilitiesList();
-		req.setAttribute("roomFacilitiesList", rfList);
-		
+		model.addAttribute("roomFacilitiesList", rfList);
+*/		
 		
 		return "hotel/rooms";
 	}

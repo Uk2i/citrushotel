@@ -10,6 +10,7 @@ import com.citrus.hotel.dto.CommonDTO;
 import com.citrus.hotel.dto.Facilities_N_CommonDTO;
 import com.citrus.hotel.dto.RoomDTO;
 import com.citrus.hotel.dto.Room_FacilitiesDTO;
+import com.citrus.hotel.dto.RoomsDTO;
 
 
 
@@ -20,6 +21,11 @@ public class HotelMapper {
 	private SqlSession sqlSession;
 	
 	//방목록 불러오기
+	public List<RoomsDTO> rooms(){
+		return sqlSession.selectList("rooms");
+	}
+	
+	
 	public List<RoomDTO> listRoom() {
 		return sqlSession.selectList("roomList");
 	}
