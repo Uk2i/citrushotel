@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.citrus.hotel.dto.InquiryDTO;
 import com.citrus.hotel.dto.CommonDTO;
 import com.citrus.hotel.dto.Facilities_N_CommonDTO;
 import com.citrus.hotel.dto.RoomDTO;
@@ -40,5 +41,22 @@ public class HotelMapper {
 		return sqlSession.selectList("roomFacilitiesList");
 	}
 	
+<<<<<<< HEAD
 */
+	
+	//방번호에 따른 '1' 상태인(구비되어있음) 시설정보 불러오기
+	public List<Facilities_N_CommonDTO> select_room_facilities() {
+		return sqlSession.selectList("select_room_facilities");
+	}
+	
+	public List<Facilities_N_CommonDTO> cmmn_nm_test(String room_no) {
+		return sqlSession.selectList("cmmn_nm_test",room_no);
+	}
+
+
+	public int insertinq(InquiryDTO dto) {
+		
+		return sqlSession.insert("insertinq", dto);
+	}
+	
 }

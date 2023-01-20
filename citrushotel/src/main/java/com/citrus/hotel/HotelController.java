@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.citrus.hotel.dto.InquiryDTO;
+import com.citrus.hotel.dto.CommonDTO;
+import com.citrus.hotel.dto.RoomDTO;
+import com.citrus.hotel.dto.Room_FacilitiesDTO;
 import com.citrus.hotel.dto.RoomsDTO;
 import com.citrus.hotel.service.HotelMapper;
 

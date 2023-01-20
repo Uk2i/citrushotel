@@ -33,6 +33,8 @@
 	</insert>
 	
 	<!-- 슬픈 전설이 있는 
+=======
+>>>>>>> branch 'develop' of https://github.com/Uk2i/citrushotel.git
 	<select id="roomList" resultType="roomDTO">
 		SELECT room_name, room_no, room_type, room_price, room_size, room_fit, room_max, room_bed
 		FROM room
