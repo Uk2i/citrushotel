@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.citrus.hotel.dto.InquiryDTO;
 import com.citrus.hotel.dto.RoomDTO;
 
 @Service
@@ -17,6 +18,12 @@ public class HotelMapper {
 	
 	public List<RoomDTO> listRoom(Map<String,Object> map) {
 		return sqlSession.selectList("roomList",map);
+	}
+
+
+	public int insertinq(InquiryDTO dto) {
+		
+		return sqlSession.insert("insertinq", dto);
 	}
 	
 }

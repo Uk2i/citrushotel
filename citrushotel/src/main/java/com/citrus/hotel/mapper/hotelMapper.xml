@@ -11,7 +11,9 @@
 		select r.room_no,r.room_type, r.room_price, r.room_size, r.room_fit, r.room_max, r.room_bed, rf.room_no, rf.roomf_use, rf.roomf_cd, cm.group_cd, cm.cmmn_nm
 		from room r, room_facilities rf, common cm
 	</select>
-	
+		<insert id="insertinq" parameterType="com.citrus.hotel.dto.InquiryDTO">
+		INSERT INTO INQUIRY VALUES(#{inq_ymd},SEQ_INQ_NO.NEXTVAL,#{inq_nm},#{inq_email},#{inq_cont})
+	</insert>
 	
 	
 </mapper>

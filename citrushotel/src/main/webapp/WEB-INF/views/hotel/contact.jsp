@@ -181,16 +181,16 @@
                     </div>
                 </div>
                 <div class="col-lg-7 offset-lg-1">
-                    <form action="#" class="contact-form">
+                    <form action="contactok.do" class="contact-form">
                         <div class="row">
                             <div class="col-lg-6">
-                                <input type="text" placeholder="이름">
+                                <input type="text" name = "inq_nm" placeholder="이름">
                             </div>
                             <div class="col-lg-6">
-                                <input type="text" placeholder="회신받을 이메일">
+                                <input type="text" name = "inq_email" placeholder="회신받을 이메일">
                             </div>
                             <div class="col-lg-12">
-                                <textarea placeholder="문의사항"></textarea>
+                                <textarea name = "inq_cont" placeholder="문의사항"></textarea>
                                 <button type="submit">전송하기</button>
                             </div>
                         </div>
