@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -196,29 +197,30 @@
     <section class="rooms-section spad">
         <div class="container">
             <div class="row">
+            	<c:forEach var="dto" items="${room_list}">
                 <div class="col-lg-4 col-md-6">
                     <div class="room-item">
                         <img src="resources/resource-hotel/img/room/room-1.jpg" alt="">
                         <div class="ri-text">
-                            <h4>Standard Twin Room</h4>
-                            <h3>198,000~<span>/1박</span></h3>
+                            <h4>${dto.room_name}</h4>
+                            <h3>${dto.room_price}<span>/1박</span></h3>
                             <table>
                                 <tbody>
                                     <tr>
                                         <td class="r-o">객실 크기:</td>
-                                        <td>37 m²</td>
+                                        <td>${dto.room_size}m²</td>
                                     </tr>
                                     <tr>
                                         <td class="r-o">숙박 가능 인원:</td>
-                                        <td>최대 2명</td>
+                                        <td>최대 ${dto.room_max}명</td>
                                     </tr>
                                     <tr>
                                         <td class="r-o">침대:</td>
-                                        <td>싱글베드 2개</td>
+                                        <td>${dto.room_bed}</td>
                                     </tr>
                                     <tr>
                                         <td class="r-o">객실 시설:</td>
-                                        <td>Wifi, TV, 화장실, 옷장, 책상, 의자, 어메니티 ...</td>
+                                        <td id="Facilities">${dto.room_faci}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -226,6 +228,7 @@
                         </div>
                     </div>
                 </div>
+                </c:forEach>
                 <div class="col-lg-4 col-md-6">
                     <div class="room-item">
                         <img src="resources/resource-hotel/img/room/room-2.jpg" alt="">
@@ -458,6 +461,9 @@
             </form>
         </div>
     </div>
+    
+
+    
     <!-- Search model end -->
 
     <!-- Js Plugins -->
@@ -469,6 +475,83 @@
     <script src="resources/resource-hotel/js/jquery.slicknav.js"></script>
     <script src="resources/resource-hotel/js/owl.carousel.min.js"></script>
     <script src="resources/resource-hotel/js/main.js"></script>
+   <!--  <script type="text/javascript">
+    
+	
+    
+    
+    
+	   
+	var commonFacilitiesList = [
+        <c:forEach items="${commonFacilitiesList}" var="item" varStatus="loop">
+        {
+            'cmmn_cd' : '${item.cmmn_cd}'
+            ,'cmmn_nm' : '${item.cmmn_nm}'
+        } ${not loop.last ? ',' : ''}
+        </c:forEach>
+    ];
+    
+    var roomFacilitiesList = [
+        <c:forEach items="${roomFacilitiesList}" var="item" varStatus="loop">
+        {
+            'room_no' : '${item.room_no}'
+            ,'roomf_cd' : '${item.roomf_cd}'
+            ,'roomf_use' : '${item.roomf_use}'
+        } ${not loop.last ? ',' : ''}
+        </c:forEach>
+    ];
+    
+    var roomList = [
+        <c:forEach items="${roomList}" var="item" varStatus="loop">
+        {
+            'room_no' : '${item.room_no}',
+        },
+        </c:forEach>
+    ];
+    
+    var roomListWithURN = [];
+  
+    
+  //commonFacilitiesList.map(({cmmn_cd, cmmn_nm}) => `\n${cmmn_cd} ${cmmn_nm}`).join('')
+    //왜 안되지 어떻게 쓰는지를 모르겠구먼
+
+    
+  console.log(commonFacilitiesList[0].cmmn_nm);
+      for (let i=0;i<roomFacilitiesList.length;i++){
+          for (let j=0; j<commonFacilitiesList.length;j++){
+              if(roomFacilitiesList[i].roomf_cd == commonFacilitiesList[j].cmmn_cd){
+                  roomListWithURN.push(
+                          {
+                          'roomf_use' : roomFacilitiesList[i].roomf_use
+                          ,'room_no' : roomFacilitiesList[i].room_no
+                          ,'cmmn_nm' : commonFacilitiesList[j].cmmn_nm
+                          }	
+                      )
+              }
+          }
+      }
+  console.log(roomListWithURN);
+  
+  //이 101을 특정해서 쭉 뽑아내고 싶은데 방법을 모르겠다...
+  let filterURN = roomListWithURN.filter(item => item.room_no == '101');
+  let filterfilterURN = filterURN.filter(item => item.roomf_use == '1');
+  
+  console.log(filterfilterURN);
+  var hmm = [];
+  for (let i=0; i<filterfilterURN.length;i++){
+      hmm.push(
+      filterURN[i].cmmn_nm,
+      )
+  }
+  console.log(hmm);
+  
+  // 이 hmm 을 이용해서 출력 해주면 될것 같은데 ??!
+  document.getElementById("Facilities").innerHTML = hmm
+    
+    let filterr = commonFacilitiesList.filter(holo => holo.cmmn_nm.includes('TV'));
+    console.log(filterr);
+    
+    </script> -->
 </body>
 
 </html>
