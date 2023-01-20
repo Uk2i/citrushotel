@@ -7,7 +7,8 @@
 <mapper namespace="com.citrus.hotel.mapper">
 	
 	<!-- 객실 리스트 출력 -->
-	<select id="rooms" resultType="roomsDTO">
+	<select id="rooms" parameterType="String" resultType="roomsDTO">
+		
 		SELECT RO.*, B.ROOM_FACI
 		FROM ROOM RO
 		LEFT JOIN
@@ -20,18 +21,20 @@
 				LEFT JOIN ROOM R ON RF.ROOM_NO = R.ROOM_NO
 				WHERE RF.ROOMF_USE = 1
 			) A
-			ON CM.CMMN_CD = A.ROOMF_CD  
+			ON CM.CMMN_CD = A.ROOMF_CD
 			GROUP BY A.ROOM_NO
 		) B
 		ON RO.ROOM_NO = B.ROOM_NO
+		<if test='room_no != null and room_no != " "'>
+		where RO.ROOM_NO = ${value}
+		</if>
 	</select>
 	
-	
+	<!-- 슬픈 전설이 있는 
 	<select id="roomList" resultType="roomDTO">
 		SELECT room_name, room_no, room_type, room_price, room_size, room_fit, room_max, room_bed
 		FROM room
 	</select>
-	
 	
 	<select id="commonFacilitiesList" resultType="commonDTO">
 		SELECT cm.group_cd, cm.cmmn_nm, CMMN_CD 
@@ -43,19 +46,7 @@
 		SELECT room_no, roomf_use, roomf_cd
 		FROM ROOM_FACILITIES rf
 	</select>
-
-	
-	<select id="select_room_facilities" parameterType="int" resultType="facilities_n_commonDTO">
-		SELECT rf.room_no, rf.roomf_use, rf.roomf_cd, cm.group_cd, cm.cmmn_nm
-		FROM room_facilities rf, common cm
-		WHERE rf.ROOMF_USE = 1 AND rf.ROOMF_CD = cm.CMMN_CD
-	</select>
-	
-	<select id="cmmn_nm_test" parameterType="String" resultType="facilities_n_commonDTO">
-		SELECT rf.room_no, rf.roomf_use, rf.roomf_cd, cm.group_cd, cm.cmmn_nm
-		FROM room_facilities rf, common cm
-		WHERE rf.ROOMF_USE = 1 AND rf.ROOMF_CD = cm.CMMN_CD AND rf.room_no = ${value}
-	</select>
+	 -->
 	
 	
 </mapper>

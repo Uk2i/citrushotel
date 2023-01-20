@@ -224,7 +224,7 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <a href="room-details.do" class="primary-btn">자세히 보기</a>
+                            <a href="room-details.do?room_no=${dto.room_no}" class="primary-btn">자세히 보기</a>
                         </div>
                     </div>
                 </div>

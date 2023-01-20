@@ -178,7 +178,7 @@
                         <img src="resources/resource-hotel/img/room/room-details.jpg" alt="">
                         <div class="rd-text">
                             <div class="rd-title">
-                                <h3>Standard Twin Room</h3>
+                                <h3>${room_list.room_name}</h3>
                                 <div class="rdt-right">
                                     <div class="rating">
                                         <i class="icon_star"></i>
@@ -189,12 +189,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <h2 class="text-left">198,000~<span>/1박</span></h2>
+                            <h2 class="text-left">${room_list.room_price} ~<span>/1박</span></h2>
                             <table class="mt-3">
                                 <tbody>
                                     <tr>
                                         <td class="r-o">객실 크기:</td>
-                                        <td>58 m²</td>
+                                        <td>${room_list.room_size} m²</td>
                                     </tr>
                                     <tr>
                                         <td class="r-o">숙박 가능 인원:</td>
