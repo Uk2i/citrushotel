@@ -24,11 +24,12 @@
 			GROUP BY A.ROOM_NO
 		) B
 		ON RO.ROOM_NO = B.ROOM_NO
-		<if test='room_no != null and room_no != " "'>
-		where RO.ROOM_NO = ${value}
+		<if test='value != null and value != " "'>
+			where RO.ROOM_NO = #{room_no}
 		</if>
 	</select>
-		<insert id="insertinq" parameterType="com.citrus.hotel.dto.InquiryDTO">
+	
+	<insert id="insertinq" parameterType="com.citrus.hotel.dto.InquiryDTO">
 		INSERT INTO INQUIRY VALUES(#{inq_ymd},SEQ_INQ_NO.NEXTVAL,#{inq_nm},#{inq_email},#{inq_cont})
 	</insert>
 	
