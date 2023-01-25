@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.citrus.hotel.dto.InquiryDTO;
+import com.citrus.hotel.dto.NewsDTO;
 import com.citrus.hotel.dto.CommonDTO;
 import com.citrus.hotel.dto.Facilities_N_CommonDTO;
 import com.citrus.hotel.dto.RoomDTO;
@@ -55,6 +56,11 @@ public class HotelMapper {
 	public int insertinq(InquiryDTO dto) {
 		
 		return sqlSession.insert("insertinq", dto);
+	}
+
+
+	public int emailadd(NewsDTO dto) {
+		return sqlSession.insert("insertemail",dto);
 	}
 	
 }

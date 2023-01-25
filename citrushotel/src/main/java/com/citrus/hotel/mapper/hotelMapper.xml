@@ -25,7 +25,7 @@
 		) B
 		ON RO.ROOM_NO = B.ROOM_NO
 	</select>
-		<insert id="insertinq" parameterType="com.citrus.hotel.dto.InquiryDTO">
+	<insert id="insertinq" parameterType="com.citrus.hotel.dto.InquiryDTO">
 		INSERT INTO INQUIRY VALUES(#{inq_ymd},SEQ_INQ_NO.NEXTVAL,#{inq_nm},#{inq_email},#{inq_cont})
 	</insert>
 	
@@ -58,6 +58,9 @@
 		FROM room_facilities rf, common cm
 		WHERE rf.ROOMF_USE = 1 AND rf.ROOMF_CD = cm.CMMN_CD AND rf.room_no = ${value}
 	</select>
+	<insert id="insertemail" parameterType="com.citrus.hotel.dto.NewsDTO">
+		INSERT INTO NEWS VALUES(#{news_email},#{news_date})
+	</insert>
 	
 	
 </mapper>

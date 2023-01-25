@@ -7,6 +7,5 @@ import lombok.Setter;
 @Setter
 public class NewsDTO {
 	private String news_email;
-	private String news_use;
-	private String news_cdate;
+	private String news_date;
 }

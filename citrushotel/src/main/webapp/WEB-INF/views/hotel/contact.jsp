@@ -234,8 +234,8 @@
                             <h6>New latest</h6>
                             <p>새로운 소식을 월마다 전해드립니다.</p>
                             <form action="#" class="fn-form">
-                                <input type="text" placeholder="Email">
-                                <button type="submit"><i class="fa fa-send"></i></button>
+                                <input type="text" id= "news_email" placeholder="Email">
+                                <button type="submit" id="newssub"><i class="fa fa-send"></i></button>
                             </form>
                         </div>
                     </div>
@@ -284,6 +284,7 @@
     <script src="resources/resource-hotel/js/jquery.slicknav.js"></script>
     <script src="resources/resource-hotel/js/owl.carousel.min.js"></script>
     <script src="resources/resource-hotel/js/main.js"></script>
+    <script src="resources/resource-hotel/js/news.js"></script>
 </body>
 
 </html>

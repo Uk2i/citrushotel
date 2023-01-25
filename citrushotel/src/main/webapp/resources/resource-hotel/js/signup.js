@@ -42,7 +42,6 @@ function emailcheck(){
 			member_email : email
 		},
 		success : function(res){
-			console.log(res)
 			if(res.result == null){
 				$("#emailHelp").attr('class','form-text text-muted valid');
 			}else{
