@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -172,13 +173,14 @@
     <!-- Room Details Section Begin -->
     <section class="room-details-section spad mt-5">
         <div class="container">
+        <c:forEach var="dto" items="${room_list}">
             <div class="row">
                 <div class="col-lg-8">
                     <div class="room-details-item">
                         <img src="resources/resource-hotel/img/room/room-details.jpg" alt="">
                         <div class="rd-text">
                             <div class="rd-title">
-                                <h3>Standard Twin Room</h3>
+                                <h3>${dto.room_name}</h3>
                                 <div class="rdt-right">
                                     <div class="rating">
                                         <i class="icon_star"></i>
@@ -189,20 +191,20 @@
                                     </div>
                                 </div>
                             </div>
-                            <h2 class="text-left">198,000~<span>/1박</span></h2>
+                            <h2 class="text-left">${dto.room_price} ~<span>/1박</span></h2>
                             <table class="mt-3">
                                 <tbody>
                                     <tr>
                                         <td class="r-o">객실 크기:</td>
-                                        <td>58 m²</td>
+                                        <td>${dto.room_size} m²</td>
                                     </tr>
                                     <tr>
                                         <td class="r-o">숙박 가능 인원:</td>
-                                        <td>최대 2명</td>
+                                        <td>최대 ${dto.room_fit}명</td>
                                     </tr>
                                     <tr>
                                         <td class="r-o">침대:</td>
-                                        <td>대형 킹베드 1개</td>
+                                        <td>${dto.room_bed}</td>
                                     </tr>
                                     <tr>
                                         <td class="r-o">객실 시설:</td>
@@ -313,6 +315,7 @@
                     </div>
                 </div>
             </div>
+            </c:forEach>
         </div>
     </section>
     <!-- Room Details Section End -->

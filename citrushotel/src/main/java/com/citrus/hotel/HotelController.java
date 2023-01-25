@@ -3,20 +3,19 @@ package com.citrus.hotel;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.citrus.hotel.dto.InquiryDTO;
-import com.citrus.hotel.dto.CommonDTO;
-import com.citrus.hotel.dto.RoomDTO;
-import com.citrus.hotel.dto.Room_FacilitiesDTO;
 import com.citrus.hotel.dto.RoomsDTO;
 import com.citrus.hotel.service.HotelMapper;
 
@@ -34,9 +33,14 @@ public class HotelController {
 	}
 	
 	@RequestMapping("rooms.do")
-	public String rooms(HttpServletRequest req, Model model) {
+	public String rooms(HttpServletRequest req, Model model, @RequestParam Map<String,Object> map, String room_type) {
+		if(room_type==null) {
+			room_type = " ";
+		}
 		
-		List<RoomsDTO> room_list = hotelMapper.rooms();
+		map.put("room_type", room_type);
+		List<RoomsDTO> room_list = hotelMapper.rooms(map);
+		
 		req.setAttribute("room_list",room_list);
 		System.out.println(room_list);
 		
@@ -63,6 +67,7 @@ public class HotelController {
 		
 		return "hotel/rooms";
 	}
+	
 	
 	
 	@RequestMapping("about-us.do")
@@ -118,7 +123,13 @@ public class HotelController {
 	
 	
 	@RequestMapping("room-details.do")
-	public String room_details(HttpServletRequest req) {
+	public String room_details(HttpServletRequest req, @RequestParam Map<String,Object> map, String room_no) {
+		
+		map.put("room_no", room_no);
+		
+		List<RoomsDTO> room_list = hotelMapper.rooms(map);
+		req.setAttribute("room_list", room_list); 
+		
 		return "hotel/room-details";
 	}
 	@RequestMapping("contactok.do")

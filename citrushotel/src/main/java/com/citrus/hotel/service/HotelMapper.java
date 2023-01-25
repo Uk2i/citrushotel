@@ -1,6 +1,7 @@
 package com.citrus.hotel.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +11,7 @@ import com.citrus.hotel.dto.InquiryDTO;
 import com.citrus.hotel.dto.NewsDTO;
 import com.citrus.hotel.dto.CommonDTO;
 import com.citrus.hotel.dto.Facilities_N_CommonDTO;
-import com.citrus.hotel.dto.RoomDTO;
-import com.citrus.hotel.dto.Room_FacilitiesDTO;
+import com.citrus.hotel.dto.InquiryDTO;
 import com.citrus.hotel.dto.RoomsDTO;
 
 
@@ -23,11 +23,11 @@ public class HotelMapper {
 	private SqlSession sqlSession;
 	
 	//방목록 불러오기
-	public List<RoomsDTO> rooms(){
-		return sqlSession.selectList("rooms");
+	public List<RoomsDTO> rooms(Map<String,Object> map){
+		return sqlSession.selectList("rooms", map);
 	}
 	
-	
+/*	여기에는 슬픈 전설이 있어 
 	public List<RoomDTO> listRoom() {
 		return sqlSession.selectList("roomList");
 	}
@@ -42,6 +42,8 @@ public class HotelMapper {
 		return sqlSession.selectList("roomFacilitiesList");
 	}
 	
+<<<<<<< HEAD
+*/
 	
 	//방번호에 따른 '1' 상태인(구비되어있음) 시설정보 불러오기
 	public List<Facilities_N_CommonDTO> select_room_facilities() {

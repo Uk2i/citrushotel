@@ -121,10 +121,10 @@
                                     <li class="active"><a href="rooms.do">객실</a>
                                         <ul class="dropdown">
                                             <li><a href="room-details.do">Room Details</a></li>
-                                            <li><a href="/hotel/rooms.do?room_type='std'">Standard Room</a></li>
-                                            <li><a href="/hotel/rooms.do?room_type='dlx'">Deluxe Room</a></li>
-                                            <li><a href="/hotel/rooms.do?room_type='fml'">Family Room</a></li>
-                                            <li><a href="/hotel/rooms.do?room_type='prm'">Premium Room</a></li>
+                                            <li><a href="/hotel/rooms.do?room_type=std">Standard Room</a></li>
+                                            <li><a href="/hotel/rooms.do?room_type=dlx">Deluxe Room</a></li>
+                                            <li><a href="/hotel/rooms.do?room_type=fml">Family Room</a></li>
+                                            <li><a href="/hotel/rooms.do?room_type=prm">Premium Room</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="about-us.do">호텔</a></li>
@@ -224,7 +224,7 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <a href="room-details.do" class="primary-btn">자세히 보기</a>
+                            <a href="room-details.do?room_no=${dto.room_no}" class="primary-btn">자세히 보기</a>
                         </div>
                     </div>
                 </div>
