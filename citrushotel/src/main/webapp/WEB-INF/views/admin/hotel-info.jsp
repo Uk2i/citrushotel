@@ -587,7 +587,7 @@
                       <small class="text-muted float-end">문의 탭과 헤더, 푸터에 노출됩니다.</small>
                     </div>
                     <div class="card-body">
-                      <form>
+                      <form> <!-- 어떻게 처리 할지 고민좀 해 봐야 할듯, 자바스크립트로 정보 수정관련 알림창도 띄우고 가느냐 그냥 컨트롤러 가서 쿼리타버리느냐 -->
                         <div class="mb-3">
                           <label class="form-label" for="hiAddr">주소 / Address</label>
                           <input type="text" class="form-control" id="hiAddr" value="서귀포, 서귀포시 중문관광로 72번길 100" />

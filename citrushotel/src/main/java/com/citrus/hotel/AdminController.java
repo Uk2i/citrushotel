@@ -1,9 +1,14 @@
 package com.citrus.hotel;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.citrus.hotel.dto.Hotel_InfoDTO;
 import com.citrus.hotel.service.AdminMapper;
 
 
@@ -11,11 +16,6 @@ import com.citrus.hotel.service.AdminMapper;
 public class AdminController {
 	@Autowired
 	private AdminMapper adminMapper;
-	
-	@RequestMapping("adminindex.do")
-	public String adminindex() {
-		return "admin/adminindex";
-	}
 	
 	@RequestMapping("auth-forgot-password.do")
 	public String auth_forget_password(){
@@ -33,7 +33,8 @@ public class AdminController {
 	}
 	
 	@RequestMapping("hotel-info.do")
-	public String hotel_info() {
+	public String hotel_info(HttpServletRequest req) {
+		List<Hotel_InfoDTO> hotelInfoList = adminMapper.hotelInfoList();
 		return "admin/hotel-info";
 	}
 	

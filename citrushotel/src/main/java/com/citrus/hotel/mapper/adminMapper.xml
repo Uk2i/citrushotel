@@ -5,8 +5,15 @@
  	
  <mapper namespace="com.citrus.hotel.mapper">
 	
-
-
-
+	<!-- hotelInfo 페이지 접속시 띄워줄 hotelInfo 테이블 값 가져오기 -->
+	<select id="hotelInfoList" resultType="hotel_infoDTO">
+		select * from hotel_info
+	</select>
+	
+	<!-- 저장버튼을 눌렀을때 해당값을 수정 -->
+	<!-- 근데 만약 초기값이 없을때는 insert로 바꿔서 갈지 초기값은 입력하고 가는걸로 갈지 고민좀 해봐야 할듯  -->
+	<update id="hotelInfoEdit">
+		update HI_ADDR, HI_TEL, HI_EMAIL, HI_FAX from hotel_info where HI_NO = 1
+	</update>
  
  </mapper>
