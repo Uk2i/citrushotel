@@ -77,7 +77,7 @@
 
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
-            <a href="hotel-info.html" class="app-brand-link">
+            <a href="hotel-info.do" class="app-brand-link">
               <span class="app-brand-logo demo">
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" viewBox="0 0 624 624" enable-background="new 0 0 624 624" xml:space="preserve">
                   <path fill="#FFFFFF" opacity="1.000000" stroke="none" 
@@ -432,19 +432,19 @@
               <span class="menu-header-text">Hotel</span>
             </li>
             <li class="menu-item">
-              <a href="hotel-info.html" class="menu-link">
+              <a href="hotel-info.do" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-info-circle"></i>
                 <div data-i18n="Hotel-Info">호텔 정보</div>
               </a>
             </li>
             <li class="menu-item">
-              <a href="hotel-room.html" class="menu-link">
+              <a href="hotel-room.do" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-hotel"></i>
                 <div data-i18n="Hotel-Room">객실 관리</div>
               </a>
             </li>
             <li class="menu-item active">
-              <a href="hotel-reserve.html" class="menu-link">
+              <a href="hotel-reserve.do" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-receipt"></i>
                 <div data-i18n="Hotel-Reserve">예약 현황</div>
               </a>
@@ -456,7 +456,7 @@
               <span class="menu-header-text">Code</span>
             </li>
             <li class="menu-item">
-              <a href="code-manage.html" class="menu-link">
+              <a href="code-manage.do" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-table"></i>
                 <div data-i18n="Code-Manage">공통 코드</div>
               </a>
@@ -468,13 +468,13 @@
               <span class="menu-header-text">User</span>
             </li>
             <li class="menu-item">
-              <a href="user-manage.html" class="menu-link">
+              <a href="user-manage.do" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-user-account"></i>
                 <div data-i18n="User-Manage">회원</div>
               </a>
             </li>
             <li class="menu-item">
-              <a href="user-subscribe.html" class="menu-link">
+              <a href="user-subscribe.do" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-mail-send"></i>
                 <div data-i18n="User-Subscribe">구독</div>
               </a>
@@ -488,19 +488,19 @@
               <span class="menu-header-text">Menu</span>
             </li>
             <li class="menu-item">
-              <a href="menu-home.html" class="menu-link">
+              <a href="menu-home.do" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home"></i>
                 <div data-i18n="Menu-Home">홈</div>
               </a>
             </li>
             <li class="menu-item">
-              <a href="menu-about.html" class="menu-link">
+              <a href="menu-about.do" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-buildings"></i>
                 <div data-i18n="Menu-About">호텔</div>
               </a>
             </li>
             <li class="menu-item">
-              <a href="menu-blog.html" class="menu-link">
+              <a href="menu-blog.do" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-news"></i>
                 <div data-i18n="Menu-Blog">소식</div>
               </a>
@@ -558,7 +558,7 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="auth-login.html">
+                      <a class="dropdown-item" href="auth-login.do">
                         <i class="bx bx-power-off me-2"></i>
                         <span class="align-middle">Log Out</span>
                       </a>
