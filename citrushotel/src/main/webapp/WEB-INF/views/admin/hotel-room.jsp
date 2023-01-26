@@ -1174,7 +1174,58 @@
       * init
       --------------------------------------------------------------*/
       $(document).ready(function () {
-        //To Do : 객실 리스트 get & setting  
+        //To Do : 객실 리스트 get & setting 
+        $.ajax({
+        	type : 'POST'
+        	, url : 'room_list.do'
+        	, dataType : "json"
+        	, success : function(data){
+        		
+	        	let tr = '<tr>';
+        		$.each(data.list, function(i){
+	        		 tr += '<tr>';
+	                 tr += '<td>'+this.room_no+'</td>';
+	                 /* 밑에 warning 부분이 
+	                 	std secondary
+	                 	dlx primary
+	                 	fmy success
+	                 	warning premium
+	                 	으로 와야함. 어찌할까룽
+	                 	어디에서 구분지어줄지 고민
+	                 	
+	                 	데이터가 많으면 결국 페이징처리 해 줘야하는데 할까 말까 우선 킵.
+	                 	
+	                 	
+	                 	그리고 더보기 클릭해서 수정 했을때 이미지 리스트에 얘네가 들어가버림 버그.. 수정해야함 
+	                 	버그수정 결과 >>> append 클래스를 .table 이 아니라 .table-hover로 임시방편 처리 했음. 
+	                 */
+	                 tr += '<td><span class="badge bg-label-warning me-1">'+this.room_type+'</span></td>'
+	                 tr += '<td>'+this.room_name+'</td>';
+	                 tr += '<td>'+this.room_fit+'명</td>';
+	                 tr += '<td>'+this.room_max+'명</td>';
+	                 tr += '<td>';
+	                 tr += '<div class="dropdown">';
+	                 tr += '<button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">';
+	                 tr += '<i class="bx bx-dots-vertical-rounded"></i>';
+	                 tr += '</button>';
+	                 tr += '<div class="dropdown-menu">';
+	                 tr += '<a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalEditRoom">';
+	                 tr += '<i class="bx bx-edit-alt me-1"></i> 수정</a>';
+	                 tr += '<a class="dropdown-item" onclick="deleteRoom(this);"><i class="bx bx-trash me-1"></i> 삭제</a>';
+	                 tr += '</div>';
+	                 tr += '</div>';
+	                 tr += '</td>';
+	                 tr += '</tr>';        			
+        		});
+        	
+        		$(".table-hover>tbody").append(tr);
+        	}
+        	, error : function(request, status, error){
+        		alert("code : " + request.status + "\n" + "message : " + request.responseText + "\n" + "error : " + error);        		
+        	}
+        })
+        
+        
       });
 
       /*-------------------------------------------------------------
@@ -1188,13 +1239,38 @@
       * Event Area
       --------------------------------------------------------------*/
       //더보기-수정 버튼 클릭 시
-      $("tr .dropdown-item[data-bs-target='#modalEditRoom']").click(function () {
+      
+      // click 이벤트로 걸려있어서 동적으로 생성된 태그에 적용안되는 문제가 있어서 .on("click") 이벤트로 교체함.
+      $(document).on("click","tr .dropdown-item[data-bs-target='#modalEditRoom']",function () {
         let roomNo = $(this).closest("tr").children()[0].innerText;
         $("#modalEditRoom input#e_roomNo").val(roomNo);
         $("#modalEditRoom input#e_roomNo").attr("readonly", true);
 
         //To Do : roomNo로 상세정보 조회 후 input들에 setting
-      })
+        
+        
+        //roomNo를 가지고 컨트롤러 다녀오는길에 친구들 데리고 와야함
+        
+        
+          $.ajax({
+        	type : 'POST'
+        	, url : 'room_data.do'
+        	, dataType : "json"
+        	, data : { room_no : roomNo }
+        	, success : function(data){
+        		$.each(data.list, function(i){
+        		console.log(this.room_no);
+        		console.log(this.room_price);
+        		console.log(this.room_fit);
+        		console.log(this.room_max);
+        		});
+        	}
+        	, error : function(request, status, error){
+        		alert("code : " + request.status + "\n" + "message : " + request.responseText + "\n" + "error : " + error);        		
+        	}
+          	})
+        
+      });
 
       //사용 여부 토글 변경 시
       $("#roomUse, #e_roomUse").change(function () {

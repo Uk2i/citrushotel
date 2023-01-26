@@ -15,5 +15,14 @@
 	<update id="hotelInfoEdit">
 		update HI_ADDR, HI_TEL, HI_EMAIL, HI_FAX from hotel_info where HI_NO = 1
 	</update>
- 
+	
+	
+	<select id="room_list" resultType="roomDTO">
+		select * from room
+	</select>
+	
+	<select id="room_data" parameterType="java.util.Map" resultType="roomDTO">
+		select * from room where room_no = ${room_no}
+	</select>
+ 	
  </mapper>

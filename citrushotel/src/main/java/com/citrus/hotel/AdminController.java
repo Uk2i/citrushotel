@@ -1,14 +1,19 @@
 package com.citrus.hotel;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.citrus.hotel.dto.Hotel_InfoDTO;
+import com.citrus.hotel.dto.RoomDTO;
 import com.citrus.hotel.service.AdminMapper;
 
 
@@ -72,4 +77,51 @@ public class AdminController {
 	public String user_subscribe() {
 		return "admin/user-subscribe";
 	}
+	
+	
+	
+	
+	@RequestMapping("room_list.do")
+	public @ResponseBody Map<String, Object> room_list(HttpServletRequest req){
+		Map<String, Object> resMap = new HashMap<String, Object>();
+		
+		List<RoomDTO> list = adminMapper.room_list();
+		
+		resMap.put("list", list);
+		
+		return resMap;
+	}
+	
+	
+	@RequestMapping("room_data.do")
+	public @ResponseBody Map<String, Object> room_data(HttpServletRequest req, @RequestParam Map<String,Object> map){
+		Map<String, Object> resMap = new HashMap<String, Object>();
+		
+		List<RoomDTO> list = adminMapper.room_data(map);
+		
+		resMap.put("list",list);
+		
+		return resMap;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
