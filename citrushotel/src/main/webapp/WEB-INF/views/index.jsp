@@ -540,7 +540,7 @@
         </div>
         <div>
         <a href="adminindex.do">adminindex</a><br>
-        <a href="auth-forget-password.do">auth-forget-password</a><br>
+        <a href="auth-forgot-password.do">auth-forgot-password</a><br>
         <a href="auth-login.do">auth-login</a><br>
         <a href="code-manage.do">code-manage</a><br>
         <a href="hotel-info.do">hotel-info</a><br>
