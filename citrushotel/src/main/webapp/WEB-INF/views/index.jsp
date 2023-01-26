@@ -538,6 +538,20 @@
                 </div>
             </div>
         </div>
+        <div>
+        <a href="adminindex.do">adminindex</a><br>
+        <a href="auth-forget-password.do">auth-forget-password</a><br>
+        <a href="auth-login.do">auth-login</a><br>
+        <a href="code-manage.do">code-manage</a><br>
+        <a href="hotel-info.do">hotel-info</a><br>
+        <a href="hotel-reserve.do">hotel-reserve</a><br>
+        <a href="hotel-room.do">hotel-room</a><br>
+        <a href="menu-about.do">menu-about</a><br>
+        <a href="menu-blog.do">menu-blog</a><br>
+        <a href="menu-home.do">menu-home</a><br>
+        <a href="user-manage.do">user-manage</a><br>
+        <a href="user-subscribe.do">user-subscribe</a><br>
+        </div>
     </section>
     <!-- Blog Section End -->
 
