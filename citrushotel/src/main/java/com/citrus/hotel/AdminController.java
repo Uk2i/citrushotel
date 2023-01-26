@@ -17,9 +17,9 @@ public class AdminController {
 		return "admin/adminindex";
 	}
 	
-	@RequestMapping("auth-forget-password.do")
+	@RequestMapping("auth-forgot-password.do")
 	public String auth_forget_password(){
-		return "admin/auth-forget-password";
+		return "admin/auth-forgot-password";
 	}
 	
 	@RequestMapping("auth-login.do")
