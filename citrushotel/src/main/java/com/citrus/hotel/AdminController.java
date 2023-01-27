@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.citrus.hotel.dto.CommonDTO;
 import com.citrus.hotel.dto.Hotel_InfoDTO;
 import com.citrus.hotel.dto.RoomDTO;
 import com.citrus.hotel.service.AdminMapper;
@@ -98,10 +99,26 @@ public class AdminController {
 		Map<String, Object> resMap = new HashMap<String, Object>();
 		
 		List<RoomDTO> list = adminMapper.room_data(map);
+		List<CommonDTO> cmmnList = adminMapper.common_data(map);
+		
 		
 		resMap.put("list",list);
-		
+		resMap.put("cmmnList", cmmnList);
+		//resMap.put("rflist",rflist);
 		return resMap;
+	}
+	
+	@RequestMapping("room_edit.do")
+	public @ResponseBody String room_edit(@RequestParam Map<String,Object>map){
+		int res = adminMapper.room_edit(map);
+		
+		if(res == 0) {
+			
+		}else {
+			
+		}
+		
+		return "message";
 	}
 }
 

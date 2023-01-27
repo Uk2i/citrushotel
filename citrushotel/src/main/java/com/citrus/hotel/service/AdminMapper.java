@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.citrus.hotel.dto.CommonDTO;
 import com.citrus.hotel.dto.Hotel_InfoDTO;
 import com.citrus.hotel.dto.RoomDTO;
 
@@ -32,5 +33,13 @@ public class AdminMapper {
 	
 	public List<RoomDTO> room_data(Map<String,Object> map){
 		return sqlSession.selectList("room_data",map);
+	}
+	
+	public List<CommonDTO> common_data(Map<String,Object> map){
+		return sqlSession.selectList("common_data",map);
+	}
+	
+	public int room_edit(Map<String,Object>map) {
+		return sqlSession.update("room_edit");
 	}
 }
