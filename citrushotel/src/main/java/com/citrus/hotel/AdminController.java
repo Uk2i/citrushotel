@@ -101,15 +101,24 @@ public class AdminController {
 	
 	@RequestMapping("adminlogin.do")
 	public String adminlogin(HttpServletRequest req,HttpSession session ,@ModelAttribute MemberDTO dto) {
+		
 		MemberDTO mdto = adminMapper.adminlogin(dto); 
 		if(mdto == null) {
 			req.setAttribute("url", "admin");
 			req.setAttribute("msg",	"회원이 아닙니다." );
 		}else {
-			
+			boolean pwdMatch = false;
+			pwdMatch = pwdEncoder.matches(dto.getMember_pw(), mdto.getMember_pw());
+			if(pwdMatch) {
+				req.setAttribute("msg", mdto.getMember_name()+"관리자님 환영합니다.");
+				req.setAttribute("url", "hotel-info.do");
+				session.setAttribute("memberDTO", mdto);
+			}else {
+				req.setAttribute("msg", "이메일 또는 패스워드가 불일치합니다. 다시입력해주세요.");
+				req.setAttribute("url", "admin");
+			}
 		}
-		req.setAttribute("url", "admin");
-		req.setAttribute("msg", "test중");
+
 		return "message";
 	}
 	

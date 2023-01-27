@@ -25,4 +25,8 @@
 		select * from room where room_no = ${room_no}
 	</select>
  	
+ 		<select id="adminlogin" parameterType="com.citrus.hotel.dto.MemberDTO" resultType="com.citrus.hotel.dto.MemberDTO">
+		SELECT * FROM MEMBER WHERE member_email = #{member_email} AND member_grade = #{member_grade}
+	</select>
+ 	
  </mapper>
