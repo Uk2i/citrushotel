@@ -421,14 +421,14 @@
               </div>
               <!-- /Logo -->
 
-              <form id="formAuthentication" class="mb-3" action="hotel-info.html" method="POST">
+              <form class="mb-3" action="adminlogin.do" method="POST">
                 <div class="mb-3">
                   <label for="email" class="form-label">이메일 / Email</label>
                   <input
                     type="text"
                     class="form-control"
                     id="email"
-                    name="email-username"
+                    name="member_email"
                     placeholder="Enter your email"
                     autofocus
                   />
@@ -436,7 +436,7 @@
                 <div class="mb-3 form-password-toggle">
                   <div class="d-flex justify-content-between">
                     <label class="form-label" for="password">비밀번호 / Password</label>
-                    <a href="auth-forgot-password.html">
+                    <a href="auth-forgot-password.do">
                       <small>비밀번호를 잊으셨나요?</small>
                     </a>
                   </div>
@@ -445,7 +445,7 @@
                       type="password"
                       id="password"
                       class="form-control"
-                      name="password"
+                      name="member_pw"
                       placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                       aria-describedby="password"
                     />
@@ -461,6 +461,7 @@
                 <div class="mb-3">
                   <button class="btn btn-primary d-grid w-100" type="submit">로그인 / Sign in</button>
                 </div>
+                <input type="hidden" name="member_grade" value=5>
               </form>
             </div>
           </div>

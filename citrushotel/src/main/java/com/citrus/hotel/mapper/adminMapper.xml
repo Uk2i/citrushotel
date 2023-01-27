@@ -24,5 +24,13 @@
 	<select id="room_data" parameterType="java.util.Map" resultType="roomDTO">
 		select * from room where room_no = ${room_no}
 	</select>
+	
+	<select id="common_data" resultType="commonDTO">
+		select * from common where group_cd = 02
+	</select>
+	
+	<update id="room_edit">
+		
+	</update>
  	
  </mapper>

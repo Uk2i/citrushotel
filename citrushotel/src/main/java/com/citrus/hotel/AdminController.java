@@ -1,7 +1,7 @@
 package com.citrus.hotel;
 
-import java.util.HashMap;
 import java.util.List;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +13,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.citrus.hotel.dto.CommonDTO;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.citrus.hotel.dto.Hotel_InfoDTO;
+import com.citrus.hotel.dto.MemberDTO;
 import com.citrus.hotel.dto.Hotel_InfoDTO;
 import com.citrus.hotel.dto.RoomDTO;
 import com.citrus.hotel.service.AdminMapper;
@@ -23,12 +36,20 @@ public class AdminController {
 	@Autowired
 	private AdminMapper adminMapper;
 	
+	@Autowired
+	BCryptPasswordEncoder pwdEncoder = new BCryptPasswordEncoder();
+	
+	@RequestMapping("adminindex.do")
+	public String adminindex() {
+		return "admin/adminindex";
+	}
+	
 	@RequestMapping("auth-forgot-password.do")
 	public String auth_forget_password(){
 		return "admin/auth-forgot-password";
 	}
 	
-	@RequestMapping("auth-login.do")
+	@RequestMapping("/admin")
 	public String auth_login() {
 		return "admin/auth-login";
 	}
@@ -79,7 +100,19 @@ public class AdminController {
 		return "admin/user-subscribe";
 	}
 	
-	
+	@RequestMapping("adminlogin.do")
+	public String adminlogin(HttpServletRequest req,HttpSession session ,@ModelAttribute MemberDTO dto) {
+		MemberDTO mdto = adminMapper.adminlogin(dto); 
+		if(mdto == null) {
+			req.setAttribute("url", "admin");
+			req.setAttribute("msg",	"회원이 아닙니다." );
+		}else {
+			
+		}
+		req.setAttribute("url", "admin");
+		req.setAttribute("msg", "test중");
+		return "message";
+	}
 	
 	
 	@RequestMapping("room_list.do")
