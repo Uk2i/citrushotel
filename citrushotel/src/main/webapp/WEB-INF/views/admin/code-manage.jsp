@@ -618,6 +618,8 @@
                                     <option value="" selected disabled>선택</option>
                                     <option value="g01">객실타입</option>
                                     <option value="g02">객실시설</option>
+                                    <option value="g03">화면코드</option>
+                                    <option value="g04">영역코드</option>
                                   </select>
                                 </div>
                               </div>
@@ -660,7 +662,7 @@
                               <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                                 취소
                               </button>
-                              <button type="button" class="btn btn-primary">확인</button>
+                              <button type="button" class="btn btn-primary" id="codeadd">확인</button>
                             </div>
                           </div>
                         </div>
@@ -960,10 +962,14 @@
 
     <!-- Page JS -->
     <script src="resources/resource-admin/assets/js/dashboards-analytics.js"></script>
-
+    
+    <!-- code-manage JS -->
+	<script src = "resources/resource-admin/js/code-manage.js"></script>
+	
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script>
+    
       /*-------------------------------------------------------------
       * init
       --------------------------------------------------------------*/
@@ -994,8 +1000,12 @@
         let nowStr = $(this).next()[0].innerText;
         if(nowStr == "사용함"){
           nowStr = "사용안함";
+          $("#cmmnUse").val(0);
+          $("#e_cmmnUse").val(0);
         }else{
           nowStr = "사용함";
+          $("#cmmnUse").val(1);
+          $("#e_cmmnUse").val(1);
         }
         $(this).next()[0].innerText = nowStr;
       });

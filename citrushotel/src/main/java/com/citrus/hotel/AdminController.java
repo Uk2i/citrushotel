@@ -1,9 +1,20 @@
 package com.citrus.hotel;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.citrus.hotel.dto.Hotel_InfoDTO;
+import com.citrus.hotel.dto.MemberDTO;
 import com.citrus.hotel.service.AdminMapper;
 
 
@@ -11,6 +22,9 @@ import com.citrus.hotel.service.AdminMapper;
 public class AdminController {
 	@Autowired
 	private AdminMapper adminMapper;
+	
+	@Autowired
+	BCryptPasswordEncoder pwdEncoder = new BCryptPasswordEncoder();
 	
 	@RequestMapping("adminindex.do")
 	public String adminindex() {
@@ -22,7 +36,7 @@ public class AdminController {
 		return "admin/auth-forgot-password";
 	}
 	
-	@RequestMapping("auth-login.do")
+	@RequestMapping("/admin")
 	public String auth_login() {
 		return "admin/auth-login";
 	}
@@ -33,7 +47,8 @@ public class AdminController {
 	}
 	
 	@RequestMapping("hotel-info.do")
-	public String hotel_info() {
+	public String hotel_info(HttpServletRequest req) {
+		List<Hotel_InfoDTO> hotelInfoList = adminMapper.hotelInfoList();
 		return "admin/hotel-info";
 	}
 	
@@ -70,5 +85,19 @@ public class AdminController {
 	@RequestMapping("user-subscribe.do")
 	public String user_subscribe() {
 		return "admin/user-subscribe";
+	}
+	
+	@RequestMapping("adminlogin.do")
+	public String adminlogin(HttpServletRequest req,HttpSession session ,@ModelAttribute MemberDTO dto) {
+		MemberDTO mdto = adminMapper.adminlogin(dto); 
+		if(mdto == null) {
+			req.setAttribute("url", "admin");
+			req.setAttribute("msg",	"회원이 아닙니다." );
+		}else {
+			
+		}
+		req.setAttribute("url", "admin");
+		req.setAttribute("msg", "test중");
+		return "message";
 	}
 }
