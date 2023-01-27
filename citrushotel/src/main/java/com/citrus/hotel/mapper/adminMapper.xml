@@ -24,6 +24,14 @@
 	<select id="room_data" parameterType="java.util.Map" resultType="roomDTO">
 		select * from room where room_no = ${room_no}
 	</select>
+	
+	<select id="common_data" resultType="commonDTO">
+		select * from common where group_cd = 02
+	</select>
+	
+	<update id="room_edit">
+		
+	</update>
  	
  		<select id="adminlogin" parameterType="com.citrus.hotel.dto.MemberDTO" resultType="com.citrus.hotel.dto.MemberDTO">
 		SELECT * FROM MEMBER WHERE member_email = #{member_email} AND member_grade = #{member_grade}

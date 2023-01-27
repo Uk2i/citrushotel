@@ -939,6 +939,7 @@
                         </tbody>
                       </table>
                       <!-- Modal -->
+                      <form name="edit_room" action="room_edit" method="post">
                       <div class="modal fade" id="modalEditRoom" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                           <div class="modal-content">
@@ -1018,12 +1019,14 @@
                                     <label for="e_roomPrice" class="form-label">1박가격 / Price*</label>
                                     <div class="input-group input-group-merge">
                                       <input
-                                      type="number"
+                                      type="text"
                                       id="e_roomPrice"
                                       class="form-control"
                                       min="0"
                                       placeholder="199,000"
                                       autocomplete="off"
+                                      name="price"
+                                      onKeyup="this.value.replace(/[^-0-9]/g,'');"
                                       />
                                       <span class="input-group-text">원</span>
                                     </div>
@@ -1123,11 +1126,12 @@
                               <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                                 취소
                               </button>
-                              <button type="button" class="btn btn-primary">확인</button>
+                              <button type="submit" class="btn btn-primary">확인</button>
                             </div>
                           </div>
                         </div>
                       </div>
+                      </form>
                     </div>
                   </div>
                 </div>
@@ -1238,6 +1242,7 @@
       /*-------------------------------------------------------------
       * Event Area
       --------------------------------------------------------------*/
+      
       //더보기-수정 버튼 클릭 시
       
       // click 이벤트로 걸려있어서 동적으로 생성된 태그에 적용안되는 문제가 있어서 .on("click") 이벤트로 교체함.
@@ -1250,20 +1255,32 @@
         
         
         //roomNo를 가지고 컨트롤러 다녀오는길에 친구들 데리고 와야함
-        
-        
           $.ajax({
         	type : 'POST'
         	, url : 'room_data.do'
         	, dataType : "json"
         	, data : { room_no : roomNo }
         	, success : function(data){
+        		let btngroup = '';
         		$.each(data.list, function(i){
-        		console.log(this.room_no);
-        		console.log(this.room_price);
-        		console.log(this.room_fit);
-        		console.log(this.room_max);
+        			$("#e_roomType").val(this.room_type).prop("selected",true);
+        			$("#e_roomFit").val(this.room_fit);
+        			$("#e_roomMax").val(this.room_max);
+        			$("#e_roomBed").val(this.room_bed);
+        			
+        			//price 값은 왜 입력이 안되는지 모르겠음 우선은 냅두고 다음작업 진행
+        			$("#e_roomPrice").val(this.room_price);
+        			//$("#e_roomPrice").attr('value',this.room_price);
+
+        			$("#e_roomSize").val(this.room_size);
         		});
+        		
+        		/* $.each(data.cmmnList, function(i){
+        			btngroup += '<input type="checkbox" class="btn-check" id="e_rf'+this.cmmn_cd+'" autocomplete="off" />'
+                    btngroup += '<label class="btn btn-sm btn-outline-primary" for="e_rf'+this.cmmn_cd+'">'+this.cmmn_nm+'</label>'        			
+        		});
+        		
+        		$(".btn-group").append(btngroup); */
         	}
         	, error : function(request, status, error){
         		alert("code : " + request.status + "\n" + "message : " + request.responseText + "\n" + "error : " + error);        		
@@ -1271,6 +1288,10 @@
           	})
         
       });
+      
+      document.getElementById("e_roomPrice").addEventListener("keyup", function (e) {
+    	    $(this).val($(this).val().replace(/\,/g, '').replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,'));
+    	});
 
       //사용 여부 토글 변경 시
       $("#roomUse, #e_roomUse").change(function () {
