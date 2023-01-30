@@ -939,7 +939,7 @@
                         </tbody>
                       </table>
                       <!-- Modal -->
-                      <form name="edit_room" action="room_edit" method="post">
+                      <form name="edit_room" action="room_edit.do" method="post">
                       <div class="modal fade" id="modalEditRoom" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                           <div class="modal-content">
@@ -963,6 +963,7 @@
                                       class="form-control"
                                       placeholder="101"
                                       autocomplete="off"
+                                      name="e_roomNo"
                                     />
                                     <div class="form-text">객실번호는 수정할 수 없습니다.</div>
                                   </div>
@@ -970,7 +971,7 @@
                                 <div class="row">
                                   <div class="col mb-3">
                                     <label for="e_roomType" class="form-label">객실타입 / Room Type*</label>
-                                    <select class="form-select" id="e_roomType" aria-label="Default select example">
+                                    <select class="form-select" id="e_roomType" aria-label="Default select example" name="e_roomType">
                                       <option value="std" selected>Standard</option>
                                       <option value="dlx">Deluxe</option>
                                       <option value="fml">Family</option>
@@ -988,6 +989,7 @@
                                       min="1"
                                       placeholder="2"
                                       autocomplete="off"
+                                      name="e_roomFit"
                                     />
                                   </div>
                                   <div class="col mb-0">
@@ -999,6 +1001,7 @@
                                       placeholder="4"
                                       min="1"
                                       autocomplete="off"
+                                      name="e_roomMax"
                                     />
                                   </div>
                                 </div>
@@ -1011,6 +1014,7 @@
                                       class="form-control"
                                       placeholder="싱글베드 2개"
                                       autocomplete="off"
+                                      name="e_roomBed"
                                     />
                                   </div>
                                 </div>
@@ -1025,7 +1029,7 @@
                                       min="0"
                                       placeholder="199,000"
                                       autocomplete="off"
-                                      name="price"
+                                      name="e_roomPrice"
                                       onKeyup="this.value.replace(/[^-0-9]/g,'');"
                                       />
                                       <span class="input-group-text">원</span>
@@ -1043,6 +1047,7 @@
                                       min="0"
                                       placeholder="44"
                                       autocomplete="off"
+                                      name="e_roomSize"
                                       />
                                       <span class="input-group-text">㎡</span>
                                     </div>
@@ -1051,25 +1056,8 @@
                                 <div class="row">
                                   <div class="col mb-0">
                                     <label for="e_roomFaci" class="form-label d-block">객실시설 / Room facilities</label>
-                                    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                                      <input type="checkbox" class="btn-check" id="e_rf001" autocomplete="off" />
-                                      <label class="btn btn-sm btn-outline-primary" for="e_rf001">샤워실</label>
-                                      <input type="checkbox" class="btn-check" id="e_rf002" autocomplete="off" />
-                                      <label class="btn btn-sm btn-outline-primary" for="e_rf002">커피포트</label>
-                                      <input type="checkbox" class="btn-check" id="e_rf003" autocomplete="off" />
-                                      <label class="btn btn-sm btn-outline-primary" for="e_rf003">책상</label>
-                                      <input type="checkbox" class="btn-check" id="e_rf004" autocomplete="off" />
-                                      <label class="btn btn-sm btn-outline-primary" for="e_rf004">Wifi</label>
-                                      <input type="checkbox" class="btn-check" id="e_rf005" autocomplete="off" />
-                                      <label class="btn btn-sm btn-outline-primary" for="e_rf005">옷장</label>
-                                      <input type="checkbox" class="btn-check" id="e_rf006" autocomplete="off" />
-                                      <label class="btn btn-sm btn-outline-primary" for="e_rf006">어메니티</label>
-                                      <input type="checkbox" class="btn-check" id="e_rf007" autocomplete="off" />
-                                      <label class="btn btn-sm btn-outline-primary" for="e_rf007">TV</label>
-                                      <input type="checkbox" class="btn-check" id="e_rf008" autocomplete="off" />
-                                      <label class="btn btn-sm btn-outline-primary" for="e_rf008">안전 금고</label>
-                                      <input type="checkbox" class="btn-check" id="e_rf009" autocomplete="off" />
-                                      <label class="btn btn-sm btn-outline-primary" for="e_rf009">타월</label>
+                                    <div class="btn-group btn-group-edit" role="group" aria-label="Basic checkbox toggle button group">
+                                     
                                     </div>
                                   </div>
                                 </div>
@@ -1261,6 +1249,7 @@
         	, dataType : "json"
         	, data : { room_no : roomNo }
         	, success : function(data){
+        		$(".btn-group-edit").empty();
         		let btngroup = '';
         		$.each(data.list, function(i){
         			$("#e_roomType").val(this.room_type).prop("selected",true);
@@ -1268,19 +1257,32 @@
         			$("#e_roomMax").val(this.room_max);
         			$("#e_roomBed").val(this.room_bed);
         			
-        			//price 값은 왜 입력이 안되는지 모르겠음 우선은 냅두고 다음작업 진행
+        			//price값은 콤마로 찍어주는 바람에 number 형태의 칸에 들어가지 않아 수정.
         			$("#e_roomPrice").val(this.room_price);
         			//$("#e_roomPrice").attr('value',this.room_price);
 
         			$("#e_roomSize").val(this.room_size);
         		});
         		
-        		/* $.each(data.cmmnList, function(i){
+        		//ajax로 불러온 체크박스를 체크되어야 하는애들 체크 된 채로 로드 시키는 기능을 구현중
+        		$.each(data.cmmnList, function(i){
         			btngroup += '<input type="checkbox" class="btn-check" id="e_rf'+this.cmmn_cd+'" autocomplete="off" />'
-                    btngroup += '<label class="btn btn-sm btn-outline-primary" for="e_rf'+this.cmmn_cd+'">'+this.cmmn_nm+'</label>'        			
+                    btngroup += '<label class="btn btn-sm btn-outline-primary" for="e_rf'+this.cmmn_cd+'">'+this.cmmn_nm+'</label>' 
+                    
+                    let cmmncode = this.cmmn_cd
+	        		$.each(data.facilitiesList, function(i){
+        				if(this.roomf_cd == cmmncode){
+        					if(this.roomf_use == 1){
+        						
+        					}
+        				}			
+    	    		});
         		});
         		
-        		$(".btn-group").append(btngroup); */
+        		$(".btn-group-edit").append(btngroup);
+        		
+        		
+        		
         	}
         	, error : function(request, status, error){
         		alert("code : " + request.status + "\n" + "message : " + request.responseText + "\n" + "error : " + error);        		
@@ -1289,6 +1291,7 @@
         
       });
       
+      //price 값을 위한 컴마찍기
       document.getElementById("e_roomPrice").addEventListener("keyup", function (e) {
     	    $(this).val($(this).val().replace(/\,/g, '').replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,'));
     	});
