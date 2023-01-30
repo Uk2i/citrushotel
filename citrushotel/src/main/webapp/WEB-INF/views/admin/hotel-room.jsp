@@ -1264,15 +1264,18 @@
         			$("#e_roomSize").val(this.room_size);
         		});
         		
-        		//ajax로 불러온 체크박스를 체크되어야 하는애들 체크 된 채로 로드 시키는 기능을 구현중
+        		//ajax로 불러온 체크박스를 체크되어야 하는애들 체크 된 채로 로드 시키기
         		$.each(data.cmmnList, function(i){
-        			btngroup += '<input type="checkbox" class="btn-check" id="e_rf'+this.cmmn_cd+'" autocomplete="off" />'
-                    btngroup += '<label class="btn btn-sm btn-outline-primary" for="e_rf'+this.cmmn_cd+'">'+this.cmmn_nm+'</label>' 
-                    
                     let cmmncode = this.cmmn_cd
-	        		$.each(data.facilitiesList, function(i){
+                    let cmmnname = this.cmmn_nm
+                    $.each(data.facilitiesList, function(i){
         				if(this.roomf_cd == cmmncode){
         					if(this.roomf_use == 1){
+			        			btngroup += '<input type="checkbox" class="btn-check" id="e_rf'+cmmncode+'" autocomplete="off" checked/>'
+            			        btngroup += '<label class="btn btn-sm btn-outline-primary" for="e_rf'+cmmncode+'">'+cmmnname+'</label>'         						
+        					} else{
+			        			btngroup += '<input type="checkbox" class="btn-check" id="e_rf'+cmmncode+'" autocomplete="off" />'
+            			        btngroup += '<label class="btn btn-sm btn-outline-primary" for="e_rf'+cmmncode+'">'+cmmnname+'</label>' 
         						
         					}
         				}			
