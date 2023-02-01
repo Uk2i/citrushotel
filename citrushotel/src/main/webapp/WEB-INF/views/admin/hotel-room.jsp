@@ -1298,7 +1298,7 @@
       document.getElementById("e_roomPrice").addEventListener("keyup", function (e) {
     	    $(this).val($(this).val().replace(/\,/g, '').replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,'));
     	});
-
+ 
       //사용 여부 토글 변경 시
       $("#roomUse, #e_roomUse").change(function () {
         let nowStr = $(this).next()[0].innerText;
