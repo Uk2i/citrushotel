@@ -765,7 +765,7 @@
                                       </thead>
                                       <tbody class="table-border-bottom-0">
                                         <tr class="nullTr">
-                                          <td colspan="3"><small>업로드된 이미지 없음</small></td>
+                                          <td colspan="4"><small>업로드된 이미지 없음</small></td>
                                         </tr>
                                         <!-- <tr>
                                           <td>room101-0.jpg</td>
@@ -1094,7 +1094,7 @@
                                       </thead>
                                       <tbody class="table-border-bottom-0">
                                         <tr class="nullTr">
-                                          <td colspan="3"><small>업로드된 이미지 없음</small></td>
+                                          <td colspan="4"><small>업로드된 이미지 없음</small></td>
                                         </tr>
                                         <!-- <tr>
                                           <td>room101-0.jpg</td>
@@ -1419,7 +1419,7 @@
       //이미지 리스트 null 상태
       function setImgListNull(mode) {
         let tr = "<tr class='nullTr'>"
-        tr += "<td colspan='3'><small>업로드된 이미지 없음</small></td>"
+        tr += "<td colspan='4'><small>업로드된 이미지 없음</small></td>"
         tr += "</tr>";
         $("#" + mode + " tbody").append(tr);
       }
