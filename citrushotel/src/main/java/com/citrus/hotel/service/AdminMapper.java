@@ -52,4 +52,8 @@ public class AdminMapper {
 	public int room_edit(Map<String,Object>map) {
 		return sqlSession.update("room_edit");
 	}
+
+	public int changepasswd(MemberDTO dto) {
+		return sqlSession.update("adminpwchange",dto);
+	}
 }

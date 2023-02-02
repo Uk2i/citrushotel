@@ -41,6 +41,11 @@ public class AdminController {
 	public String auth_login() {
 		return "admin/auth-login";
 	}
+
+	@RequestMapping("adminloginpage.do")
+	public String adminlogin() {
+		return "admin/auth-login";
+	}
 	
 	@RequestMapping("code-manage.do")
 	public String code_manage() {

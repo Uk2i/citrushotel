@@ -40,5 +40,9 @@
  		<select id="adminlogin" parameterType="com.citrus.hotel.dto.MemberDTO" resultType="com.citrus.hotel.dto.MemberDTO">
 		SELECT * FROM MEMBER WHERE member_email = #{member_email} AND member_grade = #{member_grade}
 	</select>
+	
+	<update id="adminpwchange" parameterType="com.citrus.hotel.dto.MemberDTO">
+		UPDATE  MEMBER SET MEMBER_PW = #{member_pw} WHERE MEMBER_EMAIL = #{member_email} AND MEMBER_GRADE = #{member_grade}
+	</update>
  	
  </mapper>

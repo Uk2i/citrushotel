@@ -435,7 +435,7 @@
               </div>
               <button id="getConfirmNumber" type="button" class="btn btn-primary d-grid w-100 mb-3" onclick="showConfirmArea();">인증번호 받기</button>
               <div class="text-center">
-                <a href="auth-login.html" class="d-flex align-items-center justify-content-center">
+                <a href="adminloginpage.do" class="d-flex align-items-center justify-content-center">
                   <i class="bx bx-chevron-left scaleX-n1-rtl bx-sm"></i>
                   로그인 화면으로 돌아가기
                 </a>
@@ -469,70 +469,7 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <script>
-      function showConfirmArea(){
-        if(checkEmail()){
-          //인증번호란 생성
-          let inputHtml = "<label for='email' class='form-label'>인증번호 / Confirm Number</label>"
-                    +" <input type='text'"
-                    +" class='form-control mb-3'"
-                    +" id='email'"
-                    +" name='email'"
-                    +" placeholder='Enter your email'"
-                    +" autofocus"
-                    + "/>";
-          $("#confirmArea").html(inputHtml);
-
-          //인증번호 확인 버튼 생성
-          $("#getConfirmNumber").remove();
-          
-          let buttonHtml = "<button id='okConfirmNumber' type='button' class='btn btn-primary d-grid w-100' onclick='checkConfirmNumber();'>인증번호 확인</button>";
-          $("#confirmArea").append(buttonHtml);
-        }else{
-          alert("존재하지 않는 이메일입니다.");
-        }
-      }
-
-      //To Do : email이 관리자 이메일이 맞는지 체크하는 함수
-      function checkEmail(){
-        let result = true;
-        return result;
-      }
-
-      //To Do : 인증번호가 맞는지 체크하는 함수
-      function checkConfirmNumber(){
-        let inputNumber = $("#okConfirmNumber").val();
-        let result = true;
-        
-        if(result){
-          $("p.description").remove();
-          $("label[for=email]").remove();
-          $("input#email").remove();
-          $("#confirmArea").html("");
-
-          let inputHtml1 = "<label for='email' class='form-label'>비밀번호 / Password</label>"
-                    +" <input type='password'"
-                    +" class='form-control mb-3'"
-                    +" id='pwd'"
-                    +" autofocus"
-                    + "/>";
-          let inputHtml2 = "<label for='email' class='form-label'>비밀번호 확인 / Password Confirm</label>"
-                    +" <input type='password'"
-                    +" class='form-control mb-3'"
-                    +" id='pwdConfirm'"
-                    + "/>";
-          let buttonHtml = "<button id='changePwd' type='button' class='btn btn-primary d-grid w-100' onclick='changePwd();'>비밀번호 변경</button>";
-          $("#confirmArea").html(inputHtml1);
-          $("#confirmArea").append(inputHtml2);
-          $("#confirmArea").append(buttonHtml);
-        }
-      }
-
-      //To Do : 비밀번호 변경 함수
-      function changePwd(){
-
-      }
-    </script>
+    <script src="resources/resource-admin/js/forgot-password.js"></script>
   
   
   </body>
