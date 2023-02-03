@@ -8,4 +8,5 @@ import lombok.Setter;
 public class GroupDTO {
 	private String group_cd;
 	private String group_nm;
+	private String group_use;
 }

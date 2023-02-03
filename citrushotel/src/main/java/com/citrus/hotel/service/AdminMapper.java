@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.citrus.hotel.dto.CommonDTO;
+import com.citrus.hotel.dto.GroupDTO;
 import com.citrus.hotel.dto.Hotel_InfoDTO;
 import com.citrus.hotel.dto.MemberDTO;
 import com.citrus.hotel.dto.RoomDTO;
@@ -55,5 +56,13 @@ public class AdminMapper {
 
 	public int changepasswd(MemberDTO dto) {
 		return sqlSession.update("adminpwchange",dto);
+	}
+
+	public List<GroupDTO> groupList() {
+		return sqlSession.selectList("group_list");
+	}
+
+	public int insertcommon(CommonDTO dto) {
+		return sqlSession.insert("insertcode",dto);
 	}
 }

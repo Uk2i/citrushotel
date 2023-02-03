@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
 <!-- =========================================================
@@ -543,8 +544,8 @@
                           <div class="flex-shrink-0 me-3">
                           </div>
                           <div class="flex-grow-1">
-                            <span class="fw-semibold d-block">이지수</span>
-                            <small class="text-muted">zysu96@gmail.com</small>
+                            <span class="fw-semibold d-block">${memberDTO.member_name}</span>
+                            <small class="text-muted">${memberDTO.member_email}</small>
                           </div>
                         </div>
                       </a>
@@ -562,7 +563,7 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="auth-login.do">
+                      <a class="dropdown-item" href="logout.do">
                         <i class="bx bx-power-off me-2"></i>
                         <span class="align-middle">Log Out</span>
                       </a>
@@ -589,8 +590,9 @@
                     <div class="card-header d-flex justify-content-between align-items-center">
                       <select class="form-select h-25" style="width:15%" id="selectGroupCd" aria-label="select group">
                         <option value="g" selected>전체</option>
-                        <option value="g01">객실타입</option>
-                        <option value="g02">객실시설</option>
+                      <c:forEach var="dto" items ="${glist}">
+                        <option value="${dto.group_cd}">${dto.group_nm} </option>
+                      </c:forEach>
                       </select>
                       <small class="float-end">
                         <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modalAddCmmn" onclick="resetAddFormInput();">
@@ -614,21 +616,20 @@
                               <div class="row">
                                 <div class="col mb-3">
                                   <label for="roomNo" class="form-label">그룹 / Group*</label>
-                                  <select class="form-select" id="groupCd" aria-label="select group" required>
+                                  <select class="form-select" id="addgroupCd" aria-label="select group" required>
                                     <option value="" selected disabled>선택</option>
-                                    <option value="g01">객실타입</option>
-                                    <option value="g02">객실시설</option>
-                                    <option value="g03">화면코드</option>
-                                    <option value="g04">영역코드</option>
+                                    <c:forEach var="dto" items ="${glist}">
+                        				<option value="${dto.group_cd}">${dto.group_nm} </option>
+                     				</c:forEach>
                                   </select>
                                 </div>
                               </div>
                               <div class="row g-2">
                                 <div class="col mb-3">
-                                  <label for="cmmnCd" class="form-label">공통코드 / Common Code*</label>
+                                  <label for="addcmmnCd" class="form-label">공통코드 / Common Code*</label>
                                   <input
                                     type="text"
-                                    id="cmmnCd"
+                                    id="addcmmnCd"
                                     class="form-control"
                                     placeholder="std"
                                     autocomplete="off"
@@ -636,10 +637,10 @@
                                   />
                                 </div>
                                 <div class="col mb-0">
-                                  <label for="cmmnNm" class="form-label">공통이름 / Common Name*</label>
+                                  <label for="addcmmnNm" class="form-label">공통이름 / Common Name*</label>
                                   <input
                                     type="text"
-                                    id="cmmnNm"
+                                    id="addcmmnNm"
                                     class="form-control"
                                     placeholder="Standard Room"
                                     autocomplete="off"
@@ -650,7 +651,7 @@
                                 <div class="col mb-0">
                                   <label class="form-label d-block">사용여부 / Whether Use*</label>
                                   <div class="form-check form-switch mb-0">
-                                    <input class="form-check-input" type="checkbox" id="cmmnUse" checked />
+                                    <input class="form-check-input" type="checkbox" id="addcmmnUse" value=1 checked />
                                     <label class="form-check-label" for="cmmnUse">
                                       사용함
                                     </label>
@@ -875,8 +876,9 @@
                                 <div class="col mb-3">
                                   <label for="roomNo" class="form-label">그룹 / Group*</label>
                                   <select class="form-select" id="e_groupCd" aria-label="select group" disabled>
-                                    <option value="g01" selected>객실타입</option>
-                                    <option value="g02">객실시설</option>
+                                 	<c:forEach var="dto" items ="${glist}">
+                        				<option value="${dto.group_cd}">${dto.group_nm} </option>
+                     				</c:forEach>
                                   </select>
                                 </div>
                               </div>
@@ -996,15 +998,15 @@
       })
 
       //사용 여부 토글 변경 시
-      $("#cmmnUse, #e_cmmnUse").change(function(){
+      $("#addcmmnUse, #e_cmmnUse").change(function(){
         let nowStr = $(this).next()[0].innerText;
         if(nowStr == "사용함"){
           nowStr = "사용안함";
-          $("#cmmnUse").val(0);
+          $("#addcmmnUse").val(0);
           $("#e_cmmnUse").val(0);
         }else{
           nowStr = "사용함";
-          $("#cmmnUse").val(1);
+          $("#addcmmnUse").val(1);
           $("#e_cmmnUse").val(1);
         }
         $(this).next()[0].innerText = nowStr;

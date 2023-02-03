@@ -45,4 +45,10 @@
 		UPDATE  MEMBER SET MEMBER_PW = #{member_pw} WHERE MEMBER_EMAIL = #{member_email} AND MEMBER_GRADE = #{member_grade}
 	</update>
  	
+ 	<select id="group_list" resultType="com.citrus.hotel.dto.GroupDTO">
+ 		SELECT * FROM "GROUP"
+ 	</select>
+ 	<insert id="insertcode" parameterType="com.citrus.hotel.dto.CommonDTO">
+ 		INSERT INTO common values(#{cmmn_cd}, #{group_cd}, #{cmmn_nm},#{cmmn_use})
+ 	</insert>
  </mapper>

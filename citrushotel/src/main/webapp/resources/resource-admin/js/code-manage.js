@@ -1,17 +1,25 @@
 function codeadd(){
-	var use = $("#cmmnUse").val();
-	var gcd = $("#groupCd").val();
-	var cmmncd = $("#cmmnCD").val();
-	var cmmnnm = $("#cmmnNm").val();
+	var use = $("#addcmmnUse").val();
+	var gcd = $("#addgroupCd option:selected").val();
+	var cmmncd = $("#addcmmnCd").val();
+	var cmmnnm = $("#addcmmnNm").val();
 	$.ajax({
 		type : "post",
 		url : "codeadd.do",
 		dateType : "json",
 		data :{
-			
+			cmmn_cd : cmmncd,
+			group_cd : gcd,
+			cmmn_nm : cmmnnm,
+			cmmn_use : use
 		},
 		success : function(res){
-			
+			if(res==1){
+				alert("등록되었습니다.");
+				$("#modalAddCmmn").modal('hide');
+			}else{
+				alert("등록실패하였습니다.");
+			};
 		},
 		error : function(err){
 			console.log(err);

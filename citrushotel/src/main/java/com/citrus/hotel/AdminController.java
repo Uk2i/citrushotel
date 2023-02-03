@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.citrus.hotel.dto.CommonDTO;
+import com.citrus.hotel.dto.GroupDTO;
 import com.citrus.hotel.dto.Hotel_InfoDTO;
 import com.citrus.hotel.dto.MemberDTO;
 import com.citrus.hotel.dto.RoomDTO;
@@ -48,7 +49,9 @@ public class AdminController {
 	}
 	
 	@RequestMapping("code-manage.do")
-	public String code_manage() {
+	public String code_manage(HttpServletRequest req) {
+		List<GroupDTO> glist = adminMapper.groupList();
+		req.setAttribute("glist", glist);
 		return "admin/code-manage";
 	}
 	
@@ -98,7 +101,7 @@ public class AdminController {
 		
 		MemberDTO mdto = adminMapper.adminlogin(dto); 
 		if(mdto == null) {
-			req.setAttribute("url", "admin");
+			req.setAttribute("url", "adminloginpage.do");
 			req.setAttribute("msg",	"회원이 아닙니다." );
 		}else {
 			boolean pwdMatch = false;
@@ -109,7 +112,7 @@ public class AdminController {
 				session.setAttribute("memberDTO", mdto);
 			}else {
 				req.setAttribute("msg", "이메일 또는 패스워드가 불일치합니다. 다시입력해주세요.");
-				req.setAttribute("url", "admin");
+				req.setAttribute("url", "adminloginpage.do");
 			}
 		}
 
@@ -126,6 +129,14 @@ public class AdminController {
 		resMap.put("list", list);
 		
 		return resMap;
+	}
+	
+	@RequestMapping("logout.do")
+	public String logout(HttpServletRequest req, HttpSession session) {
+		session.invalidate();
+		req.setAttribute("msg", "로그아웃 되었습니다.");
+		req.setAttribute("url", "adminloginpage.do");
+		return "message";
 	}
 	
 	

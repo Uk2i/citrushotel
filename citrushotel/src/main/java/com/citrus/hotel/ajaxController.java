@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.citrus.hotel.dto.CommonDTO;
 import com.citrus.hotel.dto.MemberDTO;
 import com.citrus.hotel.dto.NewsDTO;
 import com.citrus.hotel.service.AdminMapper;
@@ -65,6 +66,12 @@ public class ajaxController {
 		dto.setMember_grade(5);
 		int res = adminMapper.changepasswd(dto);
 		
+		return res;
+	}
+	
+	@RequestMapping("codeadd.do")
+	public @ResponseBody int codeadd(@ModelAttribute CommonDTO dto) {
+		int res = adminMapper.insertcommon(dto);
 		return res;
 	}
 }
