@@ -150,8 +150,10 @@ public class AdminController {
 		
 		System.out.println(map + "??map??");
 		
+		
 		for(int i=0;i<e_cmmn_cd.length;i++) {
 			System.out.println(e_cmmn_cd[i]);
+			
 		}
 		System.out.println(map.get("e_roomNo"));
 		System.out.println(map.get("e_roomType"));
