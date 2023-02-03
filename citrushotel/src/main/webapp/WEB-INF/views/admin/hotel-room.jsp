@@ -1057,7 +1057,6 @@
                                   <div class="col mb-0">
                                     <label for="e_roomFaci" class="form-label d-block">객실시설 / Room facilities</label>
                                     <div class="btn-group btn-group-edit" role="group" aria-label="Basic checkbox toggle button group">
-                                     
                                     </div>
                                   </div>
                                 </div>
@@ -1114,7 +1113,7 @@
                               <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                                 취소
                               </button>
-                              <button type="submit" class="btn btn-primary">확인</button>
+                              <button type="submit" class="btn btn-primary" id="edit_room">확인</button>
                             </div>
                           </div>
                         </div>
@@ -1218,6 +1217,7 @@
         })
         
         
+        
       });
 
       /*-------------------------------------------------------------
@@ -1231,8 +1231,7 @@
       * Event Area
       --------------------------------------------------------------*/
       
-      //더보기-수정 버튼 클릭 시
-      
+      //더보기-수정 버튼 클릭 시   
       // click 이벤트로 걸려있어서 동적으로 생성된 태그에 적용안되는 문제가 있어서 .on("click") 이벤트로 교체함.
       $(document).on("click","tr .dropdown-item[data-bs-target='#modalEditRoom']",function () {
         let roomNo = $(this).closest("tr").children()[0].innerText;
@@ -1271,16 +1270,17 @@
                     $.each(data.facilitiesList, function(i){
         				if(this.roomf_cd == cmmncode){
         					if(this.roomf_use == 1){
-			        			btngroup += '<input type="checkbox" class="btn-check" id="e_rf'+cmmncode+'" autocomplete="off" checked/>'
+			        			btngroup += '<input type="checkbox" class="btn-check" id="e_rf'+cmmncode+'" name="e_cmmn_cd" value="'+cmmncode+'" autocomplete="off" checked/>'
             			        btngroup += '<label class="btn btn-sm btn-outline-primary" for="e_rf'+cmmncode+'">'+cmmnname+'</label>'         						
         					} else{
-			        			btngroup += '<input type="checkbox" class="btn-check" id="e_rf'+cmmncode+'" autocomplete="off" />'
+			        			btngroup += '<input type="checkbox" class="btn-check" id="e_rf'+cmmncode+'" name="e_cmmn_cd" value="'+cmmncode+'" autocomplete="off" />'
             			        btngroup += '<label class="btn btn-sm btn-outline-primary" for="e_rf'+cmmncode+'">'+cmmnname+'</label>' 
         						
         					}
         				}			
     	    		});
         		});
+        		btngroup += '<input type="hidden" name="hiddenValue" id="hiddenValue" value=""/>'
         		
         		$(".btn-group-edit").append(btngroup);
         		
@@ -1349,6 +1349,17 @@
         } else {
           sortImgList(mode);
         }
+      });
+      
+      $(document).on("click","#edit_room",function () {
+    	  let obj = $("[name=e_cmmn_cd]:checked");
+    	  let chkArray = new Array();
+    	 
+    	  obj.each(function(){
+    		 chkArray += $(this).val() + "/"; 
+    	  });
+          
+    	  $("#hiddenValue").val(checkArray);
       });
 
 
