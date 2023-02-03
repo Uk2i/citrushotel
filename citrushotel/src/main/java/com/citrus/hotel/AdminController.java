@@ -157,10 +157,24 @@ public class AdminController {
 	}
 	
 	@RequestMapping("room_edit.do")
-	public @ResponseBody String room_edit(@RequestParam Map<String,Object>map){
+	public @ResponseBody String room_edit(@RequestParam Map<String,Object>map, String[] e_cmmn_cd){
 		
 		System.out.println(map + "??map??");
+		
+		
+		for(int i=0;i<e_cmmn_cd.length;i++) {
+			System.out.println(e_cmmn_cd[i]);
+			
+		}
 		System.out.println(map.get("e_roomNo"));
+		System.out.println(map.get("e_roomType"));
+		System.out.println(map.get("e_roomFit"));
+		System.out.println(map.get("e_roomMax"));
+		System.out.println(map.get("e_roomBed"));
+		System.out.println(map.get("e_roomPrice"));
+		System.out.println(map.get("e_roomSize"));
+		System.out.println(map.get("cmmn_cd"));
+		System.out.println(map.get("hiddenValue"));
 //		int res = adminMapper.room_edit(map);
 		
 //		if(res == 0) {
