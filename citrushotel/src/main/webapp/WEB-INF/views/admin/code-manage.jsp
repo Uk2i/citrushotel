@@ -589,9 +589,9 @@
                   <div class="card mb-4">
                     <div class="card-header d-flex justify-content-between align-items-center">
                       <select class="form-select h-25" style="width:15%" id="selectGroupCd" aria-label="select group">
-                        <option value="g" selected>전체</option>
+                        <option value="all" selected>전체</option>
                       <c:forEach var="dto" items ="${glist}">
-                        <option value="${dto.group_cd}">${dto.group_nm} </option>
+                        <option value="${dto.group_nm}">${dto.group_nm} </option>
                       </c:forEach>
                       </select>
                       <small class="float-end">
@@ -681,11 +681,12 @@
                           </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
+                        <c:forEach var="dto" items ="${cglist}">
                           <tr>
-                            <td>01</td>
-                            <td>객실타입</td>
-                            <td>std</td>
-                            <td>Standard Room</td>
+                            <td>${dto.group_cd}</td>
+                            <td>${dto.group_nm}</td>
+                            <td>${dto.cmmn_cd}</td>
+                            <td>${dto.cmmn_nm}</td>
                             <td>
                               <div class="dropdown">
                                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
@@ -700,162 +701,7 @@
                               </div>
                             </td>
                           </tr>
-                          <tr>
-                            <td>01</td>
-                            <td>객실타입</td>
-                            <td>dlx</td>
-                            <td>Deluxe Room</td>
-                            <td>
-                              <div class="dropdown"><button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i
-                                    class="bx bx-dots-vertical-rounded"></i></button>
-                                <div class="dropdown-menu"><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalEditCmmn"><i
-                                      class="bx bx-edit-alt me-1"></i>수정</a></div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>01</td>
-                            <td>객실타입</td>
-                            <td>fml</td>
-                            <td>Family Room</td>
-                            <td>
-                              <div class="dropdown"><button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i
-                                    class="bx bx-dots-vertical-rounded"></i></button>
-                                <div class="dropdown-menu"><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalEditCmmn"><i
-                                      class="bx bx-edit-alt me-1"></i>수정</a></div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>01</td>
-                            <td>객실타입</td>
-                            <td>prm</td>
-                            <td>Premium Room</td>
-                            <td>
-                              <div class="dropdown"><button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i
-                                    class="bx bx-dots-vertical-rounded"></i></button>
-                                <div class="dropdown-menu"><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalEditCmmn"><i
-                                      class="bx bx-edit-alt me-1"></i>수정</a></div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>02</td>
-                            <td>객실시설</td>
-                            <td>001</td>
-                            <td>샤워실</td>
-                            <td>
-                              <div class="dropdown"><button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i
-                                    class="bx bx-dots-vertical-rounded"></i></button>
-                                <div class="dropdown-menu"><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalEditCmmn"><i
-                                      class="bx bx-edit-alt me-1"></i>수정</a></div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>02</td>
-                            <td>객실시설</td>
-                            <td>002</td>
-                            <td>커피포트</td>
-                            <td>
-                              <div class="dropdown"><button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i
-                                    class="bx bx-dots-vertical-rounded"></i></button>
-                                <div class="dropdown-menu"><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalEditCmmn"><i
-                                      class="bx bx-edit-alt me-1"></i>수정</a></div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>02</td>
-                            <td>객실시설</td>
-                            <td>003</td>
-                            <td>책상</td>
-                            <td>
-                              <div class="dropdown"><button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i
-                                    class="bx bx-dots-vertical-rounded"></i></button>
-                                <div class="dropdown-menu"><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalEditCmmn"><i
-                                      class="bx bx-edit-alt me-1"></i>수정</a></div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>02</td>
-                            <td>객실시설</td>
-                            <td>004</td>
-                            <td>Wifi</td>
-                            <td>
-                              <div class="dropdown"><button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i
-                                    class="bx bx-dots-vertical-rounded"></i></button>
-                                <div class="dropdown-menu"><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalEditCmmn"><i
-                                      class="bx bx-edit-alt me-1"></i>수정</a></div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>02</td>
-                            <td>객실시설</td>
-                            <td>005</td>
-                            <td>옷장</td>
-                            <td>
-                              <div class="dropdown"><button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i
-                                    class="bx bx-dots-vertical-rounded"></i></button>
-                                <div class="dropdown-menu"><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalEditCmmn"><i
-                                      class="bx bx-edit-alt me-1"></i>수정</a></div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>02</td>
-                            <td>객실시설</td>
-                            <td>006</td>
-                            <td>어메니티</td>
-                            <td>
-                              <div class="dropdown"><button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i
-                                    class="bx bx-dots-vertical-rounded"></i></button>
-                                <div class="dropdown-menu"><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalEditCmmn"><i
-                                      class="bx bx-edit-alt me-1"></i>수정</a></div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>02</td>
-                            <td>객실시설</td>
-                            <td>007</td>
-                            <td>TV</td>
-                            <td>
-                              <div class="dropdown"><button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i
-                                    class="bx bx-dots-vertical-rounded"></i></button>
-                                <div class="dropdown-menu"><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalEditCmmn"><i
-                                      class="bx bx-edit-alt me-1"></i>수정</a></div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>02</td>
-                            <td>객실시설</td>
-                            <td>008</td>
-                            <td>안전 금고</td>
-                            <td>
-                              <div class="dropdown"><button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i
-                                    class="bx bx-dots-vertical-rounded"></i></button>
-                                <div class="dropdown-menu"><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalEditCmmn"><i
-                                      class="bx bx-edit-alt me-1"></i>수정</a></div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>02</td>
-                            <td>객실시설</td>
-                            <td>009</td>
-                            <td>타월</td>
-                            <td>
-                              <div class="dropdown"><button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i
-                                    class="bx bx-dots-vertical-rounded"></i></button>
-                                <div class="dropdown-menu"><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalEditCmmn"><i
-                                      class="bx bx-edit-alt me-1"></i>수정</a></div>
-                              </div>
-                            </td>
-                          </tr>
+                          </c:forEach>
                         </tbody>
                       </table>
                       <!-- Modal -->
@@ -909,7 +755,7 @@
                                 <div class="col mb-0">
                                   <label class="form-label d-block">사용여부 / Whether Use*</label>
                                   <div class="form-check form-switch mb-0">
-                                    <input class="form-check-input" type="checkbox" id="e_cmmnUse" checked />
+                                    <input class="form-check-input" type="checkbox" id="e_cmmnUse" value=1 checked />
                                     <label class="form-check-label" for="e_cmmnUse">
                                       사용함
                                     </label>
@@ -921,7 +767,7 @@
                               <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                                 취소
                               </button>
-                              <button type="button" class="btn btn-primary">확인</button>
+                              <button type="button" class="btn btn-primary" id="coedit">확인</button>
                             </div>
                           </div>
                         </div>
@@ -990,9 +836,11 @@
       //더보기-수정 버튼 클릭 시
       $("tr .dropdown-item[data-bs-target='#modalEditCmmn']").click(function(){
         let groupCd = $(this).closest("tr").children()[0].innerText;
+        let cmmnNm = $(this).closest("tr").children()[3].innerText;
         let cmmnCd = $(this).closest("tr").children()[2].innerText;
-        $("#modalEditCmmn select#e_groupCd").val("g"+groupCd).prop("selected", true);
+        $("#modalEditCmmn select#e_groupCd").val(groupCd).prop("selected", true);
         $("#modalEditCmmn input#e_cmmnCd").val(cmmnCd);
+        $("#modalEditCmmn input#e_cmmnNm").val(cmmnNm);
 
         //To Do : groupCd와 cmmnCd값으로 CMMN 테이블 조회 후 input들에 setting
       })

@@ -51,4 +51,16 @@
  	<insert id="insertcode" parameterType="com.citrus.hotel.dto.CommonDTO">
  		INSERT INTO common values(#{cmmn_cd}, #{group_cd}, #{cmmn_nm},#{cmmn_use})
  	</insert>
+ 	<select id="cgroup_list" resultType="com.citrus.hotel.dto.CGroupDTO">
+ 		SELECT common.*,"GROUP".GROUP_NM FROM COMMON JOIN "GROUP" ON common.GROUP_CD = "GROUP".GROUP_CD
+ 	</select>
+
+ 	<select id="sercgroup_list" parameterType="com.citrus.hotel.dto.CGroupDTO" resultType="com.citrus.hotel.dto.CGroupDTO">
+ 		SELECT common.*,"GROUP".GROUP_NM FROM COMMON JOIN "GROUP" ON common.GROUP_CD = "GROUP".GROUP_CD WHERE GROUP_NM = #{group_nm}
+ 	</select>
+	
+ 	<update id="coedit" parameterType="com.citrus.hotel.dto.CommonDTO">
+		UPDATE  COMMON SET CMMN_NM = #{cmmn_nm}, CMMN_USE = #{cmmn_use} WHERE CMMN_CD = #{cmmn_cd}
+	</update>
+ 	
  </mapper>

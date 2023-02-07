@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.citrus.hotel.dto.CGroupDTO;
 import com.citrus.hotel.dto.CommonDTO;
 import com.citrus.hotel.dto.GroupDTO;
 import com.citrus.hotel.dto.Hotel_InfoDTO;
@@ -64,5 +65,17 @@ public class AdminMapper {
 
 	public int insertcommon(CommonDTO dto) {
 		return sqlSession.insert("insertcode",dto);
+	}
+
+	public List<CGroupDTO> cgroupList() {
+		return sqlSession.selectList("cgroup_list");
+	}
+
+	public int updatecommon(CommonDTO dto) {
+		return sqlSession.update("coedit", dto);
+	}
+
+	public List<CGroupDTO> cgroupList(GroupDTO dto) {
+		return sqlSession.selectList("sercgroup_list",dto);
 	}
 }

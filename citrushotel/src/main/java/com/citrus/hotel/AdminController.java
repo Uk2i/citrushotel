@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.citrus.hotel.dto.CGroupDTO;
 import com.citrus.hotel.dto.CommonDTO;
 import com.citrus.hotel.dto.GroupDTO;
 import com.citrus.hotel.dto.Hotel_InfoDTO;
@@ -51,7 +52,9 @@ public class AdminController {
 	@RequestMapping("code-manage.do")
 	public String code_manage(HttpServletRequest req) {
 		List<GroupDTO> glist = adminMapper.groupList();
+		List<CGroupDTO>cglist = adminMapper.cgroupList();
 		req.setAttribute("glist", glist);
+		req.setAttribute("cglist", cglist);
 		return "admin/code-manage";
 	}
 	
