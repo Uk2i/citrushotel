@@ -178,6 +178,8 @@ public class AdminController {
 		System.out.println(map.get("e_roomSize"));
 		System.out.println(map.get("cmmn_cd"));
 		System.out.println(map.get("hiddenValue"));
+		System.out.println(map.get("hiddenValue"));
+		System.out.println(map.get("hiddenValue"));
 //		int res = adminMapper.room_edit(map);
 		
 //		if(res == 0) {
