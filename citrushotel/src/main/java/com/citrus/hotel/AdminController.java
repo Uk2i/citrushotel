@@ -72,6 +72,11 @@ public class AdminController {
 	
 	@RequestMapping("hotel-room.do")
 	public String hotel_room() {
+		
+		
+		
+		
+		
 		return "admin/hotel-room";
 	}
 	
