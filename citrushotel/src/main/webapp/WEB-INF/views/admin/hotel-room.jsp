@@ -1124,6 +1124,7 @@
       --------------------------------------------------------------*/
       
       //더보기-수정 버튼 클릭 시   
+      
       // click 이벤트로 걸려있어서 동적으로 생성된 태그에 적용안되는 문제가 있어서 .on("click") 이벤트로 교체함.
       $(document).on("click","tr .dropdown-item[data-bs-target='#modalEditRoom']",function () {
         let roomNo = $(this).closest("tr").children()[0].innerText;
@@ -1153,6 +1154,12 @@
         			//$("#e_roomPrice").attr('value',this.room_price);
 
         			$("#e_roomSize").val(this.room_size);
+        			
+        			console.log(this.room_use+"rooooooomussssssseee");
+        			
+        			if(this.room_use == '0'){
+        				$("input[name=e_roomUse]").removeAttr('checked')
+        			}
         		});
         		
         		//ajax로 불러온 체크박스를 체크되어야 하는애들 체크 된 채로 로드 시키기

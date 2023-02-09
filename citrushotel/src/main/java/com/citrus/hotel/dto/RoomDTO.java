@@ -14,4 +14,5 @@ public class RoomDTO {
 	private String room_bed;
 	private String room_price;
 	private String room_size;
+	private String room_use;
 }
