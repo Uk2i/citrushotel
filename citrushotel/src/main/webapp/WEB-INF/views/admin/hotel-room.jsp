@@ -804,138 +804,7 @@
                           </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
-                          <tr>
-                            <td>101</td>
-                            <td><span class="badge bg-label-secondary me-1">Standard</span></td>
-                            <td>Standard Twin Room</td>
-                            <td>2명</td>
-                            <td>2명</td>
-                            <td>
-                              <div class="dropdown">
-                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                  <i class="bx bx-dots-vertical-rounded"></i>
-                                </button>
-                                <div class="dropdown-menu">
-                                  <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalEditRoom"
-                                    ><i class="bx bx-edit-alt me-1"></i> 수정</a
-                                  >
-                                  <a class="dropdown-item" onclick="deleteRoom(this);""
-                                    ><i class="bx bx-trash me-1"></i> 삭제</a
-                                  >
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>102</td>
-                            <td><span class="badge bg-label-secondary me-1">Standard</span></td>
-                            <td>Standard Double Room</td>
-                            <td>2명</td>
-                            <td>2명</td>
-                            <td>
-                              <div class="dropdown">
-                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                  <i class="bx bx-dots-vertical-rounded"></i>
-                                </button>
-                                <div class="dropdown-menu">
-                                  <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalEditRoom"
-                                    ><i class="bx bx-edit-alt me-1"></i> 수정</a
-                                  >
-                                  <a class="dropdown-item" onclick="deleteRoom(this);""
-                                    ><i class="bx bx-trash me-1"></i> 삭제</a
-                                  >
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>201</td>
-                            <td><span class="badge bg-label-primary me-1">Deluxe</span></td>
-                            <td>Deluxe Twin Room</td>
-                            <td>2명</td>
-                            <td>3명</td>
-                            <td>
-                              <div class="dropdown">
-                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                  <i class="bx bx-dots-vertical-rounded"></i>
-                                </button>
-                                <div class="dropdown-menu">
-                                  <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalEditRoom"
-                                    ><i class="bx bx-edit-alt me-1"></i> 수정</a
-                                  >
-                                  <a class="dropdown-item" onclick="deleteRoom(this);"
-                                    ><i class="bx bx-trash me-1"></i> 삭제</a
-                                  >
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>202</td>
-                            <td><span class="badge bg-label-primary me-1">Deluxe</span></td>
-                            <td>Deluxe Double Room</td>
-                            <td>2명</td>
-                            <td>3명</td>
-                            <td>
-                              <div class="dropdown">
-                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                  <i class="bx bx-dots-vertical-rounded"></i>
-                                </button>
-                                <div class="dropdown-menu">
-                                  <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalEditRoom""
-                                    ><i class="bx bx-edit-alt me-1"></i> 수정</a
-                                  >
-                                  <a class="dropdown-item" onclick="deleteRoom(this);""
-                                    ><i class="bx bx-trash me-1"></i> 삭제</a
-                                  >
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>301</td>
-                            <td><span class="badge bg-label-success me-1">Family</span></td>
-                            <td>Family Room</td>
-                            <td>4명</td>
-                            <td>6명</td>
-                            <td>
-                              <div class="dropdown">
-                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                  <i class="bx bx-dots-vertical-rounded"></i>
-                                </button>
-                                <div class="dropdown-menu">
-                                  <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalEditRoom"
-                                    ><i class="bx bx-edit-alt me-1"></i> 수정</a
-                                  >
-                                  <a class="dropdown-item" onclick="deleteRoom(this);""
-                                    ><i class="bx bx-trash me-1"></i> 삭제</a
-                                  >
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>801</td>
-                            <td><span class="badge bg-label-warning me-1">Premium</span></td>
-                            <td>Premium Room</td>
-                            <td>2명</td>
-                            <td>2명</td>
-                            <td>
-                              <div class="dropdown">
-                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                  <i class="bx bx-dots-vertical-rounded"></i>
-                                </button>
-                                <div class="dropdown-menu">
-                                  <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalEditRoom"
-                                    ><i class="bx bx-edit-alt me-1"></i> 수정</a
-                                  >
-                                  <a class="dropdown-item" onclick="deleteRoom(this);""
-                                    ><i class="bx bx-trash me-1"></i> 삭제</a
-                                  >
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
+                          
                         </tbody>
                       </table>
                       <!-- Modal -->
@@ -1060,6 +929,8 @@
                                     </div>
                                   </div>
                                 </div>
+                                
+                                
                                 
                                 <div class="row">
                                   <div class="col mb-0">
@@ -1203,7 +1074,15 @@
 	                 	그리고 더보기 클릭해서 수정 했을때 이미지 리스트에 얘네가 들어가버림 버그.. 수정해야함 
 	                 	버그수정 결과 >>> append 클래스를 .table 이 아니라 .table-hover로 임시방편 처리 했음. 
 	                 */
-	                 tr += '<td><span class="badge bg-label-warning me-1">'+this.room_type+'</span></td>'
+	                 if(this.room_type=="std"){
+		                 tr += '<td><span class="badge bg-label-secondary me-1">STANDARD</span></td>'
+	                 } else if(this.room_type=="dlx"){
+		                 tr += '<td><span class="badge bg-label-primary me-1">DELUXE</span></td>'	                	 
+	                 } else if(this.room_type=="prm"){
+		                 tr += '<td><span class="badge bg-label-success me-1">PREMIUM</span></td>'	                	 	                	 
+	                 } else if(this.room_type=="fml"){
+		                 tr += '<td><span class="badge bg-label-warning me-1">FAMILY</span></td>'	                	 	                	 	                	 
+	                 }
 	                 tr += '<td>'+this.room_name+'</td>';
 	                 tr += '<td>'+this.room_fit+'명</td>';
 	                 tr += '<td>'+this.room_max+'명</td>';

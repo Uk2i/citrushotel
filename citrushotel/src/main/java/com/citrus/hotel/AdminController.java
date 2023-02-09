@@ -164,18 +164,26 @@ public class AdminController {
 	public String room_edit(HttpServletRequest req, @RequestParam Map<String,Object>map){
 		System.out.println(map + " : 이것이 Map 값들이지");
 		
-		int room_edit = adminMapper.room_edit(map);
 		
 		map.put("CheckedList", Arrays.asList(map.get("hiddenValue")));
-
 		
+		// 사용여부 기능은 구현 했으나 불러올때 토글 돌려놓는것 미구현 상태
+		
+
+		//방정보 수정 (테이블 room)
+		int room_edit = adminMapper.room_edit(map);
+		//체크박스 초기화 전부 0으로 먼저 처리
 		int roomf_use_off_all = adminMapper.checkbox_default(map);
+		
+		
 		int roomf_use_on = 0;
 		if(roomf_use_off_all == 0) {
 			System.out.println("checkbox_default 실패 !!!!");
 		}else {
+			//체크된 값들 받아서 1로 재 설정
 			roomf_use_on = adminMapper.checkbox_update(map);
 		}
+		
 		
 		if(roomf_use_on == 0) {
 			System.out.println("WTF???");
