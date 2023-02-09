@@ -33,11 +33,35 @@
 		select * from room_facilities where room_no = ${room_no}
 	</select>
 	
-	<update id="room_edit">
-		
+	<update id="room_edit" parameterType="java.util.Map">
+  		update room
+  		set room_type = #{e_roomType}, room_fit = ${e_roomFit}, room_max = ${e_roomMax},
+  		room_bed = #{e_roomBed}, room_price = #{e_roomPrice}, room_size = #{e_roomSize}
+  		<if test="e_roomUse == 'on'">
+  		, room_use = 1
+		</if>
+		<if test="e_roomUse == null or e_roomUse != 'on'">
+  		, room_use = 0
+		</if>
+  		where room_no = ${e_roomNo}
 	</update>
  	
- 		<select id="adminlogin" parameterType="com.citrus.hotel.dto.MemberDTO" resultType="com.citrus.hotel.dto.MemberDTO">
+ 	<update id="checkbox_default" parameterType="java.util.Map">
+ 		update room_facilities set roomf_use = 0
+		where room_no = ${e_roomNo}
+ 	</update>
+ 	
+ 	<update id="checkbox_update">
+ 		update room_facilities
+  		set	roomf_use = 1
+  		where room_no = ${e_roomNo} and roomf_cd in
+  		<foreach collection="CheckedList" item="item" open="(" separator="," close=")">
+    	${item}
+  		</foreach>
+ 	</update>
+ 	
+ 	
+ 	<select id="adminlogin" parameterType="com.citrus.hotel.dto.MemberDTO" resultType="com.citrus.hotel.dto.MemberDTO">
 		SELECT * FROM MEMBER WHERE member_email = #{member_email} AND member_grade = #{member_grade}
 	</select>
 	

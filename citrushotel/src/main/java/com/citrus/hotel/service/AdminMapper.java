@@ -52,9 +52,18 @@ public class AdminMapper {
 	}
 	
 	public int room_edit(Map<String,Object>map) {
-		return sqlSession.update("room_edit");
+		return sqlSession.update("room_edit", map);
 	}
 
+	public int checkbox_default(Map<String,Object> map) {
+		return sqlSession.update("checkbox_default", map);
+	}
+
+	public int checkbox_update(Map<String,Object> map) {
+		return sqlSession.update("checkbox_update", map);
+	}
+	
+	
 	public int changepasswd(MemberDTO dto) {
 		return sqlSession.update("adminpwchange",dto);
 	}
@@ -78,4 +87,6 @@ public class AdminMapper {
 	public List<CGroupDTO> cgroupList(GroupDTO dto) {
 		return sqlSession.selectList("sercgroup_list",dto);
 	}
+	
+	
 }

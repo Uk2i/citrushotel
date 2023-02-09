@@ -1,5 +1,6 @@
 package com.citrus.hotel;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -160,33 +161,33 @@ public class AdminController {
 	}
 	
 	@RequestMapping("room_edit.do")
-	public @ResponseBody String room_edit(@RequestParam Map<String,Object>map, String[] e_cmmn_cd){
+	public String room_edit(HttpServletRequest req, @RequestParam Map<String,Object>map){
+		System.out.println(map + " : 이것이 Map 값들이지");
 		
-		System.out.println(map + "??map??");
+		int room_edit = adminMapper.room_edit(map);
 		
+		map.put("CheckedList", Arrays.asList(map.get("hiddenValue")));
+
 		
-		for(int i=0;i<e_cmmn_cd.length;i++) {
-			System.out.println(e_cmmn_cd[i]);
-			
+		int roomf_use_off_all = adminMapper.checkbox_default(map);
+		int roomf_use_on = 0;
+		if(roomf_use_off_all == 0) {
+			System.out.println("checkbox_default 실패 !!!!");
+		}else {
+			roomf_use_on = adminMapper.checkbox_update(map);
 		}
-		System.out.println(map.get("e_roomNo"));
-		System.out.println(map.get("e_roomType"));
-		System.out.println(map.get("e_roomFit"));
-		System.out.println(map.get("e_roomMax"));
-		System.out.println(map.get("e_roomBed"));
-		System.out.println(map.get("e_roomPrice"));
-		System.out.println(map.get("e_roomSize"));
-		System.out.println(map.get("cmmn_cd"));
-		System.out.println(map.get("hiddenValue"));
-		System.out.println(map.get("hiddenValue"));
-		System.out.println(map.get("hiddenValue"));
-//		int res = adminMapper.room_edit(map);
 		
-//		if(res == 0) {
-//			
-//		}else {
-//			
-//		}
+		if(roomf_use_on == 0) {
+			System.out.println("WTF???");
+			req.setAttribute("url", "hotel-room.do");
+			req.setAttribute("msg", "방정보 수정 실패");
+		}else {
+			System.out.println("Success");
+			req.setAttribute("url", "hotel-room.do");
+			req.setAttribute("msg", "방정보 수정 성공");
+		}
+		
+
 		
 		return "message";
 	}

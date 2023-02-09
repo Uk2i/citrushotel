@@ -1060,6 +1060,19 @@
                                     </div>
                                   </div>
                                 </div>
+                                
+                                <div class="row">
+                                  <div class="col mb-0">
+                                    <label class="form-label d-block">사용여부 / Whether Use*</label>
+                                    <div class="form-check form-switch mb-2">
+                                      <input class="form-check-input" type="checkbox" id="e_roomUse" name="e_roomUse" checked />
+                                      <label class="form-check-label" for="e_roomUse">
+                                        사용함
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+                                
                               </div>
                               <div class="modal-body w-50">
                                 <div class="row">
@@ -1352,14 +1365,15 @@
       });
       
       $(document).on("click","#edit_room",function () {
-    	  let obj = $("[name=e_cmmn_cd]:checked");
+    	  let obj = $("input[name=e_cmmn_cd]:checked");
     	  let chkArray = new Array();
     	 
     	  obj.each(function(){
-    		 chkArray += $(this).val() + "/"; 
+    		 var chk = $(this).val();
+    		 chkArray.push(chk);
     	  });
           
-    	  $("#hiddenValue").val(checkArray);
+    	  $("#hiddenValue").val(chkArray);
       });
 
 
