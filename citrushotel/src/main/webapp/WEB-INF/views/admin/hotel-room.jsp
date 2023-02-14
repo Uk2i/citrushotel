@@ -591,6 +591,7 @@
                       </small>
                       <!-- Modal -->
                       <div class="modal fade" id="modalAddRoom" tabindex="-1" aria-hidden="true">
+                      <form action="room_add.do">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                           <div class="modal-content">
                             <div class="modal-header">
@@ -610,6 +611,7 @@
                                     <input
                                       type="text"
                                       id="roomNo"
+                                      name="room_no"
                                       class="form-control"
                                       placeholder="101"
                                       autocomplete="off"
@@ -619,8 +621,21 @@
                                 </div>
                                 <div class="row">
                                   <div class="col mb-3">
+                                    <label for="roomName" class="form-label">객실명 / Room Name*</label>
+                                    <input
+                                      type="text"
+                                      id="roomName"
+                                      name="room_name" 
+                                      class="form-control"
+                                      placeholder="잠자는 숲속의 방"
+                                      autocomplete="off"
+                                    />
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col mb-3">
                                     <label for="roomType" class="form-label">객실타입 / Room Type*</label>
-                                    <select class="form-select" id="roomType" aria-label="Default select example">
+                                    <select class="form-select" id="roomType" name="room_type" aria-label="Default select example">
                                       <option value="std" selected>Standard</option>
                                       <option value="dlx">Deluxe</option>
                                       <option value="fml">Family</option>
@@ -634,6 +649,7 @@
                                     <input
                                       type="number"
                                       id="roomFit"
+                                      name="room_fit"
                                       class="form-control"
                                       min="1"
                                       placeholder="2"
@@ -645,6 +661,7 @@
                                     <input
                                       type="number"
                                       id="roomMax"
+                                      name="room_max" 
                                       class="form-control"
                                       placeholder="4"
                                       min="1"
@@ -658,6 +675,7 @@
                                     <input
                                       type="text"
                                       id="roomBed"
+                                      name="room_bed" 
                                       class="form-control"
                                       placeholder="싱글베드 2개"
                                       autocomplete="off"
@@ -671,6 +689,7 @@
                                       <input
                                       type="number"
                                       id="roomPrice"
+                                      name="room_price"
                                       class="form-control"
                                       min="0"
                                       placeholder="199,000"
@@ -687,6 +706,7 @@
                                       <input
                                       type="number"
                                       id="roomSize"
+                                      name="room_size"
                                       class="form-control"
                                       min="0"
                                       placeholder="44"
@@ -725,7 +745,7 @@
                                   <div class="col mb-0">
                                     <label class="form-label d-block">사용여부 / Whether Use*</label>
                                     <div class="form-check form-switch mb-2">
-                                      <input class="form-check-input" type="checkbox" id="roomUse" checked />
+                                      <input class="form-check-input" type="checkbox" id="roomUse" name="room_use" checked />
                                       <label class="form-check-label" for="roomUse">
                                         사용함
                                       </label>
@@ -785,11 +805,13 @@
                               <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                                 취소
                               </button>
-                              <button type="button" class="btn btn-primary">확인</button>
+                              <button type="submit" class="btn btn-primary">확인</button>
                             </div>
                           </div>
                         </div>
+                       	</form>
                       </div>
+                      
                     </div>
                     <div class="text-nowrap">
                       <table class="table table-hover">

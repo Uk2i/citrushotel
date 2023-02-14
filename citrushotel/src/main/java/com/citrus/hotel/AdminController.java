@@ -165,6 +165,26 @@ public class AdminController {
 		return resMap;
 	}
 	
+	@RequestMapping("room_add.do")
+	public String room_add(HttpServletRequest req,@RequestParam Map<String,Object> map) {
+		//시설 체크박스, 이미지 구현 해야함
+		System.out.println(map + " : 이것이 Map 값들이지");
+		
+		if(map.get("room_use")!=null) {
+			map.put("room_use", 1);
+		} else {
+			map.put("room_use", 0);
+		}
+		
+		int room_add = adminMapper.room_add(map);
+		
+		System.out.println(room_add+ "room_add 값이다아아아아아아아아아아아아");
+		
+		
+		
+		return "message";
+	}
+	
 	@RequestMapping("room_edit.do")
 	public String room_edit(HttpServletRequest req, @RequestParam Map<String,Object>map){
 		System.out.println(map + " : 이것이 Map 값들이지");

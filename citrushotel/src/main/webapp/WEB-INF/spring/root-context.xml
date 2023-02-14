@@ -61,7 +61,7 @@
 		<property name="typeAliasesPackage"
 			value="com.citrus.hotel.dto" />
 		<property name="mapperLocations"
-			value="classpath:com/citrus/hotel/mapper/*.xml" />
+			value="classpath*:com/citrus/hotel/mapper/*.xml" />
 	</bean>
 	<bean id="sqlSession"
 		class="org.mybatis.spring.SqlSessionTemplate">
