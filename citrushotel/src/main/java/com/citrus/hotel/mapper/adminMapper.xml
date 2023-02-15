@@ -33,6 +33,11 @@
 		select * from room_facilities where room_no = ${room_no}
 	</select>
 	
+	<insert id="room_add" parameterType="java.util.Map">
+		insert into room(room_no, room_type, room_name, room_fit, room_max, room_bed, room_price, room_size, room_use)
+		values(#{room_no}, #{room_type}, #{room_name}, ${room_fit}, ${room_max}, #{room_bed}, #{room_price}, #{room_size}, #{room_use})
+	</insert>
+	
 	<update id="room_edit" parameterType="java.util.Map">
   		update room
   		set room_type = #{e_roomType}, room_fit = ${e_roomFit}, room_max = ${e_roomMax},

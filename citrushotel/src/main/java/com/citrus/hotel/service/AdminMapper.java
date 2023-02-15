@@ -51,6 +51,10 @@ public class AdminMapper {
 		return sqlSession.selectList("facilities_data", map);
 	}
 	
+	public int room_add(Map<String,Object>map) {
+		return sqlSession.insert("room_add",map);
+	}
+	
 	public int room_edit(Map<String,Object>map) {
 		return sqlSession.update("room_edit", map);
 	}
