@@ -1,6 +1,7 @@
 /sw/
 /target/
 /.idea/
+/.settings/
 ### Java template
 # Compiled class file
 *.class

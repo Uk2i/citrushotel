@@ -1,9 +1,6 @@
 package com.citrus.hotel;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -64,6 +61,37 @@ public class AdminController {
 		List<Hotel_InfoDTO> hotelInfoList = adminMapper.hotelInfoList();
 		return "admin/hotel-info";
 	}
+
+	@RequestMapping("hotel-info-edit.do")
+	public String hotel_info_edit(HttpServletRequest req, Hotel_InfoDTO hotel_infoDTO){
+
+		// 기존에 입력된 호텔정보가 있는지 확인하기 위해 조회
+		List<Hotel_InfoDTO> hotelInfoList = adminMapper.hotelInfoList();
+
+		int hotelInfo = 0;
+		// 조회값이 없으면 입력, 있으면 수정
+		// 우선 호텔 정보는 하나만 있는것으로 한정짓고
+		// hotel_info 테이블의 쿼리문에 hi_no = 1 로 지정, hi_name 도 'Citrus Hotel' 고정
+		if(hotelInfoList.isEmpty()) {
+			hotelInfo = adminMapper.hotelInfoInsert(hotel_infoDTO);
+		} else {
+			hotelInfo = adminMapper.hotelInfoEdit(hotel_infoDTO);
+		}
+
+		System.out.println("hotel_infoDTO = " + hotel_infoDTO);
+		System.out.println("hi_addr = " + hotel_infoDTO.getHi_addr());
+
+		if(hotelInfo == 1){
+			req.setAttribute("msg","호텔 정보 입력/수정 완료!");
+			req.setAttribute("url","hotel-info.do");
+		} else {
+			req.setAttribute("msg","호텔 정보 입력/수정 실패!");
+			req.setAttribute("url","hotel-info.do");
+		}
+
+		return "message";
+	}
+
 	
 	@RequestMapping("hotel-reserve.do")
 	public String hotel_reserve() {

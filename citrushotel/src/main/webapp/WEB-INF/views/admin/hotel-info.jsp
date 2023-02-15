@@ -587,14 +587,14 @@
                       <small class="text-muted float-end">문의 탭과 헤더, 푸터에 노출됩니다.</small>
                     </div>
                     <div class="card-body">
-                      <form> <!-- 어떻게 처리 할지 고민좀 해 봐야 할듯, 자바스크립트로 정보 수정관련 알림창도 띄우고 가느냐 그냥 컨트롤러 가서 쿼리타버리느냐 -->
+                      <form action="hotel-info-edit.do"> <!-- 어떻게 처리 할지 고민좀 해 봐야 할듯, 자바스크립트로 정보 수정관련 알림창도 띄우고 가느냐 그냥 컨트롤러 가서 쿼리타버리느냐 -->
                         <div class="mb-3">
                           <label class="form-label" for="hiAddr">주소 / Address</label>
-                          <input type="text" class="form-control" id="hiAddr" value="서귀포, 서귀포시 중문관광로 72번길 100" />
+                          <input type="text" class="form-control" id="hiAddr" name="hi_addr" value="서귀포, 서귀포시 중문관광로 72번길 100" />
                         </div>
                         <div class="mb-3">
                           <label class="form-label" for="hiTel">전화번호 / Tel</label>
-                          <input type="text" class="form-control" id="hiTel" value="064-321-7654" />
+                          <input type="text" class="form-control" id="hiTel" name="hi_tel" value="064-321-7654" />
                           <div class="form-text">"-"를 포함하도록 작성해주세요.</div>
                         </div>
                         <div class="mb-3">
@@ -603,6 +603,7 @@
                             <input
                               type="text"
                               id="hiEmail"
+                              name="hi_email"
                               class="form-control"
                               value="info@citrus-hotel.com"
                             />
@@ -613,6 +614,7 @@
                           <input
                             type="text"
                             id="basic-default-phone"
+                            name="hi_fax"
                             class="form-control phone-mask"
                             value="064-321-7654"
                           />

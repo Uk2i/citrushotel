@@ -17,44 +17,47 @@ import com.citrus.hotel.dto.Room_FacilitiesDTO;
 
 @Service
 public class AdminMapper {
-	
+
 	@Autowired
 	private SqlSession sqlSession;
 
 	public MemberDTO adminlogin(MemberDTO dto) {
 		return sqlSession.selectOne("adminlogin", dto);
 	}
-	
+
 	public List<Hotel_InfoDTO> hotelInfoList(){
 		return sqlSession.selectList("hotelInfoList");
 	}
-	
-	public int hotelInfoEdit() {
-		return sqlSession.update("hotelInfoEdit");
+	public int hotelInfoInsert(Hotel_InfoDTO dto) {
+		return sqlSession.insert("hotelInfoInsert",dto);
 	}
-	
-	
-	
+
+	public int hotelInfoEdit(Hotel_InfoDTO dto) {
+		return sqlSession.update("hotelInfoEdit", dto);
+	}
+
+
+
 	public List<RoomDTO> room_list(){
 		return sqlSession.selectList("room_list");
 	}
-	
+
 	public List<RoomDTO> room_data(Map<String,Object> map){
 		return sqlSession.selectList("room_data",map);
 	}
-	
+
 	public List<CommonDTO> common_data(){
 		return sqlSession.selectList("common_data");
 	}
-	
+
 	public List<Room_FacilitiesDTO> facilities_data(Map<String,Object> map){
 		return sqlSession.selectList("facilities_data", map);
 	}
-	
+
 	public int room_add(Map<String,Object>map) {
 		return sqlSession.insert("room_add",map);
 	}
-	
+
 	public int room_edit(Map<String,Object>map) {
 		return sqlSession.update("room_edit", map);
 	}
@@ -66,8 +69,8 @@ public class AdminMapper {
 	public int checkbox_update(Map<String,Object> map) {
 		return sqlSession.update("checkbox_update", map);
 	}
-	
-	
+
+
 	public int changepasswd(MemberDTO dto) {
 		return sqlSession.update("adminpwchange",dto);
 	}
@@ -91,6 +94,6 @@ public class AdminMapper {
 	public List<CGroupDTO> cgroupList(GroupDTO dto) {
 		return sqlSession.selectList("sercgroup_list",dto);
 	}
-	
-	
+
+
 }
