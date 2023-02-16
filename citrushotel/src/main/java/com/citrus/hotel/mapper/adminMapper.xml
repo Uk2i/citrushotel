@@ -53,6 +53,8 @@
 		</if>
   		where room_no = ${e_roomNo}
 	</update>
+
+
  	
  	<update id="checkbox_default" parameterType="java.util.Map">
  		update room_facilities set roomf_use = 0

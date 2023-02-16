@@ -591,7 +591,8 @@
                       </small>
                       <!-- Modal -->
                       <div class="modal fade" id="modalAddRoom" tabindex="-1" aria-hidden="true">
-                      <form action="room_add.do">
+                        <!-- 자바스크립트 함수로 먼저 히든값에 체크된 값 저장 해야겠음.. 미 체크된 값도 저장하고 싶은데 그것도 시도해 -->
+                      <form action="room_add.do" onsubmit="before_room_add();">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                           <div class="modal-content">
                             <div class="modal-header">
@@ -719,7 +720,8 @@
                                 <div class="row">
                                   <div class="col mb-3">
                                     <label for="roomSize" class="form-label d-block">객실시설 / Room facilities*</label>
-                                    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                                    <div class="btn-group" id="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                                      <!-- ajax로 새로 생성 할 체크박스들
                                       <input type="checkbox" class="btn-check" id="rf001" autocomplete="off" />
                                       <label class="btn btn-sm btn-outline-primary" for="rf001">샤워실</label>
                                       <input type="checkbox" class="btn-check" id="rf002" autocomplete="off" />
@@ -738,6 +740,7 @@
                                       <label class="btn btn-sm btn-outline-primary" for="rf008">안전 금고</label>
                                       <input type="checkbox" class="btn-check" id="rf009" autocomplete="off" />
                                       <label class="btn btn-sm btn-outline-primary" for="rf009">타월</label>
+                                      -->
                                     </div>
                                   </div>
                                 </div>
@@ -947,7 +950,29 @@
                                 <div class="row">
                                   <div class="col mb-0">
                                     <label for="e_roomFaci" class="form-label d-block">객실시설 / Room facilities</label>
-                                    <div class="btn-group btn-group-edit" role="group" aria-label="Basic checkbox toggle button group">
+                                    <div class="btn-group btn-group-edit" id="btn-group-edit" role="group" aria-label="Basic checkbox toggle button group">
+
+                                      <!-- ajax로 새로 생성 할 체크박스들
+                                        <input type="checkbox" class="btn-check" id="rf001" autocomplete="off" />
+                                        <label class="btn btn-sm btn-outline-primary" for="rf001">샤워실</label>
+                                        <input type="checkbox" class="btn-check" id="rf002" autocomplete="off" />
+                                        <label class="btn btn-sm btn-outline-primary" for="rf002">커피포트</label>
+                                        <input type="checkbox" class="btn-check" id="rf003" autocomplete="off" />
+                                        <label class="btn btn-sm btn-outline-primary" for="rf003">책상</label>
+                                        <input type="checkbox" class="btn-check" id="rf004" autocomplete="off" />
+                                        <label class="btn btn-sm btn-outline-primary" for="rf004">Wifi</label>
+                                        <input type="checkbox" class="btn-check" id="rf005" autocomplete="off" />
+                                        <label class="btn btn-sm btn-outline-primary" for="rf005">옷장</label>
+                                        <input type="checkbox" class="btn-check" id="rf006" autocomplete="off" />
+                                        <label class="btn btn-sm btn-outline-primary" for="rf006">어메니티</label>
+                                        <input type="checkbox" class="btn-check" id="rf007" autocomplete="off" />
+                                        <label class="btn btn-sm btn-outline-primary" for="rf007">TV</label>
+                                        <input type="checkbox" class="btn-check" id="rf008" autocomplete="off" />
+                                        <label class="btn btn-sm btn-outline-primary" for="rf008">안전 금고</label>
+                                        <input type="checkbox" class="btn-check" id="rf009" autocomplete="off" />
+                                        <label class="btn btn-sm btn-outline-primary" for="rf009">타월</label>
+                                        -->
+
                                     </div>
                                   </div>
                                 </div>
@@ -1145,17 +1170,13 @@
       * Event Area
       --------------------------------------------------------------*/
       
-      //더보기-수정 버튼 클릭 시   
-      
+      //더보기-수정 버튼 클릭 시
       // click 이벤트로 걸려있어서 동적으로 생성된 태그에 적용안되는 문제가 있어서 .on("click") 이벤트로 교체함.
       $(document).on("click","tr .dropdown-item[data-bs-target='#modalEditRoom']",function () {
         let roomNo = $(this).closest("tr").children()[0].innerText;
         $("#modalEditRoom input#e_roomNo").val(roomNo);
         $("#modalEditRoom input#e_roomNo").attr("readonly", true);
 
-        //To Do : roomNo로 상세정보 조회 후 input들에 setting
-        
-        
         //roomNo를 가지고 컨트롤러 다녀오는길에 친구들 데리고 와야함
           $.ajax({
         	type : 'POST'
@@ -1163,8 +1184,10 @@
         	, dataType : "json"
         	, data : { room_no : roomNo }
         	, success : function(data){
-        		$(".btn-group-edit").empty();
+                //시설 카테고리 버튼그룹 초기화
+        		$("#btn-group-edit").empty();
         		let btngroup = '';
+
         		$.each(data.list, function(i){
         			$("#e_roomType").val(this.room_type).prop("selected",true);
         			$("#e_roomFit").val(this.room_fit);
@@ -1188,7 +1211,7 @@
         		$.each(data.cmmnList, function(i){
                     let cmmncode = this.cmmn_cd
                     let cmmnname = this.cmmn_nm
-                    $.each(data.facilitiesList, function(i){
+                    $.each(data.facilitiesList, function(i){ //방번호로 조회한 roomf_cd를 가져와 cmmncode와 비교
         				if(this.roomf_cd == cmmncode){
         					if(this.roomf_use == 1){
 			        			btngroup += '<input type="checkbox" class="btn-check" id="e_rf'+cmmncode+'" name="e_cmmn_cd" value="'+cmmncode+'" autocomplete="off" checked/>'
@@ -1203,7 +1226,7 @@
         		});
         		btngroup += '<input type="hidden" name="hiddenValue" id="hiddenValue" value=""/>'
         		
-        		$(".btn-group-edit").append(btngroup);
+        		$("#btn-group-edit").append(btngroup);
         		
         		
         		
@@ -1271,7 +1294,8 @@
           sortImgList(mode);
         }
       });
-      
+
+      //방 수정시 hiddenValue에 체크 값 저장
       $(document).on("click","#edit_room",function () {
     	  let obj = $("input[name=e_cmmn_cd]:checked");
     	  let chkArray = new Array();
@@ -1346,6 +1370,35 @@
         $("#modalAddRoom input").each((idx, el) => el.value = null);
         $("#modalAddRoom input[type='checkbox']").each((idx, el) => { if (el.id != "roomUse") $(el).prop("checked", false) });
         $("#modalAddRoom tbody").children().each((idx, el) => $(el).remove());
+
+        $.ajax({
+          type : 'POST'
+          , url : 'room_list.do'
+          , dataType : "json"
+          , success : function(data){
+            $("#btn-group").empty();
+            let btngroup = '';
+
+            $.each(data.cmmnList, function(i) {
+              let cmmncode = this.cmmn_cd
+              let cmmnname = this.cmmn_nm
+                btngroup += '<input type="checkbox" class="btn-check" id="rf' + cmmncode + '" name="cmmn_cd" value="' + cmmncode + '" autocomplete="off" />'
+                btngroup += '<label class="btn btn-sm btn-outline-primary" for="rf' + cmmncode + '">' + cmmnname + '</label>'
+
+            });
+
+
+            btngroup += '<input type="hidden" name="hiddenChecked" id="hiddenChecked" value=""/>'
+            btngroup += '<input type="hidden" name="hiddenUnchecked" id="hiddenUnchecked" value=""/>'
+
+
+            $("#btn-group").append(btngroup);
+          }
+          , error : function(request, status, error){
+            alert("code : " + request.status + "\n" + "message : " + request.responseText + "\n" + "error : " + error);
+          }
+        })
+
         setImgListNull("modalAddRoom");
       }
 
@@ -1355,6 +1408,30 @@
         tr += "<td colspan='4'><small>업로드된 이미지 없음</small></td>"
         tr += "</tr>";
         $("#" + mode + " tbody").append(tr);
+      }
+
+      //방추가 버튼 클릭시
+      function before_room_add(){
+        let checked = $("input[name=cmmn_cd]:checked");
+        let chkArray = new Array();
+
+        let unchecked = $("input[name=cmmn_cd]:not(:checked)");
+        let unchkArray = new Array();
+
+        checked.each(function(){
+          let chk = $(this).val();
+          chkArray.push(chk);
+        });
+
+        unchecked.each(function(){
+          let unchk = $(this).val();
+          unchkArray.push(unchk);
+        });
+
+        $("#hiddenChecked").val(chkArray);
+        $("#hiddenUnchecked").val(unchkArray);
+
+        return true;
       }
     </script>
   </body>

@@ -1,5 +1,6 @@
 package com.citrus.hotel;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -162,8 +163,9 @@ public class AdminController {
 		Map<String, Object> resMap = new HashMap<String, Object>();
 		
 		List<RoomDTO> list = adminMapper.room_list();
-		
+		List<CommonDTO> cmmnList = adminMapper.common_data();
 		resMap.put("list", list);
+		resMap.put("cmmnList", cmmnList);
 		
 		return resMap;
 	}
@@ -195,21 +197,62 @@ public class AdminController {
 	
 	@RequestMapping("room_add.do")
 	public String room_add(HttpServletRequest req,@RequestParam Map<String,Object> map) {
-		//시설 체크박스, 이미지 구현 해야함
+		//시설 체크박스, 이미지 구현 해야함, 유효성검사(방번호 기존방과 중복되면 안됨)
+
+		//map으로 넘겨받은 hidden 체크된, 체크안된 값들을 리스트로 다시 map에 put
+		map.put("CheckedList", Arrays.asList(map.get("hiddenChecked"))); //체크된 시설코드
+		map.put("UnCheckedList", Arrays.asList(map.get("hiddenUnchecked"))); //체크안된 시설코드
+
+		System.out.println(map.get("CheckedList"));
+
+		ArrayList checkedList = (ArrayList)map.get("CheckedList");
+
+		ArrayList unCheckedList = (ArrayList)map.get("UnCheckedList");
+
 		System.out.println(map + " : 이것이 Map 값들이지");
-		
+
 		if(map.get("room_use")!=null) {
 			map.put("room_use", 1);
 		} else {
 			map.put("room_use", 0);
 		}
-		
+
+		if(!checkedList.isEmpty() || checkedList!=null) {
+			System.out.println("체크된 리스트는 비어있지 않아요");
+			System.out.println(checkedList.size());
+			for(int i=0;i<checkedList.size();i++){
+				//추가하는 쿼리를 짜서 집어 넣어야함
+				//각각의 코드번호를 받아서 room_facilities 테이블에
+				//roomf_cd 는 각각의 코드
+				//room_no 는 받아서 와야하고
+				//roomf_use 는 체크된 애들 처리중이니까 1로 지정해서 넘겨주기
+				// 이 방법이 맞는지 아니면 mapper 에서 아예 foreach: 해서 돌려버리는게 나은건지 한번 더 체크 하고
+				//짜 보도록 합니다..
+				checkedList.get(i);
+			}
+		}
+
+
 		int room_add = adminMapper.room_add(map);
+
+
+		//전체 시설정보
+		List<CommonDTO> cmmnList = adminMapper.common_data();
+		//시설정보 사이즈만큼 반복문
+
+		/*
+		for(int i=0;i<cmmnList.size();i++){
+
+			String cmmnCode = cmmnList.get(i).getCmmn_cd(); //각각의 시설코드들
+
+
+			int room_add_facilities = adminMapper.room_add_facilities(map);
+		}
+		*/
 		
+
 		System.out.println(room_add+ "room_add 값이다아아아아아아아아아아아아");
-		
-		
-		
+
 		return "message";
 	}
 	
