@@ -197,6 +197,12 @@ public class AdminController {
 	
 	@RequestMapping("room_add.do")
 	public String room_add(HttpServletRequest req,@RequestParam Map<String,Object> map) {
+
+		Room_FacilitiesDTO dto = new Room_FacilitiesDTO();
+
+		//dto에 넣어서 넘겨주는걸 연습 해야하는데 아 머리가 복잡..
+
+
 		//시설 체크박스, 이미지 구현 해야함, 유효성검사(방번호 기존방과 중복되면 안됨)
 
 		//map으로 넘겨받은 hidden 체크된, 체크안된 값들을 리스트로 다시 map에 put
@@ -205,9 +211,10 @@ public class AdminController {
 
 		System.out.println(map.get("CheckedList"));
 
+		/*
 		ArrayList checkedList = (ArrayList)map.get("CheckedList");
-
 		ArrayList unCheckedList = (ArrayList)map.get("UnCheckedList");
+		*/
 
 		System.out.println(map + " : 이것이 Map 값들이지");
 
@@ -217,6 +224,8 @@ public class AdminController {
 			map.put("room_use", 0);
 		}
 
+
+		/*
 		if(!checkedList.isEmpty() || checkedList!=null) {
 			System.out.println("체크된 리스트는 비어있지 않아요");
 			System.out.println(checkedList.size());
@@ -228,13 +237,16 @@ public class AdminController {
 				//roomf_use 는 체크된 애들 처리중이니까 1로 지정해서 넘겨주기
 				// 이 방법이 맞는지 아니면 mapper 에서 아예 foreach: 해서 돌려버리는게 나은건지 한번 더 체크 하고
 				//짜 보도록 합니다..
-				checkedList.get(i);
+				checkedList.get(i); //체크된 cmmn_cd 값 roomf_cd 로 넣어야함
+
 			}
 		}
+		*/
 
 
 		int room_add = adminMapper.room_add(map);
-
+		int rf_checked_add = adminMapper.rf_checked_add(map);
+		int rf_unchecked_add = adminMapper.rf_unchecked_add(map);
 
 		//전체 시설정보
 		List<CommonDTO> cmmnList = adminMapper.common_data();
