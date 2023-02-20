@@ -57,11 +57,11 @@ public class AdminMapper {
 	}
 
 	public int rf_checked_add(Map<String,Object> map) {
-		return sqlSession.insert("rf_checked_add", map);
+		return sqlSession.update("rf_checked_add", map);
 	}
 
-	public int rf_unchecked_add(Map<String,Object> map) {
-		return sqlSession.insert("rf_unchecked_add", map);
+	public int rf_default_setting(Map<String,Object> map) {
+		return sqlSession.insert("rf_default_setting", map);
 	}
 
 	public int room_edit(Map<String,Object>map) {

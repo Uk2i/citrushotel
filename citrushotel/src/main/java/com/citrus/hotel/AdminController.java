@@ -197,74 +197,65 @@ public class AdminController {
 	
 	@RequestMapping("room_add.do")
 	public String room_add(HttpServletRequest req,@RequestParam Map<String,Object> map) {
-
-		Room_FacilitiesDTO dto = new Room_FacilitiesDTO();
-
-		//dto에 넣어서 넘겨주는걸 연습 해야하는데 아 머리가 복잡..
-
-
-		//시설 체크박스, 이미지 구현 해야함, 유효성검사(방번호 기존방과 중복되면 안됨)
-
-		//map으로 넘겨받은 hidden 체크된, 체크안된 값들을 리스트로 다시 map에 put
-		map.put("CheckedList", Arrays.asList(map.get("hiddenChecked"))); //체크된 시설코드
-		map.put("UnCheckedList", Arrays.asList(map.get("hiddenUnchecked"))); //체크안된 시설코드
-
-		System.out.println(map.get("CheckedList"));
-
-		/*
-		ArrayList checkedList = (ArrayList)map.get("CheckedList");
-		ArrayList unCheckedList = (ArrayList)map.get("UnCheckedList");
-		*/
-
 		System.out.println(map + " : 이것이 Map 값들이지");
 
+		/*
+		유효성 검사 실패중 ;;
+
+		List<RoomDTO> room_list = adminMapper.room_list();
+		room_list.get(0).getRoom_no();
+		boolean isExist = true;
+		for(int i=0; i<room_list.size(); i++){
+			String room_no = room_list.get(i).getRoom_no();
+			System.out.println(room_no + " 과연 잘 나오는가?!!?!?!?!?!!?");
+			isExist = map.get("room_no").equals(room_no)? true : false;
+			}
+		if(isExist){
+			return "admin/hotel-room";
+		}
+		*/
+
+		//시설 체크박스, 이미지 구현 해야함, 유효성검사(방번호 기존방과 중복되면 안됨)
+		//map으로 넘겨받은 hidden 체크된, 체크안된 값들을 리스트로 다시 map에 put
+
+
+		map.put("CheckedList", Arrays.asList(map.get("hiddenChecked"))); //체크된 시설코드
+
+		//방 사용유무 체크정보
 		if(map.get("room_use")!=null) {
 			map.put("room_use", 1);
 		} else {
 			map.put("room_use", 0);
 		}
 
-
-		/*
-		if(!checkedList.isEmpty() || checkedList!=null) {
-			System.out.println("체크된 리스트는 비어있지 않아요");
-			System.out.println(checkedList.size());
-			for(int i=0;i<checkedList.size();i++){
-				//추가하는 쿼리를 짜서 집어 넣어야함
-				//각각의 코드번호를 받아서 room_facilities 테이블에
-				//roomf_cd 는 각각의 코드
-				//room_no 는 받아서 와야하고
-				//roomf_use 는 체크된 애들 처리중이니까 1로 지정해서 넘겨주기
-				// 이 방법이 맞는지 아니면 mapper 에서 아예 foreach: 해서 돌려버리는게 나은건지 한번 더 체크 하고
-				//짜 보도록 합니다..
-				checkedList.get(i); //체크된 cmmn_cd 값 roomf_cd 로 넣어야함
-
-			}
-		}
-		*/
-
-
+		//방추가
 		int room_add = adminMapper.room_add(map);
-		int rf_checked_add = adminMapper.rf_checked_add(map);
-		int rf_unchecked_add = adminMapper.rf_unchecked_add(map);
+		if(room_add==1){ //방추가 성공시
+			//추가된 방 번호를 가지고 우선 전체 방 시설 사용유무 기본값으로 세팅 (roomf_use 다 0으로)
+			List<CommonDTO> facilities_cd = adminMapper.common_data(); //전체 roomf_cd를 불러모아
+			for(int i=0; i<facilities_cd.size();i++) {
+				String roomf_cd = facilities_cd.get(i).getCmmn_cd();
+				map.put("roomf_cd", roomf_cd);
+				int rf_default = adminMapper.rf_default_setting(map); //room_no와 roomf_use 기본값으로 insert
+			}
 
-		//전체 시설정보
-		List<CommonDTO> cmmnList = adminMapper.common_data();
-		//시설정보 사이즈만큼 반복문
+			// 체크된 roomf_cd 를 각각 map에 저장과 동시에
+			// 업데이트 (체크된 녀석들을 roomf_use 를 1 로 바꿔주는 작업)
+			for(int i=0; i < map.get("hiddenChecked").toString().split(",").length; i++){
+				String[] a = map.get("hiddenChecked").toString().split(",");
+				map.put("checked_code",a[i]);
+				int rf_checked_add = adminMapper.rf_checked_add(map); //위에서 insert된 값에 update
+			}
 
-		/*
-		for(int i=0;i<cmmnList.size();i++){
 
-			String cmmnCode = cmmnList.get(i).getCmmn_cd(); //각각의 시설코드들
+			//얼추 작업하다가 보니까 방수정이랑 겹치는 부분이 좀 되는 느낌이 있어 다시 검토 해야 할 듯.
 
 
-			int room_add_facilities = adminMapper.room_add_facilities(map);
 		}
-		*/
-		
 
-		System.out.println(room_add+ "room_add 값이다아아아아아아아아아아아아");
 
+		req.setAttribute("msg","일단 성공");
+		req.setAttribute("url","hotel-room.do");
 		return "message";
 	}
 	

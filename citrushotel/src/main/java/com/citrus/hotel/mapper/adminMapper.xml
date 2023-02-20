@@ -41,21 +41,15 @@
 		values(#{room_no}, #{room_type}, #{room_name}, ${room_fit}, ${room_max}, #{room_bed}, #{room_price}, #{room_size}, #{room_use})
 	</insert>
 
-	<insert id="rf_checked_add" parameterType="java.util.Map">
-		INSERT INTO ROOM_FACILITIES(roomf_cd, room_no, roomf_use) 
-		values(
-		       <foreach collection="list" item="item">
-		       ${item.CheckedList}
-		       ,#{item.room_no},'1');
-			   </foreach>
-	</insert>
-	<insert id="rf_unchecked_add" parameterType="java.util.Map">
+	<update id="rf_checked_add" parameterType="java.util.Map">
+		update ROOM_FACILITIES
+		set ROOMF_USE = '1'
+		where ROOM_NO = #{room_no} and ROOMF_CD = #{checked_code}
+	</update>
+
+	<insert id="rf_default_setting" parameterType="java.util.Map">
 		INSERT INTO ROOM_FACILITIES(roomf_cd, room_no, roomf_use)
-		values(
-		       <foreach collection="list" item="item">
-		       ${item.UnCheckedList}
-		       ,#{item.room_no},'0');
-			   </foreach>
+		values( #{roomf_cd}, #{room_no}, '0')
 	</insert>
 	
 	<update id="room_edit" parameterType="java.util.Map">
@@ -71,8 +65,6 @@
   		where room_no = ${e_roomNo}
 	</update>
 
-
- 	
  	<update id="checkbox_default" parameterType="java.util.Map">
  		update room_facilities set roomf_use = 0
 		where room_no = ${e_roomNo}
