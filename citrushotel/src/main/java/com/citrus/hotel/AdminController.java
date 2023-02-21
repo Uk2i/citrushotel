@@ -199,59 +199,62 @@ public class AdminController {
 	public String room_add(HttpServletRequest req,@RequestParam Map<String,Object> map) {
 		System.out.println(map + " : 이것이 Map 값들이지");
 
-		/*
-		유효성 검사 실패중 ;;
-
 		List<RoomDTO> room_list = adminMapper.room_list();
+
 		room_list.get(0).getRoom_no();
 		boolean isExist = true;
 		for(int i=0; i<room_list.size(); i++){
 			String room_no = room_list.get(i).getRoom_no();
 			System.out.println(room_no + " 과연 잘 나오는가?!!?!?!?!?!!?");
-			isExist = map.get("room_no").equals(room_no)? true : false;
+			if(map.get("room_no").equals(room_no)){
+				isExist = true;
+				break;
+			} else {
+				isExist = false;
 			}
+		}
 		if(isExist){
-			return "admin/hotel-room";
-		}
-		*/
-
-		//시설 체크박스, 이미지 구현 해야함, 유효성검사(방번호 기존방과 중복되면 안됨)
-		//map으로 넘겨받은 hidden 체크된, 체크안된 값들을 리스트로 다시 map에 put
-
-		map.put("CheckedList", Arrays.asList(map.get("hiddenChecked"))); //체크된 시설코드
-
-		//방 사용유무 체크정보
-		if(map.get("room_use")!=null) {
-			map.put("room_use", 1);
+			req.setAttribute("msg","이미 존재하는 방번호 입니다. 다시 입력해주세요.");
+			req.setAttribute("url", "javascript:history.back()");
+			return "message";
 		} else {
-			map.put("room_use", 0);
-		}
+			//시설 체크박스, 이미지 구현 해야함, 유효성검사(방번호 기존방과 중복되면 안됨)
+			//map으로 넘겨받은 hidden 체크된, 체크안된 값들을 리스트로 다시 map에 put
 
-		//방추가
-		int room_add = adminMapper.room_add(map);
+			map.put("CheckedList", Arrays.asList(map.get("hiddenChecked"))); //체크된 시설코드
 
-		if(room_add==1){ //방추가 성공시
-
-			//추가된 방 번호를 가지고 우선 전체 방 시설 사용유무 기본값으로 세팅 (roomf_use 다 0으로)
-			List<CommonDTO> facilities_cd = adminMapper.common_data(); //전체 roomf_cd를 불러모아
-			for(int i=0; i<facilities_cd.size();i++) {
-				String roomf_cd = facilities_cd.get(i).getCmmn_cd();
-				map.put("roomf_cd", roomf_cd);
-				int rf_default = adminMapper.rf_default_setting(map); //room_no와 roomf_use 기본값으로 insert
+			//방 사용유무 체크정보
+			if(map.get("room_use")!=null) {
+				map.put("room_use", 1);
+			} else {
+				map.put("room_use", 0);
 			}
 
-			// 체크된 roomf_cd 를 각각 map에 저장과 동시에
-			// 업데이트 (체크된 녀석들을 roomf_use 를 1 로 바꿔주는 작업)
-			int roomf_use_on = adminMapper.rf_checked_edit(map);
+			//방추가
+			int room_add = adminMapper.room_add(map);
 
-			if(roomf_use_on!=0){
-				req.setAttribute("msg","방추가 성공!!");
-				req.setAttribute("url","hotel-room.do");
+			if(room_add==1){ //방추가 성공시
+
+				//추가된 방 번호를 가지고 우선 전체 방 시설 사용유무 기본값으로 세팅 (roomf_use 다 0으로)
+				List<CommonDTO> facilities_cd = adminMapper.common_data(); //전체 roomf_cd를 불러모아
+				for(int i=0; i<facilities_cd.size();i++) {
+					String roomf_cd = facilities_cd.get(i).getCmmn_cd();
+					map.put("roomf_cd", roomf_cd);
+					int rf_default = adminMapper.rf_default_setting(map); //room_no와 roomf_use 기본값으로 insert
+				}
+
+				// 체크된 roomf_cd 를 각각 map에 저장과 동시에
+				// 업데이트 (체크된 녀석들을 roomf_use 를 1 로 바꿔주는 작업)
+				int roomf_use_on = adminMapper.rf_checked_edit(map);
+
+				if(roomf_use_on!=0){
+					req.setAttribute("msg","방추가 성공!!");
+					req.setAttribute("url","hotel-room.do");
+				}
+
 			}
-
+			return "message";
 		}
-
-		return "message";
 	}
 	
 	@RequestMapping("room_edit.do")

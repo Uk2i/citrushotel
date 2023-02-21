@@ -592,7 +592,7 @@
                       <!-- Modal -->
                       <div class="modal fade" id="modalAddRoom" tabindex="-1" aria-hidden="true">
                         <!-- 자바스크립트 함수로 먼저 히든값에 체크된 값 저장 해야겠음.. 미 체크된 값도 저장하고 싶은데 그것도 시도해 -->
-                      <form action="room_add.do" onsubmit="before_room_add();" enctype="multipart/form-data">
+                      <form action="room_add.do" onsubmit="before_room_add();" method="post" enctype="multipart/form-data">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                           <div class="modal-content">
                             <div class="modal-header">
