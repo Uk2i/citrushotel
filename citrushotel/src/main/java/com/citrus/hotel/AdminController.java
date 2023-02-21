@@ -218,7 +218,6 @@ public class AdminController {
 		//시설 체크박스, 이미지 구현 해야함, 유효성검사(방번호 기존방과 중복되면 안됨)
 		//map으로 넘겨받은 hidden 체크된, 체크안된 값들을 리스트로 다시 map에 put
 
-
 		map.put("CheckedList", Arrays.asList(map.get("hiddenChecked"))); //체크된 시설코드
 
 		//방 사용유무 체크정보
@@ -230,7 +229,9 @@ public class AdminController {
 
 		//방추가
 		int room_add = adminMapper.room_add(map);
+
 		if(room_add==1){ //방추가 성공시
+
 			//추가된 방 번호를 가지고 우선 전체 방 시설 사용유무 기본값으로 세팅 (roomf_use 다 0으로)
 			List<CommonDTO> facilities_cd = adminMapper.common_data(); //전체 roomf_cd를 불러모아
 			for(int i=0; i<facilities_cd.size();i++) {
@@ -241,21 +242,15 @@ public class AdminController {
 
 			// 체크된 roomf_cd 를 각각 map에 저장과 동시에
 			// 업데이트 (체크된 녀석들을 roomf_use 를 1 로 바꿔주는 작업)
-			for(int i=0; i < map.get("hiddenChecked").toString().split(",").length; i++){
-				String[] a = map.get("hiddenChecked").toString().split(",");
-				map.put("checked_code",a[i]);
-				int rf_checked_add = adminMapper.rf_checked_add(map); //위에서 insert된 값에 update
+			int roomf_use_on = adminMapper.rf_checked_edit(map);
+
+			if(roomf_use_on!=0){
+				req.setAttribute("msg","방추가 성공!!");
+				req.setAttribute("url","hotel-room.do");
 			}
-
-
-			//얼추 작업하다가 보니까 방수정이랑 겹치는 부분이 좀 되는 느낌이 있어 다시 검토 해야 할 듯.
-
 
 		}
 
-
-		req.setAttribute("msg","일단 성공");
-		req.setAttribute("url","hotel-room.do");
 		return "message";
 	}
 	
@@ -286,8 +281,7 @@ public class AdminController {
 			
 			}else {
 				//체크된 값들 받아서 1로 재 설정
-			
-				roomf_use_on = adminMapper.checkbox_update(map);
+				roomf_use_on = adminMapper.rf_checked_edit(map);
 				
 				if(roomf_use_on == 0) {
 					req.setAttribute("msg", "roomf_use_on 실패");
@@ -296,15 +290,7 @@ public class AdminController {
 				}
 			}			
 		}
-		
-		
-		
-		
-		
-		
-		
 
-		
 		return "message";
 	}
 }

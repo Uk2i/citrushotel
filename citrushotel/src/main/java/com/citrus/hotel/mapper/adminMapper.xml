@@ -41,10 +41,20 @@
 		values(#{room_no}, #{room_type}, #{room_name}, ${room_fit}, ${room_max}, #{room_bed}, #{room_price}, #{room_size}, #{room_use})
 	</insert>
 
-	<update id="rf_checked_add" parameterType="java.util.Map">
-		update ROOM_FACILITIES
-		set ROOMF_USE = '1'
-		where ROOM_NO = #{room_no} and ROOMF_CD = #{checked_code}
+	<update id="rf_checked_edit" parameterType="java.util.Map">
+		update room_facilities
+		set	roomf_use = 1
+		where
+		<if test="room_no != null">
+			room_no = ${room_no}
+		</if>
+		<if test="e_roomNo != null">
+			room_no = ${e_roomNo}
+		</if>
+		and roomf_cd in
+		<foreach collection="CheckedList" item="item" open="(" separator="," close=")">
+			${item}
+		</foreach>
 	</update>
 
 	<insert id="rf_default_setting" parameterType="java.util.Map">
@@ -69,17 +79,7 @@
  		update room_facilities set roomf_use = 0
 		where room_no = ${e_roomNo}
  	</update>
- 	
- 	<update id="checkbox_update">
- 		update room_facilities
-  		set	roomf_use = 1
-  		where room_no = ${e_roomNo} and roomf_cd in
-  		<foreach collection="CheckedList" item="item" open="(" separator="," close=")">
-    	${item}
-  		</foreach>
- 	</update>
- 	
- 	
+
  	<select id="adminlogin" parameterType="com.citrus.hotel.dto.MemberDTO" resultType="com.citrus.hotel.dto.MemberDTO">
 		SELECT * FROM MEMBER WHERE member_email = #{member_email} AND member_grade = #{member_grade}
 	</select>

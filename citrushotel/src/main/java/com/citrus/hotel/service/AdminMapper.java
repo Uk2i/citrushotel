@@ -56,8 +56,8 @@ public class AdminMapper {
 		return sqlSession.insert("room_add",map);
 	}
 
-	public int rf_checked_add(Map<String,Object> map) {
-		return sqlSession.update("rf_checked_add", map);
+	public int rf_checked_edit(Map<String,Object> map) {
+		return sqlSession.update("rf_checked_edit", map);
 	}
 
 	public int rf_default_setting(Map<String,Object> map) {
@@ -71,11 +71,6 @@ public class AdminMapper {
 	public int checkbox_default(Map<String,Object> map) {
 		return sqlSession.update("checkbox_default", map);
 	}
-
-	public int checkbox_update(Map<String,Object> map) {
-		return sqlSession.update("checkbox_update", map);
-	}
-
 
 	public int changepasswd(MemberDTO dto) {
 		return sqlSession.update("adminpwchange",dto);
