@@ -765,6 +765,7 @@
                                         type="file"
                                         class="form-control"
                                         id="roomImg"
+                                        name="room_img"
                                         aria-describedby="uploadRoomImg"
                                         aria-label="Upload"
                                         accept="image/jpeg, image/png, image/jpg"
@@ -1321,6 +1322,7 @@
           target.closest("tr").remove();
         }
       }
+
       //이미지 업로드
       function uploadImg(file, mode) {
         let removeId = (mode == "modalAddRoom") ? "removeImg" : "e_removeImg";
@@ -1333,12 +1335,13 @@
         tr += file.name;
         tr += "</td>";
         tr += "<td>";
-        tr += "<input type='text' class='form-control form-control-sm'>";
+        tr += "<input type='text' name='fixed_img' class='form-control form-control-sm'>";
         tr += "</td>";
         tr += "<td>";
         tr += "<button type='button' id='removeImg' class='btn btn-xs btn-outline-primary'><i class='bx bx-trash'></i></button>";
         tr += "</td>";
         tr += "</tr>";
+
 
         $("#" + mode + " tbody").append(tr);
         sortImgList(mode);

@@ -6,21 +6,16 @@ import java.util.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.citrus.hotel.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.citrus.hotel.dto.CGroupDTO;
-import com.citrus.hotel.dto.CommonDTO;
-import com.citrus.hotel.dto.GroupDTO;
-import com.citrus.hotel.dto.Hotel_InfoDTO;
-import com.citrus.hotel.dto.MemberDTO;
-import com.citrus.hotel.dto.RoomDTO;
-import com.citrus.hotel.dto.Room_FacilitiesDTO;
 import com.citrus.hotel.service.AdminMapper;
 
 
@@ -196,8 +191,15 @@ public class AdminController {
 	}
 	
 	@RequestMapping("room_add.do")
-	public String room_add(HttpServletRequest req,@RequestParam Map<String,Object> map) {
+	public String room_add(HttpServletRequest req,@RequestParam Map<String,Object> map, @ModelAttribute Room_ImgDTO room_imgDTO, BindingResult result) {
 		System.out.println(map + " : 이것이 Map 값들이지");
+		System.out.println(req.getParameterValues("org_img"));
+		System.out.println(req.getParameterValues("fixed_img"));
+
+		if(result.hasErrors()){
+			room_imgDTO.setImg_org_nm("");
+		}
+
 
 		List<RoomDTO> room_list = adminMapper.room_list();
 

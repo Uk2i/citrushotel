@@ -11,4 +11,5 @@ public class Room_ImgDTO {
 	private String room_no;
 	private String img_path;
 	private String img_nm;
+	private String img_org_nm;
 }
