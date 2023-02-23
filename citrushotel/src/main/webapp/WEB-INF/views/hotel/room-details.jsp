@@ -283,15 +283,15 @@
                 <div class="col-lg-4">
                     <div class="room-booking">
                         <h3>예약하기</h3>
-                        <form action="#">
+                        <form action="reservation.do" method="post">
                             <div class="check-date">
                                 <label for="date-in">입실:</label>
-                                <input type="text" class="date-input" id="date-in" autocomplete="off">
+                                <input type="text" class="date-input" id="date-in" name="date-in" autocomplete="off">
                                 <i class="icon_calendar"></i>
                             </div>
                             <div class="check-date">
                                 <label for="date-out">퇴실:</label>
-                                <input type="text" class="date-input" id="date-out" autocomplete="off">
+                                <input type="text" class="date-input" id="date-out" name="date-out" autocomplete="off">
                                 <i class="icon_calendar"></i>
                             </div>
                             <div class="select-option">
@@ -310,7 +310,7 @@
                                     <span class="plus bg-dark">+</span>
                                 </div>
                             </div>
-                            <button type="button" onclick="location.href='reservation.do'">객실 확인하기</button>
+                            <button type="submit">객실 확인하기</button>
                         </form>
                     </div>
                 </div>

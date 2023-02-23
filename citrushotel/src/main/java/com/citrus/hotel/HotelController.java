@@ -105,11 +105,13 @@ public class HotelController {
 	
 	
 	@RequestMapping("reservation.do")
-	public String reservation(HttpServletRequest req) {
+	public String reservation(HttpServletRequest req,@RequestParam Map<String,Object> map) {
+		System.out.println(map);
+
 		return "hotel/reservation";
 	}
 	
-	
+
 	@RequestMapping("reservation-pay.do")
 	public String reservation_pay(HttpServletRequest req) {
 		return "hotel/reservation-pay";

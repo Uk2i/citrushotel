@@ -220,7 +220,7 @@ public class AdminController {
 			req.setAttribute("url", "javascript:history.back()");
 			return "message";
 		} else {
-			//시설 체크박스, 이미지 구현 해야함, 유효성검사(방번호 기존방과 중복되면 안됨)
+			//이미지 구현 해야함
 			//map으로 넘겨받은 hidden 체크된, 체크안된 값들을 리스트로 다시 map에 put
 
 			map.put("CheckedList", Arrays.asList(map.get("hiddenChecked"))); //체크된 시설코드
