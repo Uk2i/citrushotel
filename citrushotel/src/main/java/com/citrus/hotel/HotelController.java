@@ -1,12 +1,8 @@
 package com.citrus.hotel;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-
+import com.citrus.hotel.dto.InquiryDTO;
+import com.citrus.hotel.dto.RoomsDTO;
+import com.citrus.hotel.service.HotelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,9 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.citrus.hotel.dto.InquiryDTO;
-import com.citrus.hotel.dto.RoomsDTO;
-import com.citrus.hotel.service.HotelMapper;
+import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 
 @Controller
@@ -105,8 +103,10 @@ public class HotelController {
 	
 	
 	@RequestMapping("reservation.do")
-	public String reservation(HttpServletRequest req,@RequestParam Map<String,Object> map) {
-		System.out.println(map);
+	public String reservation(HttpServletRequest req, @RequestParam Map<String,Object> map) {
+		System.out.println(map + "map 값들인데 왜 number타입 두개가 안넘어 오는건가");
+		System.out.println("왜 안넘어와와아아아아아아아아아아ㅏ아아아앙!@#$!#$%!#$^!$^!#$^&");
+
 
 		return "hotel/reservation";
 	}

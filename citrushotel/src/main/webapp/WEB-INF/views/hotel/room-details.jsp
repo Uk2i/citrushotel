@@ -282,8 +282,8 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="room-booking">
-                        <h3>예약하기</h3>
                         <form action="reservation.do" method="post">
+                        <h3>예약하기</h3>
                             <div class="check-date">
                                 <label for="date-in">입실:</label>
                                 <input type="text" class="date-input" id="date-in" name="date-in" autocomplete="off">
@@ -298,7 +298,7 @@
                                 <label for="guest">인원:</label>
                                 <div class="guest">
                                     <span class="minus bg-dark">-</span>
-                                    <input type="number" class="count" name="guest" value="1">
+                                    <input type="number" class="count" id="guest" name="guest" value="1">
                                     <span class="plus bg-dark">+</span>
                                 </div>
                             </div>
@@ -306,7 +306,7 @@
                                 <label for="room">방:</label>
                                 <div class="room">
                                     <span class="minus bg-dark">-</span>
-                                    <input type="number" class="count" name="room" value="1">
+                                    <input type="number" class="count" id="room" name="room" value="1">
                                     <span class="plus bg-dark">+</span>
                                 </div>
                             </div>
