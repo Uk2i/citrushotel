@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -684,7 +685,7 @@
                       </div>
                     </div>
                     <div class="text-nowrap">
-                      <table class="table table-hover">
+                      <table class="table table-hover memberList">
                         <thead>
                           <tr>
                             <th>회원번호</th>
@@ -696,6 +697,9 @@
                           </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
+
+
+
                           <tr>
                             <td>1</td>
                             <td>jisoo___@naver.com</td>
@@ -865,7 +869,47 @@
       * init
       --------------------------------------------------------------*/
       $(document).ready(function(){
-        //To Do : 유저 리스트 get & setting  
+        //To Do : 유저 리스트 get & setting
+        $.ajax({
+          type : 'POST'
+          ,url : 'member_list.do'
+          ,dataType : "json"
+          ,success : function(data){
+            let tr = ' ';
+            $.each(data.memberList, function(i){
+              console.log(this);
+              tr += '<tr>';
+              tr += '<td>' + this.member_no + '</td>';
+              tr += '<td>' + this.member_email + '</td>';
+              tr += '<td>' + this.member_name + '</td>';
+              tr += '<td>' + this.member_tel + '</td>';
+              if(this.member_grade == '0'){
+                tr += '<td>사용자</td>';
+              } else {
+                tr += '<td>관리자</td>';
+              }
+              tr += '<td>';
+              tr += '<div class="dropdown"><button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">';
+              tr += '<i class="bx bx-dots-vertical-rounded"></i></button>';
+              tr += '<div class="dropdown-menu">';
+              tr += '<a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalEditUser">';
+              tr += '<i class="bx bx-edit-alt me-1"></i> 수정 </a>';
+              tr += '<a class="dropdown-item" onclick="deleteUser(this);">';
+              tr += '<i class=" bx bx-trash me-1"></i> 삭제 </a> </div>';
+              tr += '</td>';
+
+              tr += '</tr>';
+
+            });
+
+            $(".memberList>tbody").append(tr);
+            //append 시켜
+
+          }
+          , error : function(request, status, error){
+            alert("code : " + request.status + "\n" + "message : " + request.reponseText + "\n" + "error : " + error);
+          }
+        })
       });
 
       /*-------------------------------------------------------------

@@ -1,21 +1,19 @@
 package com.citrus.hotel;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
+import com.citrus.hotel.dto.MemberDTO;
+import com.citrus.hotel.service.MemberMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.citrus.hotel.dto.MemberDTO;
-import com.citrus.hotel.service.MemberMapper;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 public class MemberController {
@@ -76,6 +74,17 @@ public class MemberController {
 		}
 		
 		return "message";
+	}
+
+	@RequestMapping(value= "member_list.do")
+	public @ResponseBody Map<String,Object> member_list(HttpServletRequest req){
+		Map<String,Object> resMap = new HashMap<String,Object>();
+
+		List<MemberDTO> memberList = MemberMapper.memberList();
+
+		resMap.put("memberList", memberList);
+
+		return resMap;
 	}
 	
 }

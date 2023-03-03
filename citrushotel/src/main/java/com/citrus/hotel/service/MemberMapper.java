@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 
 import com.citrus.hotel.dto.MemberDTO;
 
+import java.util.List;
+
 @Service
 public class MemberMapper {
 	
@@ -25,5 +27,9 @@ public class MemberMapper {
 
 	public MemberDTO loginMemeber(MemberDTO dto) {
 		return sqlSession.selectOne("getMember",dto);
+	}
+
+	public List<MemberDTO> memberList() {
+		return sqlSession.selectList("memberList");
 	}
 }

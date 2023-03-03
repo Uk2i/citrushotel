@@ -14,6 +14,10 @@
 	<select id="getMember" parameterType="com.citrus.hotel.dto.MemberDTO" resultType="com.citrus.hotel.dto.MemberDTO">
 		SELECT * FROM MEMBER WHERE member_email = #{member_email}
 	</select>
+
+	<select id="memberList" resultType="com.citrus.hotel.dto.MemberDTO">
+		SELECT * FROM MEMBER
+	</select>
 	
 	
 </mapper>

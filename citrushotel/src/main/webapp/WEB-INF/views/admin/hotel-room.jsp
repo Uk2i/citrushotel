@@ -1104,7 +1104,7 @@
         	, dataType : "json"
         	, success : function(data){
         		
-	        	let tr = '<tr>';
+	        	let tr = ' ';
         		$.each(data.list, function(i){
 	        		 tr += '<tr>';
 	                 tr += '<td>'+this.room_no+'</td>';
@@ -1148,16 +1148,12 @@
 	                 tr += '</td>';
 	                 tr += '</tr>';        			
         		});
-        	
         		$(".table-hover>tbody").append(tr);
         	}
         	, error : function(request, status, error){
         		alert("code : " + request.status + "\n" + "message : " + request.responseText + "\n" + "error : " + error);        		
         	}
         })
-        
-        
-        
       });
 
       /*-------------------------------------------------------------
