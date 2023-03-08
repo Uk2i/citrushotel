@@ -1,12 +1,7 @@
 package com.citrus.hotel;
 
-import java.lang.reflect.Array;
-import java.util.*;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import com.citrus.hotel.dto.*;
+import com.citrus.hotel.service.AdminMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -16,7 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.citrus.hotel.service.AdminMapper;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 @Controller
@@ -148,6 +148,8 @@ public class AdminController {
 				req.setAttribute("url", "adminloginpage.do");
 			}
 		}
+
+		//커밋 문제 해결중
 
 		return "message";
 	}
